@@ -14,17 +14,22 @@ variable_numero_int = int(variable_numero_float)
 print(variable_numero_int)
 
 #para ingresar un dato, usamos input
+'''
 nombre_ingresado = input("Por favor ingrese su nombre")
 
 print(nombre_ingresado)
+'''
+
 
 # if
-
+'''
 numero_uno = 1
 numero_dos = 2
 
 if(numero_uno < numero_dos):
     print("Es menor")
+
+'''
 
 # if - else
 '''
@@ -40,7 +45,9 @@ else:
 # if - else if
 
 primer_numero = input("Ingrese un numero: ")
+primer_numero = int(primer_numero)
 segundo_numero = input("Ingrese otro numero")
+segundo_numero = int(segundo_numero)
 
 if(primer_numero > segundo_numero):
     print("el primero es mayor")
