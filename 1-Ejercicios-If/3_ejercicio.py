@@ -7,7 +7,15 @@ si el número no es divisible por 2.
 numero_ingresado_str = input("Ingrese un numero: ")
 numero_ingresado_int = int(numero_ingresado_str)
 
-if(numero_ingresado_int % 2 == 0):
-    print("El numero ingresado es par")
+resto = numero_ingresado_int % 2
+
+if(resto == 0):
+    print("El número es positivo y par")
 else:
     print("El numero ingresado es Impar")
+
+
+# if(numero_ingresado_int % 2 == 0):
+#     print("El numero ingresado es par")
+# else:
+#     print("El numero ingresado es Impar")
