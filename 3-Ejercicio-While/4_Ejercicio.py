@@ -1,7 +1,9 @@
 '''
 4-Dada una lista de números, imprimir la suma de todos los elementos de la lista.
 '''
-lista_de_numeros = [1, 2, 3, 4, 5]
+#lista_de_numeros:list[int] = [1, 2, 3, 4, 5]
+
+lista_de_numeros:list[int] = [1, 2, 3, 4, 5]
 
 acumulador_suma = 0
 i = 0

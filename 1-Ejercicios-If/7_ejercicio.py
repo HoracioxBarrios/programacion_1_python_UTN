@@ -4,21 +4,52 @@ un número entero positivo, y luego imprima "El número es primo"
 si el número es primo, o "El número no es primo" si el número no es primo .
 '''
 
+
+
 numero_ingresado_str = input("Ingrese un numero")
 numero_ingresado_int = int(numero_ingresado_str)
 
-contador_divisores = 0
-numero_a_iterar = 1
-
-while(contador_divisores <= 2 and numero_a_iterar <= numero_ingresado_int):
-    if(numero_ingresado_int % numero_a_iterar == 0):
-        contador_divisores += 1
-    numero_a_iterar += 1
-
-if(contador_divisores == 2):
-    print("Es numero primo")
+if (numero_ingresado_int % 2 != 0) or numero_ingresado_int == 2:
+    print("Es primo")
 else:
-    print("No es numero primo")
+    print("No es primo")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# numero_ingresado_str = input("Ingrese un numero")
+# numero_ingresado_int = int(numero_ingresado_str)
+
+# contador_divisores = 0
+# numero_a_iterar = 1
+
+# while(contador_divisores <= 2 and numero_a_iterar <= numero_ingresado_int):
+#     if(numero_ingresado_int % numero_a_iterar == 0):
+#         contador_divisores += 1
+#     numero_a_iterar += 1
+
+# if(contador_divisores == 2):
+#     print("Es numero primo")
+# else:
+#     print("No es numero primo")
     
 
 '''

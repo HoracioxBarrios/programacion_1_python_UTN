@@ -6,11 +6,11 @@ la memoria, aca se hce dinamicamente
 
 
 
-# numero_uno = 5
-# numero_dos = 5
+numero_uno = 5
+numero_dos = 5
 
-# print(id(numero_uno))
-# print(id(numero_dos))
+print(id(numero_uno))
+print(id(numero_dos))
 
 
 #**************************************************
@@ -59,11 +59,11 @@ la memoria, aca se hce dinamicamente
 
 
 #-while en python
-numero_ejemplo = 5
-contador = 0
-while(contador < numero_ejemplo ):
-    print(contador)
-    contador += 1
+# numero_ejemplo = 5
+# contador = 0
+# while(contador < numero_ejemplo ):
+#     print(contador)
+#     contador += 1
 
 
 
@@ -88,7 +88,7 @@ for(i = 0; i < 5; i++){
 # con otro string
 # o usando format
 
-'''concatenar casteando a str un numero y concatenando (Davila no avaló)'''
+'''concatenar casteando a str un numero y concatenando (Davila no avaló) '''
 # edad_int = 55
 # edad_str = str(edad_int)
 # print("Su edad es: "+ edad_str)
@@ -100,6 +100,10 @@ for(i = 0; i < 5; i++){
 
 ''' 3ra forma'''
 
-edad = 99
+# edad = 99
 
-print("Su edad es: ",edad)
+# print("Su edad es: ",edad)
+
+''' 4ta forma'''
+# edad = 5
+# print(f"edad es {edad}")
