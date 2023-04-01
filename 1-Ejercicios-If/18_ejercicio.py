@@ -22,5 +22,5 @@ divisible por 3, (osea si un numero n % 3 == 0 es multiplo de 3 )
 y luego comprobar si el número es par utilizando 
 el operador de resto (%) nuevamente si el resultado de ambas es 0 entonces 
 ese numero es tambien par.
-(osea n % 2 == 0)
+(osea n % 2 == 0).
 '''
