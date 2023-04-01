@@ -1,4 +1,4 @@
-'''
+'''NUMERO MAYOR QUE OTRO
 4- Escribir un programa que le pida al usuario que ingrese 
 dos números enteros, y luego imprima "El primer número es mayor"
 si el primer número es mayor que el segundo, "El segundo número es mayor"
