@@ -8,8 +8,6 @@ si el número no cumple ninguna de las dos condiciones anteriores.
 numero_ingresado_str = input("Ingrese un numero")
 numero_ingresado_int = int(numero_ingresado_str)
 
-
-
 if( numero_ingresado_int > 0 and numero_ingresado_int % 2 == 0):
     print("El numero es positivo y par")
 else:

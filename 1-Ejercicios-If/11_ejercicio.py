@@ -18,7 +18,7 @@ elif(edad_ingresada_int > 17 and edad_ingresada_int < 65):
 else:
     print("edad fuera de rango")
 
-# se tiene en cuenta los datos invalidos?
+# se tiene en cuenta los datos invalidos osea 64+ ?
 
 
 
