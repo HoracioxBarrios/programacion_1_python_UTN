@@ -21,13 +21,13 @@ se necesita saber:
 */
 '''
 
-
 respuesta = "si"
 flag_mas_joven_mas_veterano = True
 flag_impar = True
 contador_vehiculos_par = 0
 contador_pilotos_mayores_a_veinticinco_impar = 0
-acumulador_vehiculos_par = 0
+acumulador_edad_par = 0
+
 
 while(respuesta == "si"):
 
@@ -57,7 +57,6 @@ while(respuesta == "si"):
         numero_del_vehiculo_str = input("Incorrecto! Ingrese numero del vehiculo")
         numero_del_vehiculo_int = int(numero_del_vehiculo_str)# cast
 
-    
     if(flag_mas_joven_mas_veterano):
         edad_mas_joven = edad_ingresada_int
         nacionalidad_piloto_mas_joven = nacionalidad_piloto
@@ -81,8 +80,6 @@ while(respuesta == "si"):
         if(cantidad_carreras_ganadas_int < minima_cantidad_victorias_mas_veterano): #6*Nacionalidad del piloto más veterano con menos victorias.
             nacionalidad_del_mas_veterano = nacionalidad_piloto
         
-    
-
     if(numero_del_vehiculo_int % 2 != 0):# impar (englobo los impares!!!)
         if(flag_impar):
             nombre_piloto_menos_vict_impar = nombre_ingresado #3*Nombre del piloto con menos victorias y el número de auto impar.
@@ -97,7 +94,7 @@ while(respuesta == "si"):
             contador_pilotos_mayores_a_veinticinco_impar += 1  #4*Cantidad de pilotos mayores de 25 años con número de vehículo impar.
     else: #sino entonces es par
         contador_vehiculos_par += 1   #2*Cantidad de vehículos con número par.
-        acumulador_vehiculos_par = acumulador_vehiculos_par +      
+        acumulador_edad_par =  acumulador_edad_par + edad_ingresada_int  
 
     #7*Promedio de edad de los pilotos que tiene un vehículo con número par.
 
@@ -106,4 +103,10 @@ while(respuesta == "si"):
         respuesta = input("incorrecto! desea ingresar otro? si/no")
 
 #fin while
+
+promedio_edad_par = acumulador_edad_par / contador_vehiculos_par
+
+
+
+print("Promedio edad {0}".format(promedio_edad_par))
 
