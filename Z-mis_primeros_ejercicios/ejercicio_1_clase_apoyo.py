@@ -89,8 +89,8 @@ while (contador_integrantes < 1):  # pido datos de 10 participantes
 
     if (numero_del_vehiculo_int % 2 != 0):  # impar
         if (flag_impar == True):
-            menor_cant_ganadas_impar = cantidad_carreras_ganadas_int
             # 3*Nombre del piloto con menos victorias y el número de auto impar.
+            menor_cant_ganadas_impar = cantidad_carreras_ganadas_int
             nombre_piloto_menos_vict_impar = nombre_ingresado
             flag_impar = False
         else:
@@ -111,28 +111,48 @@ while (contador_integrantes < 1):  # pido datos de 10 participantes
 # fin while
 if (contador_vehiculos_par > 0):
     promedio_edad_par = acumulador_edad_par / contador_vehiculos_par
+    
+        # 2*Cantidad de vehículos con número par.
+    print("cantidad de vehiculos con numero par: {0}".format(
+    contador_vehiculos_par))
+    
+    # 7*Promedio de edad de los pilotos que tiene un vehículo con número par.
+    print("El promedio de edad de los pilotos que tiene un vehículo con número par es: {0}".format(
+    promedio_edad_par))
 
+else:
+    promedio_edad_par = 0
+    
+    print("cantidad de vehiculos con numero par: {0}".format(
+    contador_vehiculos_par))
+    
+    print("El promedio de edad de los pilotos que tiene un vehículo con número par es: {0}".format(
+    promedio_edad_par))
+    
 # 1*Nacionalidad del piloto más joven.
 print("la nacionalidad del Piloto mas Joven es: {0}".format(
     nacionalidad_piloto_mas_joven))
 
-# 3*Nombre del piloto con menos victorias y el número de auto impar.
-print("Nombre del piloto con menos victorias es: {0}".format(
-    nombre_piloto_menos_vict_impar))
-# 4*Cantidad de pilotos mayores de 25 años con número de vehículo impar.
-print("Cantidad de pilotos mayores de 25 años y num del vehiculo impar: {0}".format(
-    contador_pilotos_mayores_a_veinticinco_impar))
 
-# 2*Cantidad de vehículos con número par.
-print("cantidad de vehiculos con numero par: {0}".format(
-    contador_vehiculos_par))
-# 7*Promedio de edad de los pilotos que tiene un vehículo con número par.
-print("El promedio de edad de los pilotos que tiene un vehículo con número par es: {0}".format(
-    promedio_edad_par))
+
+if(contador_vehiculos_impar > 0): 
+    # 3*Nombre del piloto con menos victorias y el número de auto impar.
+    print("Nombre del piloto con menos victorias y número de auto impar es: {0}".format(
+    nombre_piloto_menos_vict_impar))
+    
+    # 4*Cantidad de pilotos mayores de 25 años con número de vehículo impar.
+    print("Cantidad de pilotos mayores de 25 años y num del vehiculo impar: {0}".format(
+    contador_pilotos_mayores_a_veinticinco_impar))
+else:
+    print("Nombre del piloto con menos victorias y número de auto impar : No hay")
+    
+    print("Cantidad de pilotos mayores de 25 años y num del vehiculo impar: No hay")
+
 
 # 5*Nombre del piloto más joven con más victorias.
 print("Nombre del piloto más joven con más victorias es: {0}".format(
     nombre_mas_joven_mas_victorias))
+
 # 6*Nacionalidad del piloto más veterano con menos victorias.
 print("Nacionalidad del piloto más veterano con menos victorias es: {0}".format(
     nacionalidad_del_mas_veterano))
