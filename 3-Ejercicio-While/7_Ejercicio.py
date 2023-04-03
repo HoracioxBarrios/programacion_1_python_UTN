@@ -2,6 +2,12 @@
 7- Dada una lista de números, imprimir todos los números que son mayores que
 el promedio de la lista.
 '''
+#Uso funcion sum() suma los elementos de un obj iterable,
+''' 
+len() que es una función integrada que se utiliza para obtener 
+la longitud de un objeto iterable, como una cadena, una lista, 
+una tupla, un diccionario, un conjunto, etc. Devuelve el número 
+de elementos en el objeto iterable. '''
 
 lista_de_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 promedio = sum(lista_de_numeros) / len(lista_de_numeros)
