@@ -44,14 +44,20 @@ else:
 
 # if - else if
 
-primer_numero = input("Ingrese un numero: ")
-primer_numero = int(primer_numero)
-segundo_numero = input("Ingrese otro numero")
-segundo_numero = int(segundo_numero)
+# primer_numero = input("Ingrese un numero: ")
+# primer_numero = int(primer_numero)
+# segundo_numero = input("Ingrese otro numero")
+# segundo_numero = int(segundo_numero)
 
-if(primer_numero > segundo_numero):
-    print("el primero es mayor")
-elif(primer_numero < segundo_numero):
-    print("El segundo es mayor")
-else:
-    print("Son iguales")
+# if(primer_numero > segundo_numero):
+#     print("el primero es mayor")
+# elif(primer_numero < segundo_numero):
+#     print("El segundo es mayor")
+# else:
+#     print("Son iguales")
+
+contador = 0
+
+while(contador < 10):
+    print(contador)
+    contador += 1
