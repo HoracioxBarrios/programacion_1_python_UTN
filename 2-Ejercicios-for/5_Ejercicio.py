@@ -1,4 +1,4 @@
-'''
+''' NUMERO MAS CHICO
 5-Dada una lista de números, imprimir el número más pequeño de la lista.
 '''
 
@@ -11,6 +11,15 @@ for numero in lista_de_numeros:
 
 print(numero_mas_chico)
 
+
+
+
+
+
+'''hay una funcion que busca el mas chico de la lista'''
+# lista_de_numeros = [5, 10, 20, 30, 40, 50]
+# numero_mas_chico = min(lista_de_numeros)
+# print("El numero mas chico es: {0}".format(numero_mas_chico))
 
 
 #no es correcto,hacerlo asi.  no se estaria haciendo lo que vimos en maximos y minimos(aca inicializamos el numero max en 0)
