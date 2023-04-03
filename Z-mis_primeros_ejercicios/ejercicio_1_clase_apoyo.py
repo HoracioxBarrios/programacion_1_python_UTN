@@ -106,9 +106,9 @@ while (contador_integrantes < 1):  # pido datos de 10 participantes
         # 7*Promedio de edad de los pilotos que tiene un vehículo con número par.
         acumulador_edad_par += edad_ingresada_int
         contador_vehiculos_par += 1  # 2*Cantidad de vehículos con número par.
-
-
 # fin while
+
+
 if (contador_vehiculos_par > 0):
     promedio_edad_par = acumulador_edad_par / contador_vehiculos_par
     
