@@ -33,8 +33,8 @@ un objeto iterable.
 #     print(numero)
 
 '''se puede setear el inicio, hasta donde, y de cuanto en cuanto incrementar'''
-# for numero in list(range(1 , 11,1)): # incrementa del 1 al 10 (contador += 1 entre grandes comillas)
+# for numero in list(range(1 , 11,1)): # incrementa del 1 al 10 (contador += 1 entre comillas)
 #     print(numero)
 
-for numero in list(range(10,0,-1)): #decrementa del 10 al 1 (contador -= 1 entre grandes comillas)
+for numero in list(range(10,0,-1)): #decrementa del 10 al 1 (contador -= 1 entre comillas)
     print(numero)
