@@ -11,7 +11,7 @@ for numero in range(numero_ingresado_int +1):
 
 
 
-        
+#ver        
 
 '''aumentando'''
 # numero_ingresado_str = input("Ingrese un numero")#ingreso "10"

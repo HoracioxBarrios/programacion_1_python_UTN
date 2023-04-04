@@ -14,6 +14,10 @@ while(contador <= numero_int):
     
     
 
+
+#ver
+
+
 # n = int(input("Ingrese un número entero: "))
 # i = 1
 # while i <= n:

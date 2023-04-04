@@ -14,6 +14,7 @@ while(i < len(lista_de_numeros)):# mientras el valor de i seaa menor que la long
 
 print(acumulador_suma)
 
+#ver
 
 
 

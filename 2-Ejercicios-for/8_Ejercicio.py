@@ -11,3 +11,7 @@ for numero in range(numero_int +1):
         acum_par = acum_par + numero
 
 print("La xuma de los pares es: {0}".format(acum_par))
+
+
+
+#ver

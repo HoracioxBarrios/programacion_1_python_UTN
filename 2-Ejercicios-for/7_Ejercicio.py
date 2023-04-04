@@ -7,3 +7,6 @@ numero_int = int(numero_str)# cast a int
 for numero in range(numero_int +1):# range crea un itrerable con la longitud de 7 espacios
     if numero % 2 != 0:
         print(numero)
+        
+        
+#ver

@@ -12,7 +12,7 @@ while(numero_ingresado_int >= contador):
     print(contador)
     contador += 1
 
-
+#ver
 
 
 

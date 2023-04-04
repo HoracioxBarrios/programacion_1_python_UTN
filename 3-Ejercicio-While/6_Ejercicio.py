@@ -19,7 +19,7 @@ print("La suma de todos los números pares menores o iguales a: {0} es {1}".form
 , acum_suma_de_pares))
 
 
-
+#ver
 
 
 

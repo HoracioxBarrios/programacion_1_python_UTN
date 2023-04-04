@@ -12,7 +12,7 @@ for numero in lista_de_numeros:
 print(numero_mas_chico)
 
 
-
+#ver
 
 
 

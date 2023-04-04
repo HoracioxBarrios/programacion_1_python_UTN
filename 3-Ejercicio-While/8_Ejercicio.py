@@ -19,6 +19,8 @@ while (Indice < len(texto)):
 print("cantidad de vocales: {0}".format(contador_vocales))
 
 
+#ver
+
 ''' chat gpt
 cadena = "Hola mundo"
 contador = 0

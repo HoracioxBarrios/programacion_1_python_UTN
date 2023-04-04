@@ -9,10 +9,10 @@ for numero in lista_de_numeros:
     if(numero > numero_mas_grande):
         numero_mas_grande = numero
 
-print(numero_mas_grande)
+print("El numero mas grande de la lista es {0}".format(numero_mas_grande))
 
 
-
+#ver
 
 # no es correcto, no se estaria haciendo lo que vimos en maximos y minimos(aca inicializamos el numero max en 0)
 # lista_de_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]

@@ -8,3 +8,4 @@ while(i < len(lista_de_texto)):
     print(lista_de_texto[i])
     i += 1
 
+#ver

@@ -23,7 +23,7 @@ while( i < len(lista_de_numeros)):
 
 
 
-
+#ver
 
 
 

@@ -13,3 +13,6 @@ while(i < len(lista_de_numeros)):
     i = i + 1
 
 print("cantidad de pares: {0}".format(contador_par))
+
+
+#ver

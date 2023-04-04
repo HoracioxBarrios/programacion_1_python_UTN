@@ -11,3 +11,6 @@ for numero in range(numero_int + 1):# +1 incluye el numero ingresado
         acum_suma_inpares = acum_suma_inpares + numero
 
 print(acum_suma_inpares)
+
+
+#ver

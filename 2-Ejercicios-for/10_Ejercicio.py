@@ -9,4 +9,5 @@ for palabra in lista_de_palabras:
         print(palabra)
 
 
-''' ver si esta bien '''
+#ver si esta bien
+

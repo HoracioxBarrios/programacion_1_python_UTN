@@ -14,6 +14,9 @@ print(contador_vocales)
 
 
 
+
+#ver
+
 # lista_de_palabras = ["hola", "mundo", "python", "programacion"]
 
 # cantidad_de_vocales = 0
