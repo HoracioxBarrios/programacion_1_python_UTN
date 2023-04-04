@@ -1,6 +1,6 @@
 '''
 1-Dado un número entero n, imprimir todos los números desde n hasta 1 en
-orden descendente
+orden descendente.
 '''
 
 numero_ingresado_str = input("INgrese un numero")

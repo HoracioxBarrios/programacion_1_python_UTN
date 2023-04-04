@@ -1,5 +1,5 @@
 ''' 
-6- Dado un número entero n, imprimir la suma de todos los números pares
+6- Dado un número entero n,  imprimir la suma de todos los números pares
 menores o iguales a n.
 
 '''

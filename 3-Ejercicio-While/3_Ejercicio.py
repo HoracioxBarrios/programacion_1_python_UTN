@@ -1,5 +1,5 @@
 '''
-3-Dada una cadena de texto, imprimir cada uno de los caracteres en la cadena.
+3-Dada una cadena de texto, imprimir cada  uno de los caracteres en la cadena.
 '''
 
 lista_de_texto = ["H", "O", "L", "A"]

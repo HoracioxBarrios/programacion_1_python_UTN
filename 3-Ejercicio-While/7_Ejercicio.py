@@ -1,5 +1,5 @@
 '''
-7- Dada una lista de números, imprimir todos los números que son mayores que
+7- Dada una lista de números,imprimir todos los números que son mayores que
 el promedio de la lista.
 '''
 #Uso funcion sum() suma los elementos de un obj iterable,

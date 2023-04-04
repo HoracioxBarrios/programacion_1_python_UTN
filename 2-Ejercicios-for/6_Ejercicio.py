@@ -1,4 +1,4 @@
-'''6- Dada una lista de palabras, imprimir la cantidad total de vocales en la lista.'''
+'''6- Dada una lista de palabras,imprimir la cantidad total de vocales en la lista.'''
 
 
 lista_de_palabras = ["PERRO", "HOlA", "MOUSE", "computadora"]

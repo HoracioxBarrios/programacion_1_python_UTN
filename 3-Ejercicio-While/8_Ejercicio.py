@@ -1,4 +1,4 @@
-''' 8- Dada una cadena de texto, imprimir la cantidad de vocales en la cadena.'''
+''' 8- Dada una cadena de texto,  imprimir la cantidad de vocales en la cadena.'''
 
 Indice = 0
 contador_vocales = 0

@@ -1,4 +1,4 @@
-'''9-Dado un número entero n, imprimir todos los números impares menores o
+'''9-Dado un número entero n,  imprimir todos los números impares menores o
 iguales a n.'''
 
 

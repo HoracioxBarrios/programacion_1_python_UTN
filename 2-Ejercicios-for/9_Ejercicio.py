@@ -1,4 +1,4 @@
-'''9-Dada una lista de números, imprimir la cantidad de números negativos en la
+'''9-Dada una lista de números,imprimir la cantidad de números negativos en la
 lista.'''
 
 list_de_numeros = [0, 1, 2, 3, 4, 5, -2, -5]

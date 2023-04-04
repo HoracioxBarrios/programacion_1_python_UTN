@@ -1,5 +1,5 @@
 '''
-5- Dado un número entero n, imprimir si el número es primo o no.
+5- Dado un número entero n,  imprimir si el número es primo o no.
 '''
 # similar al debugger de js
 # import pdb

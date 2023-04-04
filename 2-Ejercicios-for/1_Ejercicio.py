@@ -1,5 +1,5 @@
 ''' NUMERO MAS GRANDE
-1-Dada una lista de números, imprimir el número más grande de la lista.
+1-Dada una lista de números,imprimir el número más grande de la lista.
 '''
 
 lista_de_numeros = [10, 20, 30, 40, 50]

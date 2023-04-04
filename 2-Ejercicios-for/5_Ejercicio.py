@@ -1,5 +1,5 @@
 ''' NUMERO MAS CHICO
-5-Dada una lista de números, imprimir el número más pequeño de la lista.
+5-Dada una lista de números,imprimir el número más pequeño de la lista.
 '''
 
 lista_de_numeros = [5, 10, 20, 30, 40, 50]

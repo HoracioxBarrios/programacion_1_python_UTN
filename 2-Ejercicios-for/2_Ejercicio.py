@@ -1,5 +1,5 @@
 ''' STRING MAS LARGO
-2-Dada una lista de palabras, imprimir la palabra más larga de la lista.
+2-Dada una lista de palabras,imprimir la palabra más larga de la lista.
 '''
 #lista_de_nombres = ["Pepe, Carlos, Osvaldo, Lilia, Ricardiho"] cometi el errpr de no encerrar con doble comillas cada nombre
 lista_de_nombres = ["Pepe", "Carlos", "Osvaldo", "Lilia", "Ricardinho"]

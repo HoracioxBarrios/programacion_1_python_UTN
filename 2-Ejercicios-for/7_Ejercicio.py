@@ -1,4 +1,4 @@
-'''7-7. Dado un número entero n, imprimir la secuencia de números impares
+'''7-7. Dado un número entero n,imprimir la secuencia de números impares
 menores o iguales a n.'''
 
 numero_str = input("INgrese numero")# ingreso de dato str

@@ -1,5 +1,5 @@
 '''
-10-Dada una lista de palabras, imprimir las palabras que comienzan y 
+10-Dada una lista de palabras,imprimir las palabras que comienzan y 
 terminan con la misma letra.
 '''
 lista_de_palabras = ["argentina", "correo", "lionel", "pepe","ojo"]
