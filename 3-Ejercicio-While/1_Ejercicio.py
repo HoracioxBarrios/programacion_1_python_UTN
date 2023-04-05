@@ -2,18 +2,42 @@
 1-Dado un número entero n, imprimir todos los números desde n hasta 1 en
 orden descendente.
 '''
+''' nota: desde el numero que ingresa el usuario hasta 1'''
 
-numero_ingresado_str = input("INgrese un numero")
-numero_ingresado_int = int(numero_ingresado_str)
+numero_ingresado_str = input("INgrese un numero")  #"10"
+#validar
+numero_ingresado_int = int(numero_ingresado_str) # cast a int  10
+contador = numero_ingresado_int #contador pasa a valer 10 en esta linea
 
-contador = numero_ingresado_int  # ver si esta ok
-
+#              10     >=      1
 while(contador >= 1):
     print(contador)
-    contador -= 1
+    contador = contador - 1  
+    #contador pasa a valer 9 y se evalua nuevamente la condicion
+    
 
 
-#Ver
+
+
+
+
+
+
+
+
+
+
+# numero_ingresado_str = input("INgrese un numero")
+# numero_ingresado_int = int(numero_ingresado_str)
+
+# contador = numero_ingresado_int  # ver si esta ok
+
+# while(contador >= 1):
+#     print(contador)
+#     contador -= 1
+
+
+
 
 
 

@@ -1,20 +1,37 @@
 '''
 4-Dada una lista de números,  imprimir la suma de todos los elementos de la lista.
+
 '''
-#lista_de_numeros:list[int] = [1, 2, 3, 4, 5]
 
-lista_de_numeros:list[int] = [1, 2, 3, 4, 5]
-
+lista_de_numeros = [1, 2, 3, 4, 5,]
+contador = 0
 acumulador_suma = 0
-i = 0
 
-while(i < len(lista_de_numeros)):# mientras el valor de i seaa menor que la longitud de la lista
-    acumulador_suma = acumulador_suma + lista_de_numeros[i]
-    i += 1
+while(contador < len(lista_de_numeros)):
+    acumulador_suma = acumulador_suma +lista_de_numeros[contador]
+    contador += 1
 
 print(acumulador_suma)
 
-#ver
+
+
+
+
+
+# #lista_de_numeros:list[int] = [1, 2, 3, 4, 5]
+
+# lista_de_numeros:list[int] = [1, 2, 3, 4, 5]
+
+# acumulador_suma = 0
+# i = 0
+
+# while(i < len(lista_de_numeros)):# mientras el valor de i seaa menor que la longitud de la lista
+#     acumulador_suma = acumulador_suma + lista_de_numeros[i]
+#     i += 1
+
+# print(acumulador_suma)
+
+# #ver
 
 
 

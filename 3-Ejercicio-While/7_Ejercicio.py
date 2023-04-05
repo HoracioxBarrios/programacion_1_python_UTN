@@ -9,21 +9,40 @@ la longitud de un objeto iterable, como una cadena, una lista,
 una tupla, un diccionario, un conjunto, etc. Devuelve el número 
 de elementos en el objeto iterable. '''
 
-lista_de_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-promedio = sum(lista_de_numeros) / len(lista_de_numeros)
+lista_de_numeros = [10, 10, 20, 10,]
+indice = 0
+acum_suma = 0
+while(indice < len(lista_de_numeros)):
+    acum_suma += lista_de_numeros[indice]
+    indice += 1
+    
+promedio = acum_suma / len(lista_de_numeros) 
 
-print("El promedio es {0}".format(promedio))
+print(promedio)
+indice = 0 
+while(indice < len(lista_de_numeros)):
+    if (lista_de_numeros[indice] > promedio):
+        print(lista_de_numeros[indice])
+    indice += 1
 
-i = 0
-suma = 0
-while( i < len(lista_de_numeros)):
-    if(lista_de_numeros[i] > promedio):
-        print(lista_de_numeros[i])
-    i += 1
+''' primero acumular la suma y luego dividir por la cantidad de elementos'''
+
+
+# lista_de_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# promedio = sum(lista_de_numeros) / len(lista_de_numeros)
+
+# print("El promedio es {0}".format(promedio))
+
+# i = 0
+# suma = 0
+# while( i < len(lista_de_numeros)):
+#     if(lista_de_numeros[i] > promedio):
+#         print(lista_de_numeros[i])
+#     i += 1
 
 
 
-#ver
+# #ver
 
 
 

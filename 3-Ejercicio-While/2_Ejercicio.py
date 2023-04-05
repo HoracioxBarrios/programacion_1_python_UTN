@@ -3,16 +3,33 @@
 Dado un número entero n, imprimir todos los números desde 1 hasta n en orden ascendente.
 .
 '''
-
 numero_ingresado_str = input("Ingrese un numero")
+#validar
 numero_ingresado_int = int(numero_ingresado_str)
-contador = 1
+contador = 0
 
-while(numero_ingresado_int >= contador):
-    print(contador)
+while(contador < numero_ingresado_int):
     contador += 1
+    print(contador)
 
-#ver
+
+
+
+
+
+
+
+
+
+# numero_ingresado_str = input("Ingrese un numero")
+# numero_ingresado_int = int(numero_ingresado_str)
+# contador = 1
+
+# while(numero_ingresado_int >= contador):
+#     print(contador)
+#     contador += 1
+
+
 
 
 
