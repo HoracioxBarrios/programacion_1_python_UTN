@@ -29,7 +29,7 @@ contador_pilotos_mayores_a_veinticinco_impar = 0
 acumulador_edad_par = 0
 
 
-while (contador_integrantes < 10):  # pido datos de 10 participantes
+while (contador_integrantes <= 10):  # pido datos de 10 participantes
     nombre_ingresado = input("Ingrese nombre")
     
     edad_ingresada_str = input("Ingrese edad")
