@@ -5,7 +5,7 @@
 numero_ingresado_str = input("Ingrese un numero")
 numero_ingresado_int = int(numero_ingresado_str)
 
-for numero in range(numero_ingresado_int +1):
+for numero in range(2, numero_ingresado_int +1):# desde dos hasta el ingresado +1 para que lo tenga en cuenta
     if numero % 2 == 0:
         print(numero)
 
