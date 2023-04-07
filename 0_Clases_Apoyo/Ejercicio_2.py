@@ -26,7 +26,7 @@
 
 #dicionarios
 dict_alums = {"CLAVE" : "VALOR" , "legajo": 202145, 
-              "nombre" : "Juan", "apellido" : "Mendez"}
+            "nombre" : "Juan", "apellido" : "Mendez"}
 #acceder
 print("El legajo es: {0}, el nombre es {1}, el apellido es {2}".format(
     dict_alums["legajo"], 
