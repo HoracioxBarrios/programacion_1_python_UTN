@@ -91,7 +91,49 @@ print(lista_numeros)
     
 #---------------------------------------------------
 
-lista_de_nombres = ["PEPE", "ROLO", "FER", "LUCAS"]
+# lista_de_nombres = ["PEPE", "ROLO", "FER", "LUCAS"]
 
-for nombre in lista_de_nombres:
-    print(nombre)
+# for nombre in lista_de_nombres:
+#     print(nombre)
+    
+
+
+'''este siguiente codigo el prof. davila dijo que esta mal, asi no lo 
+hace un programador de python'''
+# lista_de_nombres = ["PEPE", "ROLO", "FER", "LUCAS"]
+
+# for indice in range(4):
+#     print(lista_de_nombres[indice])
+
+'''no usar range si ya tenes la lista armada en este caso no esta bien.
+ya que esto justo es lo que hace el for en python, hay que escribir como el 
+ejemplo de arriba'''
+
+'''ejemplo de range hecho a mano,  '''
+# lista_de_nombres = ["PEPE", "ROLO", "FER", "LUCAS"]
+
+# for indice in range(4):
+#     print(lista_de_nombres[indice])
+
+''' se puede calcular usando len() y pasandole la lista por parametro te devuelve la cantidad
+esa cantidad de elementos se lo pasamos al range()'''
+# lista_de_nombres = ["PEPE", "ROLO", "FER", "LUCAS"]
+# cantidad_de_elementos = len(lista_de_nombres)
+
+# for elemento in range(cantidad_de_elementos):
+#     print(elemento)
+    
+# print(f"la cantida es:",cantidad_de_elementos)
+
+
+
+
+'''Pero si hay que sacar un top teen de una lista  de artistas 
+SI SE PUEDE USAR range()'''
+# para eso hay que generar un indice que luego se va a recorrer
+lista_de_nombres = ["Pepe", "Lio" , "kiki", "Esla", "Kida", "Hiter", 
+                    "Billy", "Ada", "Esdras", "Fer", "Mar", "Flor", 
+                    "Vyui", "Huidra", "Cloe"]
+
+for indice in range(10):
+    print(lista_de_nombres[indice])

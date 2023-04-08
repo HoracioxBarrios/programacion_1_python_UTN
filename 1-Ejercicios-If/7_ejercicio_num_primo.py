@@ -9,7 +9,8 @@ si el número es primo, o "El número no es primo" si el número no es primo .
 numero_ingresado_str = input("Ingrese un numero")
 numero_ingresado_int = int(numero_ingresado_str)
 
-if (numero_ingresado_int % 2 != 0) or numero_ingresado_int == 2:
+if (numero_ingresado_int % 2 != 0 and numero_ingresado_int 
+    > 1) or numero_ingresado_int == 2:
     print("Es primo")
 else:
     print("No es primo")
