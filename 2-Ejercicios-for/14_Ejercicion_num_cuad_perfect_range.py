@@ -1,15 +1,28 @@
 '''Dado un número entero n, imprimir la secuencia de números perfectos
 menores o iguales a n.'''
 
-num = int(input("Ingrese un número: "))
+numero_ingresado_str = input("ingrese un numero")
+numero_ingresado_int = int(numero_ingresado_str)
 
-for i in range(1, num+1):
-    suma_divisores = 0
-    for j in range(1, i):
-        if i % j == 0:
-            suma_divisores += j
-    if suma_divisores == i:
-        print(i)
+for numero_i in range(1, numero_ingresado_int + 1):
+    suma_divisores = 0# se cuenta cuantos divisores tiene el numero 
+    for numero_j in range(1, numero_i):
+        if(numero_i % numero_j == 0):
+            suma_divisores = suma_divisores + numero_j
+    if suma_divisores == numero_i:
+        print(numero_i)
+        
+        
+        
+# num = int(input("Ingrese un número: "))
+
+# for i in range(1, num+1):
+#     suma_divisores = 0
+#     for j in range(1, i):
+#         if i % j == 0:
+#             suma_divisores += j
+#     if suma_divisores == i:
+#         print(i)
 
 '''Explicación del código:
 Pedimos al usuario que ingrese un número y lo guardamos en la variable num.

@@ -1,4 +1,5 @@
-'''8- Dado un número entero n,imprimir la suma de los números pares menores o
+'''8- Dado un número entero n,imprimir la suma de los números 
+pares menores o
 iguales a n.
 '''
 acum_par = 0

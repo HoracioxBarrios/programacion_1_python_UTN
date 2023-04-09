@@ -1,5 +1,6 @@
 '''
-3-Dado un número entero n,imprimir la secuencia de números pares menores o iguales a n.
+3-Dado un número entero n,imprimir la secuencia de números pares 
+menores o iguales a n.
 '''
 
 numero_ingresado_str = input("Ingrese un numero")
