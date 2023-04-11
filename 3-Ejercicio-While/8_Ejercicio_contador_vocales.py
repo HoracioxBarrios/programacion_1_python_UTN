@@ -7,10 +7,10 @@ contador_vocales = 0
 
 while(indice < len(cadena_str)):
     if(cadena_str[indice] == "a" or cadena_str[indice] == "e"
-       or cadena_str[indice] == "i" or cadena_str[indice] == "o"
-       or cadena_str[indice] == "u" or cadena_str[indice] == "A" 
-       or cadena_str[indice] == "E"or cadena_str[indice] == "I" 
-       or cadena_str[indice] == "O"or cadena_str[indice] == "U" ):
+    or cadena_str[indice] == "i" or cadena_str[indice] == "o"
+    or cadena_str[indice] == "u" or cadena_str[indice] == "A" 
+    or cadena_str[indice] == "E"or cadena_str[indice] == "I" 
+    or cadena_str[indice] == "O"or cadena_str[indice] == "U" ):
         contador_vocales = contador_vocales + 1
     indice += 1
 

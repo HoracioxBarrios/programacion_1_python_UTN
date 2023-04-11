@@ -13,3 +13,5 @@ infinitos números perfectos, aunque no se ha podido demostrar matemáticamente
 esta afirmación.
 
 '''
+
+''' resolver'''
