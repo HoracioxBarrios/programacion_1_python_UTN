@@ -1,4 +1,4 @@
-# Tipos de Datos
+# Tipos de Datos Basicos
 
 #variables en otros lenguajes
 '''En algunos lenguajes una variable es un "contenedor" en el cual

@@ -5,11 +5,36 @@ el número ingresado. Finalmente imprime todos los números
 
 '''
 
-lista_de_numeros = [1, 2, 3, 4, 5]
-nuevo_numero_str = input("Ingrese un numero")
-nuevo_numero_int = int(nuevo_numero_str)
 
+lista_de_numeros = [1, 2, 3, 4, 5]
+
+nuevo_numero_str = input("Ingrese nuevo numero")
+nuevo_numero_int = int(nuevo_numero_str)#cast
+
+#agregamos
 lista_de_numeros[2] = nuevo_numero_int
 
-for numero in lista_de_numeros:
-    print(numero)
+print(lista_de_numeros)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# lista_de_numeros = [1, 2, 3, 4, 5]
+# nuevo_numero_str = input("Ingrese un numero")
+# nuevo_numero_int = int(nuevo_numero_str)
+
+# lista_de_numeros[2] = nuevo_numero_int
+
+# for numero in lista_de_numeros:
+#     print(numero)

@@ -1,0 +1,2 @@
+## TIPO DE DATOS, (COLECCIONES)
+# Tuplas:
