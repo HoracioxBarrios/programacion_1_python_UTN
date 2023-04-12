@@ -5,9 +5,19 @@ nivelde dificultad, buscar los que coinciden e imprimir sus nombres'''
 diccionario_juegos_mesa = {"Escape Room" : "FACIL","Splendor" : "MEDIO",
                     "Holmes Sherlock" : "MEDIO","Catán el Duelo" : "FACIL",
                     "Stratego" : "DIFICIL", }
-dificultad_ingresado = input("Ingrese nivel de dificiltad FACIL, MEDIO, DIFICIL: ")
+
+
+dificultad_ingresado = input(
+    "Ingrese nivel de dificiltad FACIL, MEDIO, DIFICIL: ")
+while(dificultad_ingresado != "FACIL" or dificultad_ingresado != "MEDIO" 
+    or dificultad_ingresado != "DIFICIL"):
+    dificultad_ingresado = input(
+        "Incorrecto! Ingrese dificiltad FACIL, MEDIO, DIFICIL: ")
+
+
 
 lista_juegos_que_coinciden = []
+
 #    key          valor         in     diccionario
 for juego , nivel_de_dificultad in diccionario_juegos_mesa.items():
     if(dificultad_ingresado == nivel_de_dificultad ):
