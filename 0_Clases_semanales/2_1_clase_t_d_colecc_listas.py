@@ -15,6 +15,8 @@ print(lista[1]) #Hola
 lista[1] = "chau"
 print(lista[1])
 
+# para ACCEDER AL ELEMENTO CONTAMOS CON EL INDICE, desde el indice 0 en adelante
+
 ''' NO ES UNA BUENA PRACTICA: que una lista tenga distintos tipos de datos.
 No esta bien ya que eso deja un codigo engorroso y dificil de seguir.
 EN PYTHON se puede tener una lista con distintos tipos de datos, pero 
