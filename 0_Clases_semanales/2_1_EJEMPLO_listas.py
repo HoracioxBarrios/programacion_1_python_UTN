@@ -39,3 +39,7 @@ for indice in range(cantidad_de_elementos_lista):
 #Podemos Generar un indice usando range(), este funcion se le puede pasar por parametro dentro de
 #los parentesis range(inicio, fin, incremento). o bien otro ejemplo es range(len(lista_ejemplo))- aca va a empezar en 0 por defecto, y va a ir hasta el ultimo elemento
 #range genera una secuencia de valores desde 0 predeterminado hasta el numero que le pasemos o hasta len()
+
+
+
+''' https://www.youtube.com/watch?v=upkPetk60K4  CLASE_02-PL01_PYTHON  minuto 47:00'''
