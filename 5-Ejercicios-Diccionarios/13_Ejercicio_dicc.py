@@ -1,6 +1,6 @@
 '''13- Crea un diccionario que contenga el nombre y el nivel de 
 dificultad de varios juegos de mesa.Luego,pedirle al usuario un
-nivelde dificultad, buscar los que coinciden e imprimir sus nombres'''
+nivel de dificultad, buscar los que coinciden e imprimir sus nombres'''
 
 diccionario_juegos_mesa = {"Escape Room" : "FACIL","Splendor" : "MEDIO",
                     "Holmes Sherlock" : "MEDIO","Catán el Duelo" : "FACIL",
