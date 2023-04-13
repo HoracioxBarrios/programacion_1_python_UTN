@@ -85,7 +85,7 @@ while True:
         nombre_nuevo_miembro_input = input("Ingrese Nombre ")
         nombre_nuevo_miembro = nombre_nuevo_miembro_input.capitalize()
         while (len(nombre_nuevo_miembro) == 0 or
-               nombre_nuevo_miembro.isnumeric()):
+            nombre_nuevo_miembro.isnumeric()):
             nombre_nuevo_miembro_input = input("Incorrecto! Ingrese nombre ")
             nombre_nuevo_miembro = nombre_nuevo_miembro_input.capitalize()
 
@@ -100,7 +100,7 @@ while True:
             "Ingrese membresia 'mensual/'anual")
         membresia_nuevo_miembro = membresia_nuevo_miembro_input.capitalize()
         while (len(membresia_nuevo_miembro) == 0 or
-               membresia_nuevo_miembro.isnumeric()):
+            membresia_nuevo_miembro.isnumeric()):
             membresia_nuevo_miembro_input = input(
                 "Incorrecto! Ingrese nombre ")
             membresia_nuevo_miembro = membresia_nuevo_miembro_input.capitalize()
@@ -125,10 +125,10 @@ while True:
 
     # Opción 3: Actualizar el tipo de membresía de un miembro
     elif opcion == "3":
+        # valido busqueda de id
         flag_busqueda_id_validador = True
         id_existe_ok = False
         id_busqueda = input("Busqueda de ID: Ingrese numero id ")
-
         while (flag_busqueda_id_validador):
             while (len(id_busqueda) == 0):  # valido que no sea str vacio
                 id_busqueda = input(
@@ -138,31 +138,87 @@ while True:
                 if (id_busqueda == miembro["id"]):
                     id_existe_ok = True
                     break
+            if (id_existe_ok):
+                flag_busqueda_id_validador = False
+        # si existe pido el dato
 
-        if (id_existe_ok):
+        actualiza_membresia_input = input(
+            "Ingrese nueva membresia 'mensual/'anual")
+        actualiza_membresia = actualiza_membresia_input.capitalize()
+        while (len(actualiza_membresia) == 0 or
+            actualiza_membresia.isnumeric()):  # true si es str numerico
             actualiza_membresia_input = input(
-                "Ingrese nueva membresia 'mensual/'anual")
+                "Incorrecto! Ingrese nueva membresia 'mensual/'anual")
             actualiza_membresia = actualiza_membresia_input.capitalize()
-            while (len(actualiza_membresia) == 0 or
-                actualiza_membresia.isnumeric()):  # true si es str numerico
-                actualiza_membresia_input = input(
-                    "Incorrecto! Ingrese nueva membresia 'mensual/'anual")
-                actualiza_membresia = actualiza_membresia_input.capitalize()
-                
-        '''TENGO QUE AGREGAR EL CAMBIO '''
+        # actualizo la membresia
+        for miembro in list_de_diccionario_miembros:
+            if (id_busqueda == miembro["id"]):
+                miembro["membresia"] = actualiza_membresia
 
     # Opción 4: Buscar información de un miembro
     elif opcion == "4":
-        pass
+        # valido busqueda de id
+        flag_busqueda_id_validador = True
+        id_existe_ok = False
+        id_busqueda = input("Busqueda de ID: Ingrese numero id ")
+        while (flag_busqueda_id_validador):
+            while (len(id_busqueda) == 0):  # valido que no sea str vacio
+                id_busqueda = input(
+                    "Busqueda de ID: Uste no ingreso nada. Ingrese numero id valido")
+            for miembro in list_de_diccionario_miembros:
+                # corroboro si existe id
+                if (id_busqueda == miembro["id"]):
+                    print("Id: {0} Nombre: {1} Edad: {2} Membresia {3}".format(
+                        miembro["id"], miembro["nombre"], miembro["edad"],
+                        miembro["membresia"]))
+                    id_existe_ok = True
+                    break
+            if (id_existe_ok):
+                flag_busqueda_id_validador = False
 
     # Opción 5: Calcular el promedio de edad de los miembros
     elif opcion == "5":
-        pass
+        acum_edades = 0
+        cantidad_de_miembros = len(list_de_diccionario_miembros)
+        
+        for miembro in list_de_diccionario_miembros:
+            acum_edades += miembro["edad"]
+        promedio = acum_edades / cantidad_de_miembros
+        print("El promedio de edad de todos es: {0}".format(promedio))
 
     # Opción 6: Buscar el miembro más joven y el más viejo
     elif opcion == "6":
-        pass
-
+        flag_max_min = True
+        for miembro in list_de_diccionario_miembros:
+            if(flag_max_min): 
+                edad_maxima = miembro["edad"]
+                edad_minima = miembro["edad"]
+                nombre_edad_maxima = miembro["nombre"]
+                nombre_edad_minima = miembro["nombre"]
+                id_de_edad_maxima = miembro["id"]
+                id_de_edad_minima = miembro["id"]
+                membresia_edad_max = miembro["membresia"]
+                membresia_edad_min = miembro["membresia"]
+                flag_max_min = False
+            else:
+                if(miembro["edad"] > edad_maxima): #maximo
+                    edad_maxima = miembro["edad"]
+                    nombre_edad_maxima = miembro["nombre"]
+                    id_de_edad_maxima = miembro["id"]
+                    membresia_edad_max = miembro["membresia"]
+                if(miembro["edad"] < edad_minima): # minimo
+                    edad_minima = miembro["edad"] 
+                    nombre_edad_minima = miembro["nombre"]
+                    id_de_edad_minima = miembro["id"]
+                    membresia_edad_min = miembro["membresia"]
+        
+        print("El de mayor edad es: Id: {0} Nombre: {1} Edad: {2} Membresia {3}".format(
+            id_de_edad_maxima, nombre_edad_maxima, edad_maxima,membresia_edad_max
+        ))
+        
+        print("El de Menor edad es: Id: {0} Nombre: {1} Edad: {2} Membresia {3}".format(
+            id_de_edad_minima, nombre_edad_minima, edad_minima, membresia_edad_min
+        ))
     # Opcion 0: Salir
     elif opcion == "0":
         break
