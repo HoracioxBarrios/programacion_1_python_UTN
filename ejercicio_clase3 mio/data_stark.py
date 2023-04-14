@@ -23,7 +23,7 @@ lista_heroes =[
         "fuerza": "5",
         "inteligencia": "average"
     },
-     {
+    {
         "nombre": "Rlili",
         "identidad": "Rlili",
         "empresa": "lili Comics",
