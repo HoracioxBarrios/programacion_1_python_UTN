@@ -56,7 +56,10 @@ for anime in animes_90s: #recorro la lista y guardo en cada iteracion un element
 
 print(nueva_lista)
 
-
+''' ACA HAY QUE TENER EN CUENTA QUE NECESITAMOS  CREAR NUEVOS DICCIONARIOS VARIAS VECES para ir metiendo cada anime diferente en dicc diferentes.
+Y SOLO NECESIRAMOS UNA NUEV LISTA. POR ESO LA LISTA SE DECLARA AFUERA DEL FOR.
+si la Lista nueva se declara dentro del for se crearia una lista y dentro un dicc siempre EN CADA ITERACCION.
+vasta con poner la declaracion de la nuevalista dentro del for para ver el problema'''
 
 
 # nuevos_animes = []
