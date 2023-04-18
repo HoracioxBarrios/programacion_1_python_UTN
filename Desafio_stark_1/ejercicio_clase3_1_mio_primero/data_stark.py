@@ -28,7 +28,7 @@ lista_heroes =[
         "identidad": "Rlili",
         "empresa": "lili Comics",
         "altura": "200.75",
-        "peso": "25.73",
+        "peso": "25.85",
         "genero": "M",
         "color_ojos": "Brown",
         "color_pelo": "Brown",
