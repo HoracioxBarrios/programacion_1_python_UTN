@@ -13,28 +13,38 @@ animes_90s = [
 4-Crear un nuevo diccionario con los nombres y años de estreno de los animes 
 de la lista:
 '''
+
+'''1-Generar una sublista de los animes estrenados antes de 1995:'''
 #1
-# animes_antes_95 = []
+animes_antes_95 = []
 
-# for anime in animes_90s:
-#     if(anime["año"] < 1995):
-#         animes_antes_95.append(anime)
+for anime in animes_90s:
+    if(anime["año"] < 1995):
+        animes_antes_95.append(anime)
 
-# print(animes_antes_95)
+print(animes_antes_95)
 
+
+'''2-Generar una sublista de los animes con más de 1 temporada:'''
 #2
-# animes_mas_de_una_temp = []
-# for anime in animes_90s:
-#     if(anime["temporadas"] > 1):
-#         animes_mas_de_una_temp.append(anime)
-# print(animes_mas_de_una_temp)
+animes_mas_de_una_temp = []
+for anime in animes_90s:
+    if(anime["temporadas"] > 1):
+        animes_mas_de_una_temp.append(anime)
+print(animes_mas_de_una_temp)
 
+
+'''3-Buscar en la lista el anime con nombre "Pokemon" e imprimir su año de estreno:'''
 #3
-# for anime in animes_90s:
-#     if(anime["nombre"] == "Pokemon"):
-#         print("El anime: {0} se estrenó en el año: {1}".format(
-#             anime["nombre"], anime["año"]))
+for anime in animes_90s:
+    if(anime["nombre"] == "Pokemon"):
+        print("El anime: {0} se estrenó en el año: {1}".format(
+            anime["nombre"], anime["año"]))
 
+
+
+'''4-Crear un nuevo diccionario con los nombres y años de estreno de los animes 
+de la lista:'''
 #4
 nueva_lista =[]
 for anime in animes_90s: #recorro la lista y guardo en cada iteracion un elemento en la variable anime
