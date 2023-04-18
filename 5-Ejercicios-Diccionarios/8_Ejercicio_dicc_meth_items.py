@@ -4,22 +4,19 @@ donde las claves son los nombres de las personas y los valores son
 sus edades. Imprime la edad de la persona más joven.
 
 '''
-dicc_personas = {"Cristian" : 20, "Lili" : 25, "Gustav" : 24}
-flag_edad = True
 
-for nombre, edad in dicc_personas.items(): # usar el metodo .items() par obtener clave y valor
-    if(flag_edad):# minimo
+dicc_personas = {"Cristian" : 20, "Lili" : 25, "Gustav" : 24, "juli" : 15}
+flag_min = True
+for edad in dicc_personas.values():
+    if(flag_min or edad < edad_min):
         edad_min = edad
-        nombre_min = nombre
-        flag_edad = False
-    else:
-        if(edad < edad_min):
-            edad_min = edad
-            nombre_min = nombre
-            
+        flag_min = False
 
-print("El mas joven es: {0} con {1} años".format(
-    nombre,edad))
+print("La edad minima es: {0}".format(edad_min))
+
+
+''''''
+
 
 '''Al iterar sobre un diccionario en Python, debes 
 utilizar el método .items() para obtener tanto la clave como el valor.'''

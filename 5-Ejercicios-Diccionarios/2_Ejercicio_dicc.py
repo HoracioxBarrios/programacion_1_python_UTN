@@ -10,4 +10,4 @@ dicc_meses = {"Enero" : 1, "Febrero" : 2, "Marzo" : 3, "Abril" : 4,
             "Septiembre" : 9, "Obtubre" : 10, "Noviembre" : 11,
             "Diciembre" : 12}
 
-print(dicc_meses["Julio"])
+print(dicc_meses["Julio"])#imprime el valor 7

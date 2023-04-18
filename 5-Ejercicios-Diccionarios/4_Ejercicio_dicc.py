@@ -6,9 +6,11 @@ provincia. Luego, imprime el nombre de la calle, seguido de su altura.
 '''
 diccionario_direccion = {"Calle" : "Avenida Mitre", "Altura" : 750 ,
                         "Localidad" : "Avellaneda","Codigo Postal" : 1870,
-                        "Partido" : "Avellaneda", "Provincia" : "Buenos Aires"}
+                        "Partido" : "Avellaneda", 
+                        "Provincia" : "Buenos Aires"}
 
 
 print("Nombre de la calle: {0} {1}".format(
-    diccionario_direccion["Calle"],diccionario_direccion["Altura"]))
+    diccionario_direccion["Calle"],
+    diccionario_direccion["Altura"]))
 
