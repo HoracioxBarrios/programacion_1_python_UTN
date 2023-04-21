@@ -76,7 +76,7 @@ while(True):
     
     match(respuesta_int):
         case 1:
-           mostrar_lista_completa(lista_personajes)
+            mostrar_lista_completa(lista_personajes)
         case 2:
             mostrar_heroes(lista_personajes,genero= "M")
         case 3:

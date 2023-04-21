@@ -20,7 +20,7 @@ from data import lista_bzrp
 7 - Salir
 '''
 
-
+#------------------------------Print
 def print_tema(tema):
     '''
     Mustra un tema por terminal
@@ -31,7 +31,7 @@ def print_tema(tema):
                                     tema['title'],
                                     tema['views'],
                                     tema['length']))
-
+#------------------------------Recorre la lista
 def mostrar_lista_videos (lista_de_temas):
     '''
     Muestra una lista de temas por terminal
@@ -41,7 +41,7 @@ def mostrar_lista_videos (lista_de_temas):
     for tema in lista_de_temas:
         print_tema(tema)
 
-
+#-----------------------------
 def calcular_tema_mas_menos_por_clave(lista_de_temas,clave,maximo=True ):
     '''
     Calcula el tema mas/menos por clave ( views - length )
@@ -60,29 +60,22 @@ def calcular_tema_mas_menos_por_clave(lista_de_temas,clave,maximo=True ):
     return lista_de_temas[indice_max_min]
 
 
+#----------------------------
+def calcular_promedio(lista_de_temas, clave):
+    '''
+    calcula el promedio en base a datos de una lista de dicc
+    recibe una clave: 'length'duracion - 'views' vistas
+    devuelve el promedio en base a la clave antes dada.
+    '''
+    cantidad_de_temas = len(lista_de_temas)
+    acumulador = 0
+    for tema in lista_de_temas:
+        acumulador += tema[clave]
+    promedio = acumulador / cantidad_de_temas
+    return promedio
 
 
-    
-        
 
-
-
-
-
-def calcular_tema_menos_visto():
-    pass
-
-def calcular_tema_mas_largo(): 
-    pass
-
-def calcular_tema_mas_corto():
-    pass
-
-def calcular_duracion_promedio():
-    pass
-
-def calcular_vistas_promedio():
-    pass
 
 while True:
     respuesta_str = input("\n\n1 - Tema mas visto\n2 - Tema menos visto\n3 - Tema mas largo\n4 - Tema mas corto\n5 - Duracion promedio de temas\n6 - Promedio de vistas \n7 - Mostrar Lista\n8 - Salir\n\n")
@@ -102,9 +95,9 @@ while True:
             tema_mas_corto = calcular_tema_mas_menos_por_clave(lista_bzrp, clave= 'length',maximo=False)
             print_tema(tema_mas_corto)
         case 5:
-            calcular_duracion_promedio()
+            temas_duracion_promedio = calcular_promedio(lista_bzrp, clave='length') #Duracion promedio de temas
         case 6:
-            calcular_vistas_promedio()
+            promedio_de_vistas = calcular_promedio(lista_bzrp, clave='views') #Promedio de vistas
         case 7:
             mostrar_lista_videos(lista_bzrp)
         case 8:

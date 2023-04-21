@@ -20,18 +20,13 @@ from data import lista_bzrp
 6 - Promedio de vistas 
 7 - Salir
 '''
-
-
+#------------------ Print Lista
 def mostrar_lista_de_videos():
     for video in lista_bzrp:
         print("\nTitulo: {0} - views: {1} - length: {2}".format(
             video["title"], video["views"], video["length"]))
 
-def mostrar_cantidad_de_videos_de_la_lista():
-    cantidad_de_videos = len(lista_bzrp)
-    print("Hay {0} Videos en la Lista".format(cantidad_de_videos))
-
-
+#-------------------- Mas visto
 def calcular_tema_vas_visto():
     # maximo_views = None            se vuelven innecesaria
     # maximo_indice = None
@@ -43,13 +38,12 @@ def calcular_tema_vas_visto():
         lista_bzrp[maximo_indice]["title"],
         lista_bzrp[maximo_indice]["views"]))
 
-
+#-------------------- Menos Visto
 def calcular_tema_menos_visto():
     for indice in range(len(lista_bzrp)):# genero indice para recorrer
         if(indice == 0 or lista_bzrp[indice]["views"] < minimo_views): # el indice 0 es mi flag
             minimo_views = lista_bzrp[indice]["views"]
             minimo_indice = indice
-            
     print("El tema  menos visto es: {0} con {1} de views".format(
         lista_bzrp[minimo_indice]["title"],
         lista_bzrp[minimo_indice]["views"]))
@@ -63,7 +57,7 @@ def calcular_tema_menos_visto():
     #     lista_bzrp[minimo_indice]["title"],
     #     lista_bzrp[minimo_indice]["views"]))
 
-
+#--------------------- Mas Largo
 def calcular_tema_mas_largo():
     #maximo_largo
     for indice in range(len(lista_bzrp)):
@@ -73,6 +67,7 @@ def calcular_tema_mas_largo():
     print("El tema de mayor duracion es: {0} con: {1}".format(
         lista_bzrp[maximo_indice]["title"], lista_bzrp[maximo_indice]["length"]))
 
+#---------------------- Mas corto
 def calcular_tema_mas_corto():
     #minimo_largo
     for indice in range(len(lista_bzrp)):
@@ -81,6 +76,7 @@ def calcular_tema_mas_corto():
     print("El tema de menor duracion es: {0} con: {1}".format(
         lista_bzrp[minimo_indice]["title"], lista_bzrp[minimo_indice]["length"]))
 
+#----------------------- Duracion Promedio
 def calcular_duracion_promedio():
     acum_duracion_videos = 0
     
@@ -89,13 +85,19 @@ def calcular_duracion_promedio():
     promedio_duracion = acum_duracion_videos / len(lista_bzrp)
     print("El promedio de duracion de los Videos es: {0}".format(promedio_duracion))
 
-
+#---------------------- Vistas promedio
 def calcular_vistas_promedio():
     acum_views_videos = 0
     
     for video in lista_bzrp:
         acum_views_videos += video["views"]
     print("El promedio de duracion de los Videos es: {0}".format(acum_views_videos / len(lista_bzrp))) # El profe Davila enseño que esto se puede hacer asi.
+
+#------------------Print cant temas
+def mostrar_cantidad_de_videos_de_la_lista():
+    cantidad_de_videos = len(lista_bzrp)
+    print("Hay {0} Videos en la Lista".format(cantidad_de_videos))
+
 
 
 
