@@ -35,8 +35,9 @@ y de que tipo son (terrestre, anfibio, volador).
 #     {"animal": "perro", "tipo": "terrestre"},
 #     {"animal": "paloma", "tipo": "volador"},]
 
-
-def agregar_a_lista(nombre : str, tipo : str, cantidad :int)-> list[dict]:
+cantidad_a_ingresar = 3
+lista_de_animales = []
+def agregar_a_lista(cantidad :int)-> list[dict]:
     ''' 
     toma nombres y tipos de animal de un input y crea una lista de dicc animales.
     recibe nombre, tipo, y cantidad a ingresar.
@@ -45,11 +46,15 @@ def agregar_a_lista(nombre : str, tipo : str, cantidad :int)-> list[dict]:
     lista = []
     contador = cantidad
     while(contador > 0):
-        if(nombre not in lista):
-            dicc_animal = {}
+        nombre = input("Ingrese animal")
+        tipo = input("Ingrese tipo de animal")
+        dicc_animal = {}
+        if(nombre not in dicc_animal):
             dicc_animal["animal"] = nombre
             dicc_animal["tipo"] = tipo
             lista.append(dicc_animal)
+        
+        
         contador -= 1
     return lista
 
@@ -65,10 +70,7 @@ while (True):
     respuesta_int = int(respuesta_str)
     match(respuesta_int):
         case 1:
-                nombre_animal = input("Ingrese animal")
-                tipo_animal = input("Ingrese tipo de animal")
-                cantidad_a_ingresar = 1
-                lista_de_animales = agregar_a_lista(nombre_animal, tipo_animal, cantidad_a_ingresar)
+                lista_de_animales = agregar_a_lista( cantidad_a_ingresar)
                 print(lista_de_animales)
         case 2:
             pass
