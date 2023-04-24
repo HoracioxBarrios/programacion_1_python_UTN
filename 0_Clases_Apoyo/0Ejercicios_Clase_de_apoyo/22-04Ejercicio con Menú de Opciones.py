@@ -114,7 +114,7 @@ def max_min(diccionario : dict, maximo = False, minimo = False)-> dict:
 
 def sumar_elem_dic(diccionario : dict)-> dict:
     '''
-    acumula valores
+    acumula valores (los suma)
     recibe un diccionario
     retorna un nuevo diccionario con la suma acumalada
     '''
@@ -125,7 +125,7 @@ def sumar_elem_dic(diccionario : dict)-> dict:
 
 def mostrar_porcentaje(diccionario : dict)-> None:
     '''
-    muestra los porcentajes segun su clave  tipo
+    muestra los porcentajes
     recibe un diccionario
     retorna - no plica
     '''
@@ -148,7 +148,12 @@ def print_Lista_anim(lista : list)-> None:
             elem[clave_nombre], elem[clave_tipo]))
 
 
-def print_diccionario_anim(diccionario : dict): 
+def print_diccionario_anim(diccionario : dict) -> None: 
+    '''
+    muestra por consola, un dicc
+    recibe un diccionario
+    devuelve - no aplica
+    '''
     for clave, valor in diccionario.items():
         print("{0}  {1}".format(clave, valor))    
 
