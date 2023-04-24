@@ -14,7 +14,8 @@ y de que tipo son (terrestre, anfibio, volador).
 
 # 5 Menor cantidad de animales por tipo. 
 
-# 6 Pedir un animal e informar si está en la lista y sus datos correspondientes si efectivamente está en la lista. 
+# 6 Pedir un animal e informar si está en la lista y sus datos correspondientes 
+si efectivamente está en la lista. 
 
 # 7 Pedir un animal e informar la primer ocurrencia de ese animal en la lista si es que existe. 
 
@@ -38,8 +39,9 @@ lista_de_animales = [
 
 clave_nombre = "animal"
 clave_tipo = "tipo"
-cantidad_a_ingresar = 10
+cantidad_a_ingresar = 2
 
+''' Funcion para agregar a la lista, me hice una lista harcodeada para prueba'''
 # def agregar_a_lista(
 #         cantidad :int,clave_nombre : str, clave_tipo : str)-> list[dict]:
 #     ''' 
@@ -61,62 +63,147 @@ cantidad_a_ingresar = 10
 #         contador -= 1
 #     return lista
 
-def mostrar_porcentaje_por_tipo(lista, clave_tipo):
-    
+
+
+def separar_contar_por_tipo(lista : list)-> dict:
+    '''
+    separa por tipo y los contabiliza
+    recibe una list de dict
+    retorna - una lista de dict con los tipos y cantidades correspondientes
+    '''
     nuevo_dicc_contador = {}
     for animal in lista:
+        nueva_clave = animal[clave_tipo]
         if (animal[clave_tipo] in nuevo_dicc_contador):
-            nuevo_dicc_contador[animal[clave_tipo]] += 1
+            nuevo_dicc_contador[nueva_clave] += 1
         else:
-            nuevo_dicc_contador[animal[clave_tipo]] = 1
+            nuevo_dicc_contador[nueva_clave] = 1
+    return nuevo_dicc_contador
+
+
+
+
+def max_min(diccionario : dict, maximo = False, minimo = False)-> dict:
+    '''
+    busca el maximo, el minimo, o ambos
+    recibe tres parametros: arg(1) diccionario, arg(2)(maximo = true) 
+    por defecto da maximo. arg(3)(minimo = False) por defecto No da el minimo
+    devuelve un diccionario
+    '''
+    flag_max = True
+    flag_min = True
+    nuevo_dicc = {}
+    for clave, valor in diccionario.items():
+        if(flag_max or valor > max_valor and maximo == True):
+            max_valor = valor
+            max_clave = clave
+            flag_max = False
+        if(flag_min or valor < min_valor and minimo == True):
+            min_valor = valor
+            min_clave = clave
+            flag_min = False
     
+    if(maximo == True):
+        nuevo_dicc["max"] = [max_clave, max_valor]
+    if(minimo == True):
+        nuevo_dicc["min"] = [min_clave,min_valor]
+    return nuevo_dicc
+
+
+
+
+def sumar_elem_dic(diccionario : dict)-> dict:
+    '''
+    acumula valores
+    recibe un diccionario
+    retorna un nuevo diccionario con la suma acumalada
+    '''
     acumulador = 0
-    for valor in nuevo_dicc_contador.values():
+    for valor in diccionario.values():
         acumulador += valor
+    return acumulador
 
-    for tipo, valor in nuevo_dicc_contador.items():
-        porcentaje = (valor *100)/ acumulador
-        print("Tipo de animal: {0} porcentaje {1}".format(tipo, porcentaje))
+def mostrar_porcentaje(diccionario : dict)-> None:
+    '''
+    muestra los porcentajes segun su clave  tipo
+    recibe un diccionario
+    retorna - no plica
+    '''
+    valor_total = sumar_elem_dic(diccionario)
 
-   
-   
-# 5 * 100 acum /10
-def print_animal(lista : list):
+    for clave, valor in diccionario.items():
+        porcentaje = (valor *100) / valor_total
+        print("Tipo de animal: {0} porcentaje {1}".format(clave, porcentaje))
+
+        
+
+def print_Lista_anim(lista : list)-> None:
     '''
     imprime una lista de animales
-    recine una lista de dicc
+    recibe una lista de dicc
     retorna - no aplica
     '''
     for elem in lista:
         print("nombre del animal: {0} y su tipo: {1}".format(
             elem[clave_nombre], elem[clave_tipo]))
-        
-        
-        
+
+
+def print_diccionario_anim(diccionario : dict): 
+    for clave, valor in diccionario.items():
+        print("{0}  {1}".format(clave, valor))    
+
+
+def buscar(lista : list,palabra_a_buscar :str, clave_busqueda : str):
+    '''
+    busca en una lista el elemento segun palabra buscada y key
+    recibe una arg(1)lista, arg(2)un str :palabra a buscar y arg(3)una clave str
+    retorna el resultado, o -1 en caso de no encontrarse.
+    '''
+    aux_existe = -1
+    for elem in lista:
+         if(palabra_a_buscar == elem[clave_busqueda]):
+             aux_existe = elem
+    return aux_existe
+
+     
+
+
 while (True):
     respuesta_str = input(
         "Elija una opcion:\n 1-Ingreser animal\n 2-ver lista completa\n 3-ver porcentaje por tipo\n 4-Mayor cantidad de animales por tipo\n 5-Menor cantidad de animales por tipo \n 6-Buscar informacion\n 7-Buscar si existe\n 8-vaciar lista\n 9-cantidad Animales por tipo\n 10-Salir\n")
     respuesta_int = int(respuesta_str)
     match(respuesta_int):
         case 1:
-                lista_de_animales = agregar_a_lista(
+            lista_de_animales = agregar_a_lista(
                     cantidad_a_ingresar, clave_nombre , clave_tipo)
         case 2:
-            print_animal(lista_de_animales)
+            print_Lista_anim(lista_de_animales)
         case 3:
-            mostrar_porcentaje_por_tipo(lista_de_animales,clave_tipo)
+            lista_separada_por_tipo_y_cant = separar_contar_por_tipo(lista_de_animales)
+            mostrar_porcentaje(lista_separada_por_tipo_y_cant)
         case 4:
-            pass
+            lista_separada_por_tipo_y_cant = separar_contar_por_tipo(lista_de_animales)
+            maximo_a_mostrar = max_min(lista_separada_por_tipo_y_cant, maximo=True)
+            print(maximo_a_mostrar)
         case 5:
-            pass
+            lista_separada_por_tipo_y_cant = separar_contar_por_tipo(lista_de_animales)
+            minimo_amostrar = max_min(lista_separada_por_tipo_y_cant, minimo=True)
+            print(minimo_amostrar)
         case 6:
-            pass
+            animal_a_buscar = input("Ingrese un animal, para ver si esta en la lista\n")
+            resultado_busqueda = buscar(
+                lista_de_animales,animal_a_buscar,clave_busqueda="animal")
+            if(resultado_busqueda != -1):
+                print(resultado_busqueda)
+            else:
+                print("No existe")
         case 7:
             pass
         case 8:
-            pass
+            lista_de_animales.clear()
+            print(lista_de_animales)
         case 9:
-            pass
+            print_Lista_anim(lista_de_animales)
         case 10:
             break
     input("Enter para continuar ")
