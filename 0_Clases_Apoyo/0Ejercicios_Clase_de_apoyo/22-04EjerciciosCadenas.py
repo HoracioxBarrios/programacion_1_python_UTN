@@ -1,31 +1,34 @@
 #Ejercicios_ Cadenas 22-04-2023
 '''
-1.Contar letras: Crea una función que tome una cadena de texto como argumento y 
-cuente el número de letras que contiene.
+1.Contar letras: Crea una función que tome una cadena de texto como 
+argumento y cuente el número de letras que contiene.
 '''
 palabra_ingresada = input("Ingrese una Palabra\n")
 
-def contar_letra(cadena : str)-> int:
+
+def contar_letras(cadena : str)-> int:
     '''
-    cuenta una cadena de caracteres
-    recibe una cadena
+    cuenta una cadena (una plabra), sin contar los espacios
+    recibe un string
     devuelve la cantidad de caracteres
     '''
-    largo_de_cadena = len(cadena)
-    return largo_de_cadena
+    contador = 0
+    for letra in cadena:
+        if(letra != " "):
+            contador += 1
+            
+    return contador
 
-largo_de_la_palabra = contar_letra(palabra_ingresada)
-
-print("La Cantidad de caracteres es: {0}".format(largo_de_la_palabra))
-
-
+cantidad_de_letras = contar_letras(palabra_ingresada)
+print(cantidad_de_letras)
 
 
 '''
-2.Eliminar caracteres: Crea una función que tome una cadena de texto y un carácter 
-como argumentos, y elimine todas las ocurrencias de ese carácter en la cadena.
+2.Eliminar caracteres: Crea una función que tome una cadena de texto 
+y un carácter como argumentos, y elimine todas las ocurrencias de ese
+ carácter en la cadena.
 '''
-palabra_ingresada = input("Ingrese una Palabra\n")
+palabra_ingresada = input("primero Ingrese una Palabra\n")
 letra_a_borrar = input("Que letra queres borrar?\n")
 
 def borrar_str(cadena : str, caracter : str)-> str:
@@ -47,15 +50,15 @@ print("La nueva palabra es: {0}".format(nueva_palabra))
 
 
 '''
-3.Contar palabras: Crea una función que tome una cadena de texto como argumento y 
-cuente el número de palabras que contiene. 
+3.Contar palabras: Crea una función que tome una cadena de texto como 
+argumento y cuente el número de palabras que contiene. 
 Suponga que las palabras están separadas por un espacio.
 '''
 palabras = input("Ingrese una Palabra\n")
 
-def contar_letras(cadena : str)-> int:
+def contar_letras_en_palabras(cadena : str)-> int:
     '''
-    cuenta una cadena de caracteres
+    cuenta una cadena de caracteres: una palabra
     recibe una cadena
     devuelve la cantidad de caracteres
     '''
@@ -66,7 +69,7 @@ def contar_letras(cadena : str)-> int:
         
     return contador_de_caracteres
 
-largo_de_cadena = contar_letras(palabras)
+largo_de_cadena = contar_letras_en_palabras(palabras)
 
 
 print("La Cantidad de caracteres es: {0}".format(largo_de_cadena))
@@ -78,21 +81,28 @@ una palabra y otra palabra como argumentos, y reemplace todas las
 ocurrencias de la primera palabra por la segunda en la cadena.
 '''
 
-frase = "Hola, le traje el Perro"
+frase = "Hola, Señora le traje el Perro"
 palabra_buscada = "Perro"
-palabra_a_reemplazar = "Gato"
+palabra_a_reemplazar = "Gato" 
 
-def reemplazar_palabras(frase, palabra_origen, palabra_destino):
+def reemplazar_palabras(
+        cadena : str, palabra_origen : str, palabra_destino : str) -> str:
     '''
-    reemplaza una palabra por otra 
-    recibe un cadena de texto: ej: una frase
-    devuelve una cadena con la palabra reemplazada
+    busca una palabra en una frase. 
+    recibe arg(1)un cadena de texto (ejemplo una frase),arg(2) palabra buscada
+    arg(3) palabra a reemplazar
+    devuelve: en caso de encontrarse la palabra buscada devuelve la frase 
+    modificada, en caso de no encontrarse: muestra no hay coincidencias.
     '''
-    frase.replace(palabra_origen, palabra_destino)
-    return frase
+    if(palabra_buscada in cadena):
+        resultado = frase.replace(palabra_origen, palabra_destino)
+        return resultado
+    else:
+        resultado = "No se encontro, coincidencias"
+        return resultado
 
-
-nueva_frase = reemplazar_palabras(frase, palabra_buscada, palabra_a_reemplazar)
+nueva_frase = reemplazar_palabras(
+    frase, palabra_buscada, palabra_a_reemplazar)
 print(nueva_frase)
 
 '''
@@ -108,7 +118,8 @@ patron = "perro"
 def buscar_patron(cadena, patron):
     '''
     busca un patron, en una cadena de texto
-    recibe dos argunmentos: una cadena principal, y una cadena secundaria que se va a buscar
+    recibe dos argunmentos: una cadena principal, y una cadena 
+    secundaria que se va a buscar
     returna una lista con la posicion en donde se encontro un patron o igualdad.
     '''
     posiciones = []
