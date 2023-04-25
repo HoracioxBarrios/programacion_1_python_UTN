@@ -55,7 +55,7 @@ Informar cual es el Nombre del superhéroe asociado a cada uno de los indicadore
 13- Listar todos los superhéroes agrupados por color de ojos.
 14 -Listar todos los superhéroes agrupados por color de pelo.
 15 -Listar todos los superhéroes agrupados por tipo de inteligencia
-
+16 - Salir
 '''
 
 def print_heroes(personaje):
@@ -77,22 +77,25 @@ def mostrar_lista_completa(lista: list):
     recibe una lista de dicc
     retorna - no aplica'''
     for personaje in lista:
+        print("------------------------------")
         print_heroes(personaje)
+        print("------------------------------")
 
 
-def mostrar_personaje(lista: list ,genero: str):
+def print_clave_valor(diccionario):
+    for clave, valor in diccionario.items():
+        print("{0} {1}".format(clave,valor))
+
+
+def print_personaje_genero(lista: list ,genero: str):
+    '''
+    de una lista muestra los nombre segun su genero
+    recibe una lista. y un genero clave M o F 
+    devuelve, no aplica
+    '''
     for personaje in lista:
         if(personaje["genero"] == genero):
             print(personaje["nombre"])
-
-#4- Recorrer la lista y determinar cuál es el superhéroe más alto de género M 
-
-# def max_min_de_la_lista(lista, clave):
-#     max_min_indice = 0
-#     for indice in range(1, len(lista)):
-#         if (lista[indice][clave] > lista[max_min_indice][clave]):
-#             max_min_indice = indice
-#     return max_min_indice
 
 def heroe_segun_altura_genero_v2(lista_heroes: list, genero: str, min_max: str) -> None:
     heroe_aux = {}
@@ -108,26 +111,114 @@ def heroe_segun_altura_genero_v2(lista_heroes: list, genero: str, min_max: str) 
 
 
 
+def promedio_por_genero(lista : list ,clave_altura : str,clave_genero  : str, genero : str):
+    '''
+    da el promedio segun la necesidad.
+    arg(1) recibe una lista de diccionarios, clave "altura", clave "genero" = F / M
+    devuelve - no aplcia
+    
+    '''
+    acumulador = 0
+    nueva_lista = []
+    for diccionario in lista:
+        if(diccionario[clave_genero] == genero):
+            acumulador += float(diccionario[clave_altura])
+            nueva_lista.append(diccionario)
+    cantidad_de_diccionarios_en_lista = len(nueva_lista)
+    promedio = acumulador / cantidad_de_diccionarios_en_lista
+    print("El promedio es {0}".format(promedio))
+    return
+
+def contar_por_tipo(lista : list, clave_tipo)-> dict:
+    '''
+    separa por tipo y los contabiliza
+    recibe una list de dict
+    retorna - una lista de dict con los tipos y cantidades correspondientes
+    '''
+    nuevo_dicc_contador = {}
+    for diccionario in lista:
+        nueva_clave = diccionario[clave_tipo]
+        if (diccionario[clave_tipo] not in nuevo_dicc_contador):
+            if(not diccionario[clave_tipo]):# si no tiene
+                nueva_clave = "No tiene"
+            nuevo_dicc_contador[nueva_clave] = 1
+        else:
+            nuevo_dicc_contador[nueva_clave] += 1
+        return nuevo_dicc_contador
+    
+
+
+
+def devolver_variantes(lista, clave_tipo):
+    aux = None
+    nueva_lista = []
+    flag = True
+    for elem in lista:
+        for clave , valor in elem.items():
+            if(flag or aux):
+                if(valor != aux  and clave == clave_tipo):
+                    aux = valor
+                    nueva_lista.append(aux)
+                    flag = False
+    return nueva_lista
+
+
+def listar(lista, clave_tipo):
+    nueva_lista = devolver_variantes(lista, clave_tipo)
+
+    for variante in nueva_lista:
+        for personaje in lista_personajes:
+            if(personaje[clave_tipo] == variante):
+                print_heroes(personaje)
+                          
+
 while(True):
-    respuesta_str = input("Elija una opcion:\n 1-Ver Lista Completa\n 2-Ver los personajes Masculinos \n 3-Ver los personajes Femeninos \n 4-Ver el mas alto Masculino \n 5-Ver el mas Alto Femenino \n 6-Ver el mas bajo Masculino \n 7-Ver el mas bajo Femenino \n 8-Ver la altura promedio Masculinos \n 9-Ver la altura promedio Femeninos \n 10-personajes por tipo de color de ojos \n 11-personajes por tipo de color de Pelo \n 12-Ver personajes por tipo de inteligencia \n 13-Salir\n\n")
+    respuesta_str = input("Elija una opcion:\n 1-Ver Lista Completa\n 2-Ver los personajes Masculinos \n 3-Ver los personajes Femeninos \n 4-Ver el mas alto Masculino \n 5-Ver el mas Alto Femenino \n 6-Ver el mas bajo Masculino \n 7-Ver el mas bajo Femenino \n 8-Ver la altura promedio Masculinos \n 9-Ver la altura promedio Femeninos \n 10-personajes por tipo de color de ojos \n 11-personajes por tipo de color de Pelo \n 12-Ver personajes por tipo de inteligencia \n 13-listar por color de ojos\n 14-listar por color de Pelo\n 15- listar por inteligencia\n 16- Salir\n")
     respuesta_int = int(respuesta_str)
     
     match(respuesta_int):
         case 1:
             mostrar_lista_completa(lista_personajes)
         case 2:
-            mostrar_personaje(lista_personajes,genero = "M")
+            print_personaje_genero(lista_personajes,genero = "M")
         case 3:
-            mostrar_personaje(lista_personajes,genero = "F")
+            print_personaje_genero(lista_personajes,genero = "F")
         case 4:
-            heroe_segun_altura_genero_v2(lista_personajes, genero="M", min_max="Alto")
+            heroe_segun_altura_genero_v2(
+                lista_personajes, genero="M", min_max="Alto")
         case 5:
-            pass
+            heroe_segun_altura_genero_v2(
+                lista_personajes, genero = "F", min_max="Alto")
         case 6:
-            pass
+            heroe_segun_altura_genero_v2(
+                lista_personajes, genero = "M", min_max = "Bajo")
         case 7:
-            pass
+            heroe_segun_altura_genero_v2(
+                lista_personajes, genero = "F", min_max = "Bajo")
         case 8:
-            break
+            promedio_por_genero(lista_personajes,
+                clave_altura = "altura",clave_genero="genero", genero="M")
+        case 9:
+            promedio_por_genero(
+                lista_personajes,
+                clave_altura = "altura",clave_genero="genero", genero="F")
+        case 10:
+            resultado_color_pelo = contar_por_tipo(
+                lista_personajes, clave_tipo = "color_ojos")
+            print_clave_valor(resultado_color_pelo)
+        case 11:
+            resultado_ojos = contar_por_tipo(lista_personajes, clave_tipo = "color_pelo")
+            print_clave_valor(resultado_ojos)
+        case 12:
+            tipos_inteligencia = contar_por_tipo(lista_personajes, clave_tipo = "inteligencia")
+            print_clave_valor(tipos_inteligencia)
+        case 13:
+            listar(lista_personajes, clave_tipo = "color_ojos")
+        case 14:
+           listar(lista_personajes, clave_tipo = "color_pelo")
+        case 15:
+            listar(lista_personajes, clave_tipo = "inteligencia")
+        case 16:
+           break
 
-    input("Pulse Enter para continuar\n\n ")
+    input("Pulse Enter para continuar\n ")
