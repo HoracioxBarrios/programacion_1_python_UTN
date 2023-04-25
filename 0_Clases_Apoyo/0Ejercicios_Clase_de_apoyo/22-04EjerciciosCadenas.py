@@ -115,7 +115,7 @@ posiciones donde se encontró el patrón.
 frase = "Hola, aca le traje el perro"
 patron = "perro"
 
-def buscar_patron(cadena, patron):
+def buscar_patron(cadena : str, patron : str)-> int:
     '''
     busca un patron, en una cadena de texto
     recibe dos argunmentos: una cadena principal, y una cadena 
@@ -135,4 +135,4 @@ def buscar_patron(cadena, patron):
 resultado = buscar_patron(frase, patron)
 print(resultado)
 
-
+''' a confirmar si es esto'''

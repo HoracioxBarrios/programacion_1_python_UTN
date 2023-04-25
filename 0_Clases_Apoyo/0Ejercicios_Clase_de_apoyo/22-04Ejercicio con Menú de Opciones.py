@@ -24,17 +24,17 @@ si efectivamente está en la lista.
 # 10 Salir.
 
 '''
-lista_de_animales = [
-    {"animal": "leon", "tipo": "terrestre"},
-    {"animal": "tortuga", "tipo": "terrestre"},
-    {"animal": "ballena", "tipo": "acuatico"},
-    {"animal": "delfin", "tipo": "acuatico"},
-    {"animal": "rana", "tipo": "anfibio"},
-    {"animal": "aguila", "tipo": "volador"},
-    {"animal": "tigre", "tipo": "terrestre"},
-    {"animal": "gato", "tipo": "terrestre"},
-    {"animal": "perro", "tipo": "terrestre"},
-    {"animal": "paloma", "tipo": "volador"},]
+# lista_de_animales = [
+#     {"animal": "leon", "tipo": "terrestre"},
+#     {"animal": "tortuga", "tipo": "terrestre"},
+#     {"animal": "ballena", "tipo": "acuatico"},
+#     {"animal": "delfin", "tipo": "acuatico"},
+#     {"animal": "rana", "tipo": "anfibio"},
+#     {"animal": "aguila", "tipo": "volador"},
+#     {"animal": "tigre", "tipo": "terrestre"},
+#     {"animal": "gato", "tipo": "terrestre"},
+#     {"animal": "perro", "tipo": "terrestre"},
+#     {"animal": "paloma", "tipo": "volador"},]
 
 
 clave_nombre = "animal"
@@ -42,26 +42,26 @@ clave_tipo = "tipo"
 cantidad_a_ingresar = 2
 
 ''' Funcion para agregar a la lista, me hice una lista harcodeada para prueba'''
-# def agregar_a_lista(
-#         cantidad :int,clave_nombre : str, clave_tipo : str)-> list[dict]:
-#     ''' 
-#     toma nombres y tipos de animal por input y crea una lista de dicc animales.
-#     recibe cantidad a ingresar.
-#     devuelve una lista de dicc
-#     '''
-#     lista = []
-#     contador = cantidad
-#     while(contador > 0):
-#         nombre_ingresado = input("Ingrese {0} ".format(clave_nombre))
-#         tipo_ingresado = input("Ingrese tipo de {0} ".format(clave_tipo))
+def agregar_a_lista(
+        cantidad :int,clave_nombre : str, clave_tipo : str)-> list[dict]:
+    ''' 
+    toma nombres y tipos de animal por input y crea una lista de dicc animales.
+    recibe cantidad a ingresar.
+    devuelve una lista de dicc
+    '''
+    lista = []
+    contador = cantidad
+    while(contador > 0):
+        nombre_ingresado = input("Ingrese {0} ".format(clave_nombre))
+        tipo_ingresado = input("Ingrese tipo de {0} ".format(clave_tipo))
 
-#         nuevo_dicc_animal = {}
-#         if(nombre_ingresado not in nuevo_dicc_animal):
-#             nuevo_dicc_animal[clave_nombre] = nombre_ingresado
-#             nuevo_dicc_animal[clave_tipo] = tipo_ingresado
-#             lista.append(nuevo_dicc_animal)
-#         contador -= 1
-#     return lista
+        nuevo_dicc_animal = {}
+        if(nombre_ingresado not in nuevo_dicc_animal):
+            nuevo_dicc_animal[clave_nombre] = nombre_ingresado
+            nuevo_dicc_animal[clave_tipo] = tipo_ingresado
+            lista.append(nuevo_dicc_animal)
+        contador -= 1
+    return lista
 
 
 
