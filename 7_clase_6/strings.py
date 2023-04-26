@@ -186,7 +186,7 @@ def convertir_de_lista_a_cadena(lista : list, separador)-> str:
     if(separador != ","):
         cadena = separador.join(lista)
     else:
-         cadena = separador.join(lista)+ ".."
+        cadena = separador.join(lista)+ ".."
     return cadena
 
 # print(convertir_de_lista_a_cadena(lista_de_nombres, separador))
@@ -231,7 +231,7 @@ def convertir_de_lista_a_cadena(lista : list, separador)-> str:
     if(separador != ","):
         cadena = separador.join(lista)
     else:
-         cadena = separador.join(lista)+ ".."
+        cadena = separador.join(lista)+ ".."
     return cadena
 
 # print(convertir_de_lista_a_cadena(lista_de_nombres, separador))
@@ -245,7 +245,7 @@ ejemplo: "**** **** **** 1234".
 '''
 numero_tarjeta = "4242 4242 4242 1234"
 
-''' Otra forma mejor aparentemente '''
+
 def verificar_tarjeta(tarjeta: str):
     '''
     verifica muestra los ultimos 4 digitos de un numero de tajeta de credito 

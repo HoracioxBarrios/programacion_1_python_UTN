@@ -166,11 +166,11 @@ def buscar(lista : list,palabra_a_buscar :str, clave_busqueda : str):
     '''
     aux_existe = -1
     for elem in lista:
-         if(palabra_a_buscar == elem[clave_busqueda]):
-             aux_existe = elem
+        if(palabra_a_buscar == elem[clave_busqueda]):
+            aux_existe = elem
     return aux_existe
 
-     
+    
 
 
 while (True):
