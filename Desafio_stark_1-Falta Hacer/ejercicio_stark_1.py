@@ -210,7 +210,26 @@ def promediar_por_clave(lista : list[dict], clave_requerida : str)-> int:
 
 
 #agrupa contando por tipo
-def contar_por_tipo(lista : list, clave_tipo)-> dict:
+# def contar_por_tipo(lista : list, clave_tipo)-> dict:
+#     '''
+#     separa por tipo y los contabiliza
+#     recibe una list de dict
+#     retorna - una lista de dict con los tipos y cantidades correspondientes
+#     '''
+#     nuevo_dicc_contador = {}
+#     for diccionario in lista:
+#         nueva_clave = diccionario[clave_tipo]# "average" ""
+#         if(not nueva_clave):
+#             nueva_clave = nueva_clave.replace("", "No tiene")
+#         if (diccionario[clave_tipo] in nuevo_dicc_contador):
+#             nuevo_dicc_contador[nueva_clave] += 1
+#         else:
+            
+#             nuevo_dicc_contador[nueva_clave] = 1
+        
+#     return nuevo_dicc_contador
+
+def contar_por_tipo(lista: list, clave_tipo: str) -> dict:
     '''
     separa por tipo y los contabiliza
     recibe una list de dict
@@ -218,17 +237,17 @@ def contar_por_tipo(lista : list, clave_tipo)-> dict:
     '''
     nuevo_dicc_contador = {}
     for diccionario in lista:
-        nueva_clave = diccionario[clave_tipo]
-        if (diccionario[clave_tipo] not in nuevo_dicc_contador):
-            if(not diccionario[clave_tipo]):# si no tiene
-                nueva_clave = "No tiene"
-            nuevo_dicc_contador[nueva_clave] = 1
-        else:
-            nuevo_dicc_contador[nueva_clave] += 1
-    return nuevo_dicc_contador
-    1
+        valor_tipo = diccionario.get(clave_tipo)
+        if valor_tipo == '': # evalua si es "", reasigna 
+            valor_tipo = 'Notiene'
 
-            
+        if valor_tipo in nuevo_dicc_contador: 
+            nuevo_dicc_contador[valor_tipo] += 1
+        else:
+            nuevo_dicc_contador[valor_tipo] = 1
+    return nuevo_dicc_contador
+
+
 ''' no cuenta los de inteligencia cundo tiene valot = "     '''        
             
             
