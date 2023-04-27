@@ -139,16 +139,17 @@ def print_lista_dicc_completo(lista : list[dict])-> None:
         contador += 1
 
 
-def print_dicc(diccionario):
+def print_dicc(diccionario, mensaje):
     '''
     muestra un diccionario
-    Recibe un diccionario
+    Recibe un diccionario, un mensaje a mostrar
     devuelve, no aplica
     '''
-    print("------------ Resultado ------------")
+    print("------------{0}------------".format(mensaje))
     for clave, valor in diccionario.items():
-        print("------------")
+        
         print("{0} : {1} ".format(clave, valor))
+    print("------------")
     
 #Funcion que recorre una Lista[Dict] y crea un nueva lista dicc a medida
 # La usé para listar generos
@@ -168,7 +169,42 @@ def listar_por_clave_valor(
             dicc[clave_requerida] not in nueva_lista_dicc):
             nueva_lista_dicc.append(dicc)
     return nueva_lista_dicc
-                
+#--------------Funciones Listar por clave son 2
+def devolver_variantes(lista : list[dict], clave_tipo : str)-> list:
+    '''
+    crea una nueva lista de todas las variantes buscadas segun clave.
+    recibe una lista[dict] y una clave (Ej: "color_de_pelo")
+    devuelve una nueva lista.
+    '''
+    aux = None
+    nueva_lista = []
+    flag = True
+    for elem in lista:
+        for clave , valor in elem.items():
+            if(flag or aux):
+                if(valor != aux  and clave == clave_tipo):
+                    aux = valor
+                    nueva_lista.append(aux)
+                    flag = False
+    return nueva_lista
+
+
+def listar_por_clave(
+        lista :list[dict], clave_tipo: str, mensaje: str)-> None:
+    '''
+    lista dependiendo de una list[dict] segun clave.
+    recibe una lista[dict], una clave y un mensaje
+    devuelve - no aplica
+
+    
+    '''
+    nueva_lista = devolver_variantes(lista, clave_tipo)
+    for variante in nueva_lista:
+        for personaje in lista_personajes:
+            if(personaje[clave_tipo] == variante):
+                 print_dicc(personaje, mensaje)
+#-------------------------------------------
+                          
 #El Max y el Min de la Lista de Dicc
 def max_min_de_lista_dicc(
     lista: list[dict], clave_requerida :str, maximo = True)-> dict:
@@ -210,25 +246,6 @@ def promediar_por_clave(lista : list[dict], clave_requerida : str)-> int:
 
 
 #agrupa contando por tipo
-# def contar_por_tipo(lista : list, clave_tipo)-> dict:
-#     '''
-#     separa por tipo y los contabiliza
-#     recibe una list de dict
-#     retorna - una lista de dict con los tipos y cantidades correspondientes
-#     '''
-#     nuevo_dicc_contador = {}
-#     for diccionario in lista:
-#         nueva_clave = diccionario[clave_tipo]# "average" ""
-#         if(not nueva_clave):
-#             nueva_clave = nueva_clave.replace("", "No tiene")
-#         if (diccionario[clave_tipo] in nuevo_dicc_contador):
-#             nuevo_dicc_contador[nueva_clave] += 1
-#         else:
-            
-#             nuevo_dicc_contador[nueva_clave] = 1
-        
-#     return nuevo_dicc_contador
-
 def contar_por_tipo(lista: list, clave_tipo: str) -> dict:
     '''
     separa por tipo y los contabiliza
@@ -248,12 +265,7 @@ def contar_por_tipo(lista: list, clave_tipo: str) -> dict:
     return nuevo_dicc_contador
 
 
-''' no cuenta los de inteligencia cundo tiene valot = "     '''        
-            
-            
-            
-            
-            
+
             
     
 while(True):
@@ -306,17 +318,20 @@ while(True):
             promedio_femenino = promediar_por_clave(lista_dicc_resultado, clave_requerida="altura")
             print("El promedio de Femenino es: {0}".format(promedio_femenino))
         case 10:
-           print(contar_por_tipo(lista_heroes, clave_tipo="color_ojos"))
+            print_dicc(contar_por_tipo(lista_heroes, clave_tipo="color_ojos",),mensaje="Heroe")
         case 11:
-           print(contar_por_tipo(lista_heroes, clave_tipo ="color_pelo"))
+           print_dicc(contar_por_tipo(lista_heroes, clave_tipo ="color_pelo"),mensaje="Heroe")
         case 12:
-           print(contar_por_tipo(lista_heroes, clave_tipo ="inteligencia"))
+           print_dicc(contar_por_tipo(lista_heroes, clave_tipo ="inteligencia"),mensaje="Heroe")
         case 13:
-           pass
+            listar_por_clave(
+                lista_heroes, clave_tipo= "color_ojos",mensaje= "Por color de Ojos")
         case 14:
-          pass 
+            listar_por_clave(
+                lista_heroes, clave_tipo= "color_pelo", mensaje= "Por color de Pelo") 
         case 15:
-            pass
+            listar_por_clave(
+                lista_heroes, clave_tipo= "inteligencia",mensaje= "Por color de Inteligencia")
         case 16:
            break
 
