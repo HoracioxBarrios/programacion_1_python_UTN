@@ -144,7 +144,7 @@ def contar_por_tipo(lista : list, clave_tipo)-> dict:
             nuevo_dicc_contador[nueva_clave] = 1
         else:
             nuevo_dicc_contador[nueva_clave] += 1
-        return nuevo_dicc_contador
+    return nuevo_dicc_contador
     
 
 
