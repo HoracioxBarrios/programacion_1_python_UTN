@@ -177,7 +177,7 @@ cadena separada por un salto de línea, por ejemplo:
 '''
 # lista_de_nombres = ["Pedro", "Mar", "Lilia"]
 # separador = "\n"
-def convertir_de_lista_a_cadena(lista : list, separador)-> str:
+def concatenar_a_cadena(lista : list, separador)-> str:
     '''
     toma una lista de cadenas y las  separada por un salto de línea
     recibe una lista, y el caracter separador
@@ -219,10 +219,10 @@ que contenga todas las palabras concatenadas con comas y "y" antes de la última
 palabra. Por ejemplo, si la lista es ["manzanas", "naranjas", "bananas"], 
 el string resultante debería ser "manzanas, naranjas y bananas"..
 '''
-# lista_de_nombres = ["Pedro", "Mar", "Lilia"]
-# separador = ","
+lista_de_nombres = ["Pedro", "Mar", "Lilia"]
+separador = ","
 
-def convertir_de_lista_a_cadena(lista : list, separador)-> str:
+def concatenar_a_cadena(lista : list, separador: str)-> str:
     '''
     toma una lista de cadenas y las  separada por un separador
     recibe una lista
@@ -234,7 +234,7 @@ def convertir_de_lista_a_cadena(lista : list, separador)-> str:
         cadena = separador.join(lista)+ ".."
     return cadena
 
-# print(convertir_de_lista_a_cadena(lista_de_nombres, separador))
+print(concatenar_a_cadena(lista_de_nombres, separador))
 
 '''
 12- Escribir una función que tome un número de tarjeta de crédito como 
@@ -266,3 +266,23 @@ def verificar_tarjeta(tarjeta: str):
             
 
 # print(verificar_tarjeta(numero_tarjeta))
+
+
+'''
+Crear una función que reciba como parámetro un string y devuelva un
+diccionario donde cada clave es una palabra y cada valor es un entero que
+indicacuántasvecesapareceesapalabradentrodelstring.
+
+'''
+
+def cuenta_palabra(texto : str):
+    dicc_contador = {}
+    lista_palabras = texto.split(" ")
+    for palabra in lista_palabras:
+        if palabra in dicc_contador:
+            dicc_contador[palabra] += 1
+        else:
+            dicc_contador[palabra] = 1
+    return dicc_contador
+
+# print(cuenta_palabra("diccionario perro perro gato musica"))
