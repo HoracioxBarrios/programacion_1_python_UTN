@@ -1,0 +1,80 @@
+# from data_stark import lista_personajes
+
+
+lista_personajes =\
+[
+  {
+    "nombre": "Howard the Duck",
+    "identidad": "Howard (Last name unrevealed)",
+    "empresa": "Marvel Comics",
+    "altura": "79.349999999999994",
+    "peso": "18.449999999999999",
+    "genero": "F",
+    "color_ojos": "Brown",
+    "color_pelo": "Yellow",
+    "fuerza": "2",
+    "inteligencia": ""
+  },
+  {
+    "nombre": "Rocket Raccoon",
+    "identidad": "Rocket Raccoon",
+    "empresa": "Marvel Comics",
+    "altura": "122.77",
+    "peso": "25.73",
+    "genero": "M",
+    "color_ojos": "Brown",
+    "color_pelo": "Brown",
+    "fuerza": "5",
+    "inteligencia": "average"
+  },
+  {
+    "nombre": "Wolverine",
+    "identidad": "Logan",
+    "empresa": "Marvel Comics",
+    "altura": "160.69999999999999",
+    "peso": "135.21000000000001",
+    "genero": "F",
+    "color_ojos": "Blue",
+    "color_pelo": "Black",
+    "fuerza": 35,
+    "inteligencia": "good"
+  }]
+'''
+Desafío #02: (con biblioteca propia: stark_biblioteca)
+En base a lo resuelto en el desafío #00, deberás mejorar la calidad de tus funciones.
+Es por ello que te proponemos lo siguiente:
+
+IMPORTANTE: Para todas y cada una de las funciones creadas, documentarlas
+escribiendo que es lo que hacen, que son los parámetros que reciben (si es una lista,
+un string, etc y que contendrá) y que es lo que retorna la función!
+
+0. Crear la función 'stark_normalizar_datos' la cual recibirá por parámetro la lista
+de héroes. La función deberá:
+
+● Recorrer la lista y convertir al tipo de dato correcto las keys (solo con
+las keys que representan datos numéricos)
+
+● Validar primero que el tipo de dato no sea del tipo al cual será
+casteado. Por ejemplo si una key debería ser entero (ejemplo edad)
+verificar antes que no se encuentre ya en ese tipo de dato.
+
+● Si al menos un dato fue modificado, la función deberá imprimir como
+mensaje ‘Datos normalizados’, caso contrario no imprimirá nada.
+
+● Validar que la lista de héroes no esté vacía para realizar sus acciones,
+caso contrario imprimirá el mensaje: “Error: Lista de héroes vacía”
+
+
+'''
+
+
+def stark_normalizar_datos(lista_heroes : list[dict]):
+    
+    
+    for heroe in lista_heroes:
+        for clave in heroe:
+           if type(heroe[clave]) is str:
+
+
+
+stark_normalizar_datos(lista_personajes)

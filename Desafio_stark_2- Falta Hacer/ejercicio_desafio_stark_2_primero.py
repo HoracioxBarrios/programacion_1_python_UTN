@@ -111,7 +111,7 @@ def obtener_nombre(heroe : dict):
 # print(obtener_nombre(heroe))
 
 '''
-1.2 Crear la función 'imprimir_dato' la cual recibirá por parámetro|| un string y
+1.2 Crear la función 'imprimir_dato' la cual recibirá por parámetro || un string y
 deberá imprimirlo en la consola. La función no tendrá retorno.
 '''
 palabra = "Pelota"
@@ -161,6 +161,6 @@ def obtener_nombre_y_dato(heroe : dict, clave):
     nombre_formateado = obtener_nombre(heroe)
     return "{0} | {1} {2} ".format(nombre_formateado.capitalize(), clave.capitalize(), heroe[clave])
 
-print(obtener_nombre_y_dato(heroe, clave ="fuerza"))
+# print(obtener_nombre_y_dato(heroe, clave ="fuerza"))
 
 
