@@ -2,13 +2,13 @@ import re
 
 
 
-ingreso = input("Ingrese una edad: ")  #string str
+# ingreso = input("Ingrese una edad: ")  #string str
 
-if re.match('[0-9]{2}',ingreso):
-    edad = int(ingreso)
-    print(f"Le edad es: {edad}")
-else:
-    print("no es un numero lo ingresado")
+# if re.match('[0-9]{2}',ingreso):
+#     edad = int(ingreso)
+#     print(f"Le edad es: {edad}")
+# else:
+#     print("no es un numero lo ingresado")
 '''
 """
     "Marina"
@@ -27,37 +27,37 @@ else:
 """
 '''
 
-texto = "hola . mundo .. cruel"
+# texto = "hola . mundo .. cruel"
 
-print(re.split(' \.{2} ',texto)) #['hola . mundo', 'cruel']
-print(re.split(' \.+ ',texto)) # ['hola', 'mundo', 'cruel']
-print(re.split(' \.{1,2} ',texto)) #['hola', 'mundo', 'cruel']
+# print(re.split(' \.{1} ',texto)) #['hola . mundo', 'cruel']  #Quita el que tiene 1 punto
+# print(re.split(' \.+ ',texto)) # ['hola', 'mundo', 'cruel'] # Quita el que tiene 1 o mas puntos
+# print(re.split(' \.{1,2} ',texto)) #['hola', 'mundo', 'cruel'] # Quita 1 o 2 puntos de la cadena
 
-name = "Marina anabella Cardozo"
-print(re.sub('[0-9]','*',name))
+# name = "Marina anabella Cardozo 10"
+# print(re.sub('[0-9]','*',name)) #reemplaza numero de 0 a 9 por por *
 
 texto = 'Chola 1234' #primera letra mayus  hola 4 4 digitos
 
-print(re.match('([a-zA-Z]+) ([0-9]{4})',texto))
+# print(re.match('([a-zA-Z]+) ([0-9]{4})',texto))
 
-'''
-if re.match('(^[A-Z][a-z]{4}) ([0-9]{4})',texto):
+
+if re.match("(^[A-Z][a-z]{4}) ([0-9]{4})",texto):
     print("se cumple")
 else:
     print("no se cumple")
-'''
 
 
-saludo = "¡Holasssss! ¿como estas?"
 
-print(re.match('¡[A-Za-z]+!',saludo))
+# saludo = "¡Holasssss! ¿como estas?"
 
-fecha = "hoy es 2023/04/09 y son las 10:04:00, 12:04:00"
+# print(re.match('¡[A-Za-z]+!',saludo))
 
-print(re.findall('[0-9]{4}',fecha))
-print(re.findall('/[0-9]{2}/',fecha))
-print(re.findall('[0-9]{4}/[0-9]{2}/[0-9]{2}',fecha))
-print(re.findall('[0-9]{2}:[0-9]{2}:[0-9]{2}',fecha))
+# fecha = "hoy es 2023/04/09 y son las 10:04:00, 12:04:00"
+
+# print(re.findall('[0-9]{4}',fecha))
+# print(re.findall('/[0-9]{2}/',fecha))
+# print(re.findall('[0-9]{4}/[0-9]{2}/[0-9]{2}',fecha))
+# print(re.findall('[0-9]{2}:[0-9]{2}:[0-9]{2}',fecha))
 
 
 
