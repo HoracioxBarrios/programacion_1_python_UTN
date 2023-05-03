@@ -183,7 +183,7 @@ CUALQUIER OTRO DATO.
 (suponiendo que la key es fuerza)
 Nombre:Venom|fuerza:500
 '''
-clave_buscada = "fuerza"
+clave_a_calcular = "fuerza"
 
 def obtener_nombre_y_dato(diccionario_heroe :dict, clave_buscada : str)-> str:
     '''
@@ -232,7 +232,7 @@ que tenga el dato más alto.
 Ejemplo de llamada:
 calcular_max(lista,'edad')
 '''
-clave_buscada="fuerza"
+clave_a_calcular="fuerza"
 
 def calcular_max(lista_heroes :list[dict], clave_buscada : str)-> dict:
     '''
@@ -264,7 +264,7 @@ correspondientes
 Ejemplo de llamada:
 calcular_min(lista,'edad')
 '''
-clave_buscada="fuerza"
+clave_a_calcular="fuerza"
 
 def calcular_min(lista_heroes :list[dict], clave_buscada : str)-> dict:
     '''
@@ -299,7 +299,7 @@ Ejemplo de llamada:
 calcular_max_min_dato(lista,"maximo","edad")
 '''
 tipo_de_calculo = "minimo" # o "maximo"
-clave_buscada = "altura"  # o "fuerza", "peso"
+clave_a_calcular = "altura"  # o "fuerza", "peso"
 
 def calcular_max_min_dato(
     lista_heroes :list[dict], tipo_de_calculo : str,clave_buscada :str )-> dict:
@@ -337,7 +337,7 @@ Mayoraltura:Nombre:HowardtheDuck|altura:79.34
 correspondientes
 '''
 tipo_de_calculo = "maximo"
-clave_buscada = "altura"
+clave_a_calcular = "altura"
 
 def stark_calcular_imprimir_heroe(
     lista_heroes :list[dict], tipo_de_calculo : str, clave_buscada : str):
@@ -367,34 +367,84 @@ requiere sumar. Validar que cada héroe sea tipo diccionario y que no sea un
 diccionario vacío antes de hacer la suma. La función deberá retorna la suma
 de todos los datos según la key pasada por parámetro
 '''
-clave_buscada = "altura"
+clave_a_calcular = "altura"
 
 #normalizo los datos de la lista dentro de esta funcion
-def sumar_dato_heroe(lista_heroes : list[dict], clave_buscada : str):
+def sumar_dato_heroe(lista_heroes : list[dict], clave_a_calcular : str):
     '''
     de una list[dicc] acumula(suma) segun clave
     recibe una lista de dicc heroes
-    retorna la suma de lo buscado - si la lista esta vacia da el mensaje
+    retorna la suma de lo buscado - si la lista esta vacia da -1
     '''
     if(lista_heroes):
         lista_heroes_normalizada = stark_normalizar_datos(lista_heroes)
         acumulador_de_dato = 0
         for dicc_heroe in lista_heroes_normalizada:
-            if (clave_buscada in dicc_heroe and 
+            if (clave_a_calcular in dicc_heroe and 
                 bool(dicc_heroe) and type(dicc_heroe) is dict):
                 
-                acumulador_de_dato += dicc_heroe[clave_buscada]
-        return "la suma de todas las {0} es: {1}".format(
-            clave_buscada, acumulador_de_dato)
+                acumulador_de_dato += dicc_heroe[clave_a_calcular]
+        return acumulador_de_dato
                 
     else:
-        return "La lista esta vacia"
+        return -1
 
-# print(sumar_dato_heroe(lista_personajes, clave_buscada))
+# print(sumar_dato_heroe(lista_personajes, clave_a_calcular))
 
 '''
-5.2. Crear la función ‘dividir’ la cual recibirá como parámetro dos números
+5.2. Crear la función dividir la cual recibirá como parámetro dos números
 (dividendo y divisor). Se debe verificar si el divisor es 0, en caso de serlo,
 retornar 0, caso contrario realizar la división entre los parámetros y retornar el
 resultado
 '''
+ejemplo_dividendo = "30"
+ejemplo_divisor = 2
+
+def dividir(dividendo, divisor )-> float:
+    '''
+    realiza la division entre dos numeros
+    recibe un dividendo Int o Float, y un divisor int o float
+    devuelve el resultado (float) o en caso de error 0
+    '''
+    if divisor != 0 and isinstance(dividendo, (int, float)) and isinstance(divisor, (int, float)):
+        return dividendo / divisor
+    else:
+        return 0
+
+# print(dividir(ejemplo_dividendo, ejemplo_divisor))
+
+
+#Nota: no sirve esta validacion: if(divisor != 0 and type[dividendo] is not str or type[divisor] is not str):     ya que si entra un str vuelva todo,
+#isinstance() comprueba en este caso si el valor es una instancia de la clase Int o la clase Float
+
+'''
+5.3. Crear la función calcular_promedio la cual recibirá como parámetro una
+lista de héroes y un string que representa el dato del héroe que se requiere
+calcular el promedio. La función debe retornar el promedio del dato pasado
+por parámetro
+'''
+clave_a_calcular = "altura"
+
+#uso la funcion normalizar datos, en la funcion sumar_dato_heroe
+def calcular_promedio(
+    lista_heroes : list[dict], clave_a_calcular : str)-> float:
+    resultado_acumulado = sumar_dato_heroe(lista_heroes, clave_a_calcular)
+    cantidad_de_heroes = len(lista_heroes)
+    promedio = dividir(resultado_acumulado, cantidad_de_heroes)
+    return promedio
+
+resultado_promedio = calcular_promedio(lista_personajes, clave_a_calcular)
+print(resultado_promedio)
+
+'''
+5.4. Crear la función 'stark_calcular_imprimir_promedio_altura' la cual recibirá
+una lista de héroes y utilizando la función del punto 5.3 calcula y mostrará la
+altura promedio. Validar que la lista de héroes no esté vacía para realizar sus
+acciones, caso contrario no hará nada y retornara -1.
+IMPORTANTE: hacer uso de las las funciones creadas en los puntos 1.2, 5.1 y
+5.3
+Con este se resuelve el Ej 5 del desafío #00
+'''
+
+def stark_calcular_imprimir_promedio_altura():
+    pass
