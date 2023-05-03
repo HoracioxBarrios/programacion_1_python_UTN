@@ -31,11 +31,6 @@ palabras_con_a = re.findall(r'\b\w*a\w*\b', texto)
 print(palabras_con_a) # ['casa', 'playa', 'arena', 'todas']
 
 
-
-
-
-
-
 '''La función re.sub() en Python 3 es utilizada para reemplazar todas las 
 ocurrencias de una expresión regular en una cadena con un texto especificado.'''
 
