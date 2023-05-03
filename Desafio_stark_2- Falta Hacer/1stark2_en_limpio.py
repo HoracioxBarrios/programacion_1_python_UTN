@@ -84,7 +84,7 @@ def stark_normalizar_datos(heroes: list[dict]) -> list[dict]:
 1.1 Crear la función 'obtener_nombre' la cual recibirá por parámetro un
 diccionario el cual representara a un héroe y devolverá un string el cual
 contenga su nombre formateado de la siguiente manera:
-Nombre:Howard theDuck
+Nombre: Howard theDuck
 '''
 def obtener_nombre(heroe : dict):
     '''
@@ -92,12 +92,11 @@ def obtener_nombre(heroe : dict):
     recibe un diccionario
     devuelve una cadena
     '''
-    for nombre in heroe:
-        if(nombre == "nombre"):
-            return "{0} : {1}".format(nombre, heroe[nombre])
+    for clave in heroe:
+        if(clave == "nombre"):
+            return "{0} : {1}".format(clave, heroe[clave])
 
 # print(obtener_nombre(heroe))
-
 
 #1.2
 '''
@@ -105,7 +104,6 @@ def obtener_nombre(heroe : dict):
 deberá imprimirlo en la consola. La función no tendrá retorno.
 '''
 palabra = "Pelota"
-
 
 def print_dato(palabra : str):
     '''
@@ -116,8 +114,9 @@ def print_dato(palabra : str):
     print("{0}".format(palabra))
 
 
-#1.3
+# print_dato(palabra)
 
+#1.3
 '''
 1.3 Crear la función 'stark_imprimir_nombres_heroes' la cual recibirá por
 parámetro la lista de héroes y deberá imprimirla en la consola. Reutilizar las
@@ -135,9 +134,7 @@ def stark_imprimir_nombres_heroes(lista_heroes : list[dict]):
     else:
         return -1
         
-# stark_imprimir_nombres_heroes(lista_personajes)
-
-
+stark_imprimir_nombres_heroes(lista_personajes)
 
 
 '''
@@ -159,5 +156,5 @@ def obtener_nombre_y_dato(diccionario_heroe :dict, clave_buscada : str)-> str:
             return "{0} | {1} : {2}".format(
                 diccionario_heroe["nombre"], clave, diccionario_heroe[clave])
 
-nombre__dato_buscado = obtener_nombre_y_dato(heroe,clave_buscada = "altura")
-print(nombre__dato_buscado)
+# nombre__dato_buscado = obtener_nombre_y_dato(heroe, clave_buscada="altura")
+# print(nombre__dato_buscado)

@@ -24,7 +24,7 @@ lista_personajes =\
     "genero": "M",
     "color_ojos": "Brown",
     "color_pelo": "Brown",
-    "fuerza": "5",
+    "fuerza": "35",
     "inteligencia": "average"
   },
   {
@@ -117,23 +117,10 @@ diccionario el cual representara a un héroe y devolverá un string el cual
 contenga su nombre formateado de la siguiente manera:
 Nombre:Howard theDuck
 '''
-# heroe = {
-#     "nombre": "Rocket Raccoon",
-#     "identidad": "Rocket Raccoon",
-#     "empresa": "Marvel Comics",
-#     "altura": "122.77",
-#     "peso": "25.73",
-#     "genero": "M",
-#     "color_ojos": "Brown",
-#     "color_pelo": "Brown",
-#     "fuerza": "5",
-#     "inteligencia": "average"
-# }
 
-
-def obtener_nombre(heroe : dict):
+def obtener_nombre(heroe : dict)-> str:
     '''
-    obtiene nombre
+    obtiene nombre de un dicc
     recibe un diccionario
     devuelve una cadena
     '''
@@ -147,7 +134,7 @@ def obtener_nombre(heroe : dict):
 1.2 Crear la función 'imprimir_dato' la cual recibirá por parámetro un string y
 deberá imprimirlo en la consola. La función no tendrá retorno.
 '''
-palabra = "Pelota"
+palabra = "Programacion"
 
 
 def print_dato(palabra : str):
@@ -170,6 +157,11 @@ para realizar sus acciones, caso contrario no hará nada y retornara -1.
 '''
 
 def stark_imprimir_nombres_heroes(lista_heroes : list[dict]):
+    '''
+    imprime los nombres de heroes
+    recibe una lista de diccionarios
+    devuelve en caso de error -1
+    '''
     if(lista_heroes):
         for heroe in lista_heroes:
             nombre = obtener_nombre(heroe)# esta funcion recorre el dicc heroe
@@ -191,16 +183,22 @@ CUALQUIER OTRO DATO.
 (suponiendo que la key es fuerza)
 Nombre:Venom|fuerza:500
 '''
-
+clave_buscada = "fuerza"
 
 def obtener_nombre_y_dato(diccionario_heroe :dict, clave_buscada : str)-> str:
+    '''
+    obtiene nombre de heroe y dato
+    recibe un diccionario, y una clave ejemplo: "altura", "fuerza", "peso"
+    devuelve una cadena
+    '''
     for clave in diccionario_heroe.keys():
         if clave == clave_buscada:
             return "{0} | {1} : {2}".format(
                 diccionario_heroe["nombre"], clave, diccionario_heroe[clave])
 
-nombre__dato_buscado = obtener_nombre_y_dato(heroe,clave_buscada = "altura")
-print(nombre__dato_buscado)
+
+# nombre__dato_buscado = obtener_nombre_y_dato(heroe, clave_buscada)
+# print(nombre__dato_buscado)
 
 '''
 3. Crear la función 'stark_imprimir_nombres_alturas' la cual recibirá por
@@ -210,3 +208,193 @@ no esté vacía para realizar sus acciones, caso contrario no hará nada y
 retornara -1.
 '''
 
+def stark_imprimir_nombres_alturas(lista_heroes : list[dict]):
+    '''
+    imprime nombres y alturas de los heroes
+    recibe una list[dict] de heroes
+    retorna -1 en caso de error
+    '''
+    if(lista_heroes):
+        clave_buscada = "altura"
+        for dicc_heroe in lista_heroes:
+            print(obtener_nombre_y_dato(dicc_heroe, clave_buscada))
+    else:
+        return -1
+
+# stark_imprimir_nombres_alturas(lista_personajes)
+
+'''
+4.1. Crear la función 'calcular_max' la cual recibirá por parámetro la lista de
+héroes y una key (string) la cual representará el dato que deberá ser evaluado
+a efectos de determinar cuál es el máximo de la lista. Por ejemplo la función
+deberá poder calcular: el peso, la altura o fuerza máximas y retornar el héroe
+que tenga el dato más alto.
+Ejemplo de llamada:
+calcular_max(lista,'edad')
+'''
+clave_buscada="fuerza"
+
+def calcular_max(lista_heroes :list[dict], clave_buscada : str)-> dict:
+    '''
+    calcula el maximo de una lista de heroes segun clave
+    recibe una list[dict] y una clave, por ejemplo clave_buscada = "altura"
+    devuelve el maximo
+    '''
+    lista_heroes_normalizada = stark_normalizar_datos(lista_heroes)
+    for indice in range(len(lista_heroes_normalizada)):
+        if(indice == 0 or 
+           lista_heroes_normalizada[indice][clave_buscada] >
+           lista_heroes_normalizada[max_indice][clave_buscada]):
+            
+            max_indice = indice
+    return lista_heroes_normalizada[max_indice]
+            
+    
+# heroe_maximo = calcular_max(lista_personajes, clave_buscada)
+# print(heroe_maximo)
+
+
+'''
+4.2. Crear la función 'calcular_min' la cual recibirá por parámetro la lista de
+héroes y una key (string) la cual representará el dato que deberá ser evaluado
+a efectos de determinar cuál es el mínimo de la lista. Por ejemplo la función
+deberá poder calcular: el peso, la altura o fuerza máximas y retornar el héroe
+que tenga el dato más bajo.
+correspondientes
+Ejemplo de llamada:
+calcular_min(lista,'edad')
+'''
+clave_buscada="fuerza"
+
+def calcular_min(lista_heroes :list[dict], clave_buscada : str)-> dict:
+    '''
+    calcula el minimo de una lista de heroes segun clave
+    recibe una list[dict] y una clave, por ejemplo clave_buscada = "altura"
+    devuelve el maximo
+    '''
+    lista_heroes_normalizada = stark_normalizar_datos(lista_heroes)
+    for indice in range(len(lista_heroes_normalizada)):
+        if(indice == 0 or 
+           lista_heroes_normalizada[indice][clave_buscada] <
+           lista_heroes_normalizada[mim_indice][clave_buscada]):
+            
+            mim_indice = indice
+    return lista_heroes_normalizada[mim_indice]
+            
+    
+# heroe_minimo = calcular_min(lista_personajes, clave_buscada)
+# print(heroe_minimo)
+
+
+'''
+4.3. Crear la funcion 'calcular_max_min_dato' la cual recibira tres parámetros:
+●La lista de héroes
+●El tipo de cálculo a realizar: es un valor string que puede tomar los
+valores maximo o minimo
+●Un string que representa la key del dato a calcular, por ejemplo: altura,
+peso, edad, etc.
+La función deberá retornar el héroe que cumpla con la condición pedida.
+Reutilizar las funciones hechas en los puntos 4.1 y 4.2
+Ejemplo de llamada:
+calcular_max_min_dato(lista,"maximo","edad")
+'''
+tipo_de_calculo = "minimo" # o "maximo"
+clave_buscada = "altura"  # o "fuerza", "peso"
+
+def calcular_max_min_dato(
+    lista_heroes :list[dict], tipo_de_calculo : str,clave_buscada :str )-> dict:
+    if(tipo_de_calculo == "maximo"):
+        return calcular_max(lista_heroes, clave_buscada)
+    elif(tipo_de_calculo == "minimo"):
+        return calcular_min(lista_heroes, clave_buscada)
+    else:
+        return "Error :Ingrese clave 'maximo' o 'minimo'"
+
+# resultado_max_o_min_por_clave = calcular_max_min_dato(
+#     lista_personajes, tipo_de_calculo, clave_buscada)
+
+# print(resultado_max_o_min_por_clave)
+
+
+'''
+4.4. Crear la función 'stark_calcular_imprimir_heroe' la cual recibirá tres
+parámetros:
+●La lista de héroes
+●El tipo de cálculo a realizar: es un valor string que puede tomar los
+valores maximo o minimo
+●Un string que representa la key del dato a calcular, por ejemplo: altura,
+peso, edad, etc.
+Con este se resuelve el Ej3, Ej4, Ej6 y Ej7 del desafío #00
+La función deberá obtener el héroe que cumpla dichas condiciones, imprimir
+su nombre y el valor calculado. Reutilizar las funciones de los puntos:
+punto 1.2, punto: 2 y punto 4.3
+Validar que la lista de héroes no esté vacía para realizar sus acciones, caso
+contrario no hará nada y retornara -1.
+Ejemplo de llamada:
+stark_calcular_imprimir_heroe(lista,"maximo","edad")
+Ejemplo de salida:
+Mayoraltura:Nombre:HowardtheDuck|altura:79.34
+correspondientes
+'''
+tipo_de_calculo = "maximo"
+clave_buscada = "altura"
+
+def stark_calcular_imprimir_heroe(
+    lista_heroes :list[dict], tipo_de_calculo : str, clave_buscada : str):
+    '''
+    de una List[dict] el héroe que cumpla dichas condiciones, 
+    imprime su nombre y el valor calculado.
+    recibe una lista de dicc heroes list[dict]
+    devuelve -1 en caso de error
+    '''
+    if(lista_heroes):
+        heroe_dicc_max_o_min= calcular_max_min_dato(
+            lista_heroes, tipo_de_calculo,clave_buscada)#4.3
+    
+        nombre_y_dato = obtener_nombre_y_dato(
+            heroe_dicc_max_o_min, clave_buscada)#2
+    
+        print_dato("Mayor {0} Nombre {1}".format(clave_buscada, nombre_y_dato))#1.2
+    else:
+        return -1
+    
+# stark_calcular_imprimir_heroe(lista_personajes, tipo_de_calculo, clave_buscada)
+
+'''
+5.1. Crear la función 'sumar_dato_heroe' la cual recibirá como parámetro una
+lista de héroes y un string que representara el dato/key de los héroes que se
+requiere sumar. Validar que cada héroe sea tipo diccionario y que no sea un
+diccionario vacío antes de hacer la suma. La función deberá retorna la suma
+de todos los datos según la key pasada por parámetro
+'''
+clave_buscada = "altura"
+
+#normalizo los datos de la lista dentro de esta funcion
+def sumar_dato_heroe(lista_heroes : list[dict], clave_buscada : str):
+    '''
+    de una list[dicc] acumula(suma) segun clave
+    recibe una lista de dicc heroes
+    retorna la suma de lo buscado - si la lista esta vacia da el mensaje
+    '''
+    if(lista_heroes):
+        lista_heroes_normalizada = stark_normalizar_datos(lista_heroes)
+        acumulador_de_dato = 0
+        for dicc_heroe in lista_heroes_normalizada:
+            if (clave_buscada in dicc_heroe and 
+                bool(dicc_heroe) and type(dicc_heroe) is dict):
+                
+                acumulador_de_dato += dicc_heroe[clave_buscada]
+        return "la suma de todas las {0} es: {1}".format(
+            clave_buscada, acumulador_de_dato)
+                
+    else:
+        return "La lista esta vacia"
+
+# print(sumar_dato_heroe(lista_personajes, clave_buscada))
+
+'''
+5.2. Crear la función ‘dividir’ la cual recibirá como parámetro dos números
+(dividendo y divisor). Se debe verificar si el divisor es 0, en caso de serlo,
+retornar 0, caso contrario realizar la división entre los parámetros y retornar el
+resultado
+'''
