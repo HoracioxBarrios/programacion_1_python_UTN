@@ -433,8 +433,8 @@ def calcular_promedio(
     promedio = dividir(resultado_acumulado, cantidad_de_heroes)
     return promedio
 
-resultado_promedio = calcular_promedio(lista_personajes, clave_a_calcular)
-print(resultado_promedio)
+# resultado_promedio = calcular_promedio(lista_personajes, clave_a_calcular)
+# print(resultado_promedio)
 
 '''
 5.4. Crear la función 'stark_calcular_imprimir_promedio_altura' la cual recibirá
@@ -446,5 +446,14 @@ IMPORTANTE: hacer uso de las las funciones creadas en los puntos 1.2, 5.1 y
 Con este se resuelve el Ej 5 del desafío #00
 '''
 
-def stark_calcular_imprimir_promedio_altura():
-    pass
+def stark_calcular_imprimir_promedio_altura(lista_heroes : list[dict]):
+    if(lista_heroes):
+        clave_a_calcular = "altura"
+        resultado_promedio = calcular_promedio(lista_heroes, clave_a_calcular) #5.3 incluye al 5.1
+        return resultado_promedio
+    else:
+        return -1
+
+# print_dato(stark_calcular_imprimir_promedio_altura(lista_personajes)) #1.2
+
+
