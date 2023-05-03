@@ -72,7 +72,7 @@ y el espacio y False enel casocontrario
 texto_prueba = "Pelota"
 
 def es_solo_texto(cadena : str)-> bool:
-
+    pass
 
 
 
