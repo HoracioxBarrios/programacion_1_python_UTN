@@ -535,6 +535,11 @@ lo retornara casteado a entero, caso contrario retorna -1. Reutilizar las
 funciones del ejercicio 6.1 y 6.2
 '''
 def stark_menu_principal():
+    '''
+    se encarga de imprimir elmenú de opciones
+    recibe - no aplica
+    devuelve - no aplica
+    '''
     imprimir_menu()
     opcion = input("Ingresa una Opcion: ")
 
@@ -604,3 +609,4 @@ stark_marvel_app(lista_heroes)
 
 
 
+#https://www.onlinegdb.com/DP3hk-W77
