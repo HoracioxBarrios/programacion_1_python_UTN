@@ -1,6 +1,6 @@
 # lista_personajes = []
 
-lista_personajes =\
+lista_heroes =\
 [
   {
     "nombre": "Howard the Duck",

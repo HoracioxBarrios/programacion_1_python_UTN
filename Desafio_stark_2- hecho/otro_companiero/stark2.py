@@ -1,4 +1,4 @@
-from data_stark import lista_personajes
+from data_stark import lista_heroes
 
 def stark_normalizar_datos(lista_heroes:list) -> str:
     if not lista_heroes:
@@ -20,7 +20,7 @@ def stark_normalizar_datos(lista_heroes:list) -> str:
     else:
         print('\nNo hizo falta normalizar datos')
 
-stark_normalizar_datos(lista_personajes)
+stark_normalizar_datos(lista_heroes)
 
 
 #................................................PUNTO 1.......................................................
@@ -146,24 +146,24 @@ def stark_menu_principal():
 def stark_marvel_app(lista_de_heroes):
     match (stark_menu_principal()):
         case 1:
-            stark_imprimir_nombres_heroes(lista_personajes)
+            stark_imprimir_nombres_heroes(lista_heroes)
         case 2:
-            stark_imprimir_nombres_alturas(lista_personajes)
+            stark_imprimir_nombres_alturas(lista_heroes)
         case 3:
-            stark_calcular_imprimir_heroe(lista_personajes,'maximo','altura')
+            stark_calcular_imprimir_heroe(lista_heroes,'maximo','altura')
         case 4:
-            stark_calcular_imprimir_heroe(lista_personajes,'minimo','altura')
+            stark_calcular_imprimir_heroe(lista_heroes,'minimo','altura')
         case 5:
-            stark_calcular_imprimir_promedio_altura(lista_personajes,'altura')
+            stark_calcular_imprimir_promedio_altura(lista_heroes,'altura')
         case 6:
-            stark_calcular_imprimir_heroe(lista_personajes,'maximo','altura')
-            stark_calcular_imprimir_heroe(lista_personajes,'minimo','altura')
+            stark_calcular_imprimir_heroe(lista_heroes,'maximo','altura')
+            stark_calcular_imprimir_heroe(lista_heroes,'minimo','altura')
         case 7:
-            stark_calcular_imprimir_heroe(lista_personajes,'maximo','peso')
-            stark_calcular_imprimir_heroe(lista_personajes,'minimo','peso')
+            stark_calcular_imprimir_heroe(lista_heroes,'maximo','peso')
+            stark_calcular_imprimir_heroe(lista_heroes,'minimo','peso')
         case _:
             print('\nOpcion Invalida!!')
 
 while True:            
-    stark_marvel_app(lista_personajes)
+    stark_marvel_app(lista_heroes)
 

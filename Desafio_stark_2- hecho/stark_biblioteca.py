@@ -1,4 +1,4 @@
-from data_stark import lista_personajes
+from data_stark import lista_heroes
 import os
 
 #Ejemplo Lista
@@ -557,44 +557,48 @@ python 3.10+). Debe informar por consola en caso de seleccionar una opción
 incorrecta y volver a pedir el dato al usuario. Reutilizar las funciones con
 prefijo 'stark_' donde crea correspondiente
 '''
-def stark_marvel_app(lista_heroes :list[dict]):
-        while(True):
-            opcion_escogida = stark_menu_principal()
-            print(opcion_escogida)
-            if(opcion_escogida != -1):
-                match(opcion_escogida):
-                        case "1":
-                            stark_imprimir_nombres_heroes(lista_personajes)
-                        case "2":
-                            stark_imprimir_nombres_alturas(lista_personajes)
-                        case "3":
-                            stark_calcular_imprimir_heroe(
-                                lista_personajes, tipo_de_calculo="maximo", clave_buscada="fuerza")
-                        case "4":
-                            stark_calcular_imprimir_heroe(
-                                lista_personajes, tipo_de_calculo="minimo", clave_buscada="fuerza")
-                        case "5":
-                            print_dato(stark_calcular_imprimir_promedio_altura(lista_personajes))
-                        case "6":
-                            stark_calcular_imprimir_heroe(
-                                lista_personajes, tipo_de_calculo="maximo", clave_buscada="altura")
-                        case "7":
-                            stark_calcular_imprimir_heroe(
-                                lista_personajes, tipo_de_calculo="minimo", clave_buscada="altura")
-                        case "8":
-                            stark_calcular_imprimir_heroe(
-                                lista_personajes, tipo_de_calculo="maximo", clave_buscada="peso")
-                        case "9":
-                            stark_calcular_imprimir_heroe(
-                                lista_personajes, tipo_de_calculo="minimo", clave_buscada="peso")
-                        case "10":
-                            break
-            else:
-                print("Error, opcion incorrecta")
-            clear_console()
+def stark_marvel_app(lista_heroes : list[dict]):
+    '''
+    menu de opciones
+    recibe una lista de dicc heroes
+    devuelve error en caso de opcion incorrecta
+    '''
+    while(True):
+        opcion_escogida = stark_menu_principal()
+        if(opcion_escogida != -1):
+            match(opcion_escogida):
+                case "1":
+                    stark_imprimir_nombres_heroes(lista_heroes)
+                case "2":
+                    stark_imprimir_nombres_alturas(lista_heroes)
+                case "3":
+                    stark_calcular_imprimir_heroe(
+                    lista_heroes, tipo_de_calculo="maximo", clave_buscada="fuerza")
+                case "4":
+                    stark_calcular_imprimir_heroe(
+                    lista_heroes, tipo_de_calculo="minimo", clave_buscada="fuerza")
+                case "5":
+                    print_dato(stark_calcular_imprimir_promedio_altura(lista_heroes))
+                case "6":
+                    stark_calcular_imprimir_heroe(
+                    lista_heroes, tipo_de_calculo="maximo", clave_buscada="altura")
+                case "7":
+                    stark_calcular_imprimir_heroe(
+                    lista_heroes, tipo_de_calculo="minimo", clave_buscada="altura")
+                case "8":
+                    stark_calcular_imprimir_heroe(
+                    lista_heroes, tipo_de_calculo="maximo", clave_buscada="peso")
+                case "9":
+                    stark_calcular_imprimir_heroe(
+                    lista_heroes, tipo_de_calculo="minimo", clave_buscada="peso")
+                case "10":
+                    break
+        else:
+            print("Error, opcion incorrecta")
+        clear_console()
 
 
-stark_marvel_app(lista_personajes)
+stark_marvel_app(lista_heroes)
 
 
 

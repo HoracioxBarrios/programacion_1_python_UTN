@@ -1,8 +1,8 @@
-from data_stark import lista_personajes
+from data_stark import lista_heroes
 
 # lista_personajes = []
 
-lista_personajes =\
+lista_heroes =\
 [
   {
     "nombre": "Howard the Duck",
@@ -138,7 +138,7 @@ def stark_imprimir_nombres_heroes(lista_heroes : list[dict]):
 
 
 
-stark_imprimir_nombres_heroes(lista_personajes)
+stark_imprimir_nombres_heroes(lista_heroes)
 
 
 
