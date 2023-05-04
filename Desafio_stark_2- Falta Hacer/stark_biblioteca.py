@@ -428,6 +428,11 @@ clave_a_calcular = "altura"
 #uso la funcion normalizar datos, en la funcion sumar_dato_heroe
 def calcular_promedio(
     lista_heroes : list[dict], clave_a_calcular : str)-> float:
+    '''
+    calcula el promedio total segun necesidad en base a una lista de heroes
+    recibe una lista de dicc heroes y una clave a calcular (ej: clave = "altura")
+    devuelve el promedio
+    '''
     resultado_acumulado = sumar_dato_heroe(lista_heroes, clave_a_calcular)
     cantidad_de_heroes = len(lista_heroes)
     promedio = dividir(resultado_acumulado, cantidad_de_heroes)
@@ -447,6 +452,12 @@ Con este se resuelve el Ej 5 del desafío #00
 '''
 
 def stark_calcular_imprimir_promedio_altura(lista_heroes : list[dict]):
+    '''
+    calcula el promedio total de alturas de los heroes  y lo muestra.
+    recibe una lista de heroes
+    devuelve el resultado y en caso de error -1
+    
+    '''
     if(lista_heroes):
         clave_a_calcular = "altura"
         resultado_promedio = calcular_promedio(lista_heroes, clave_a_calcular) #5.3 incluye al 5.1
@@ -455,5 +466,52 @@ def stark_calcular_imprimir_promedio_altura(lista_heroes : list[dict]):
         return -1
 
 # print_dato(stark_calcular_imprimir_promedio_altura(lista_personajes)) #1.2
+
+'''
+6.1. Crear la función "imprimir_menu" que imprima el menú de opciones por
+pantalla, el cual permite utilizar toda la funcionalidad ya programada. Se
+deberá reutilizar la función antes creada encargada de imprimir un string (1.2)
+'''
+def imprimir_menu():
+    lista_menu = ["Opciones:", "Mostrar el nombre de los superheroes", 
+                  "Mostrar el nombre y la altura de cada superheore", 
+                  "Mostrar el superheroe mas alto", 
+                  "Mostrar la altura promedio del total de superheroes",
+                  "Mostrar superheroe mas alto", "Mostrar superheroe mas bajo", 
+                  "Mostrar el superheroe mas pesado", "Mostrar el superheroe menos pesado",
+                  "Salir"]
+    for indice in range(len(lista_menu)):
+        menu = menu = '\n\n1{0}\n2- .\n3- .\n4- .\n5- .\n6-  \n7- .\n8- . \n9- .\n10-salir \ningrese la opcion deseada: '
+        print_dato(menu)
+
+# imprimir_menu()
+
+'''
+6.2.Crear la función “validar_entero” la cual recibirá por parámetro un string de
+número el cual deberá verificar que sea sea un string conformado únicamente
+por dígitos. Retornara True en caso de serlo, False caso contrario
+'''
+numero = "15"
+# numero = "1.5"
+# numero = "15abc"
+def validar_entero(numero_str: str) -> bool:
+    numero_str.isdigit()
+    numero_int = int(numero_str)
+    return numero_int
+
+
+# print(validar_entero(numero))
+
+
+'''
+6.3. Crear la función 'stark_menu_principal' la cual se encargará de imprimir el
+menú de opciones y le pedirá al usuario que ingrese el número de una de las
+opciones elegidas y deberá validarlo. En caso de ser correcto dicho número,
+lo retornara casteado a entero, caso contrario retorna -1. Reutilizar las
+funciones del ejercicio 6.1 y 6.2
+'''
+def stark_menu_principal():
+    pass
+
 
 
