@@ -11,3 +11,9 @@ video clase 04 https://youtu.be/0tIDbXMjulI funciones
 
 video clase 05 https://www.youtube.com/watch?v=AHoUtHHX0pc funciones ,list, dict 
 
+video clase 06 https://youtu.be/LNjzzMtUY7M uso de string y sus metodos
+
+video clase 07 https://youtu.be/SahwcQd9IFg funciones con strings
+
+video clase 08 https://youtu.be/K0NychmuMV4 Expresiones regulares (regex)
+
