@@ -1,4 +1,5 @@
 # from data_stark import lista_personajes
+import os
 
 
 lista_personajes =\
@@ -52,6 +53,7 @@ heroe = {
     "fuerza": "2",
     "inteligencia": ""
 }
+
 '''
 Desafío #02: (con biblioteca propia: stark_biblioteca)
 En base a lo resuelto en el desafío #00, deberás mejorar la calidad de tus funciones.
@@ -79,6 +81,15 @@ caso contrario imprimirá el mensaje: “Error: Lista de héroes vacía”
 
 
 '''
+def clear_console() -> None:
+    """
+    It waits for the user to hit enter 
+    to clear the console and redisplay the appropriate thing.
+    """
+    _ = input('Press a key to continue...')
+    os.system('cls')
+
+
 
 
 def stark_normalizar_datos(heroes: list[dict]) -> list[dict]:
@@ -473,7 +484,12 @@ pantalla, el cual permite utilizar toda la funcionalidad ya programada. Se
 deberá reutilizar la función antes creada encargada de imprimir un string (1.2)
 '''
 def imprimir_menu():
-    lista_menu = ["Opciones:", "Mostrar el nombre de los superheroes", 
+    '''
+    imprime un menu
+    recibe - no aplica
+    devuelve - no aplica
+    '''
+    lista_menu = ["Mostrar el nombre de los superheroes", 
                   "Mostrar el nombre y la altura de cada superheore", 
                   "Mostrar el superheroe mas alto", 
                   "Mostrar la altura promedio del total de superheroes",
@@ -481,9 +497,7 @@ def imprimir_menu():
                   "Mostrar el superheroe mas pesado", "Mostrar el superheroe menos pesado",
                   "Salir"]
     for indice in range(len(lista_menu)):
-        menu = menu = '\n\n1{0}\n2- .\n3- .\n4- .\n5- .\n6-  \n7- .\n8- . \n9- .\n10-salir \ningrese la opcion deseada: '
-        print_dato(menu)
-
+        print_dato("{0}- {1}".format(indice + 1,lista_menu[indice]))
 # imprimir_menu()
 
 '''
@@ -494,10 +508,17 @@ por dígitos. Retornara True en caso de serlo, False caso contrario
 numero = "15"
 # numero = "1.5"
 # numero = "15abc"
+# numero = 15
 def validar_entero(numero_str: str) -> bool:
-    numero_str.isdigit()
-    numero_int = int(numero_str)
-    return numero_int
+    '''
+    verifica que un str sea digito
+    recibe - un str
+    devuelve un booleano
+    '''
+    if(numero_str.isdigit()):
+        return True
+    else:
+        return False
 
 
 # print(validar_entero(numero))
@@ -511,7 +532,61 @@ lo retornara casteado a entero, caso contrario retorna -1. Reutilizar las
 funciones del ejercicio 6.1 y 6.2
 '''
 def stark_menu_principal():
-    pass
+    imprimir_menu()
+    opcion = input("Ingresa una Opcion: ")
+
+    es_entero = validar_entero(opcion)
+    if(es_entero):
+        return opcion
+    else:
+        return -1
+
+
+# print(stark_menu_principal())
+
+
+'''
+7. Crear la función 'stark_marvel_app' la cual recibirá por parámetro la lista de
+héroes y se encargará de la ejecución principal de nuestro programa.
+Utilizar if/elif o match según prefiera (match solo para los que cuentan con
+correspondientes
+python 3.10+). Debe informar por consola en caso de seleccionar una opción
+incorrecta y volver a pedir el dato al usuario. Reutilizar las funciones con
+prefijo 'stark_' donde crea correspondiente
+'''
+def stark_marvel_app(lista_heroes :list[dict]):
+        flag_no_salir = True
+        while(flag_no_salir):
+            opcion_escogida = stark_menu_principal()
+            print(opcion_escogida)
+            if(opcion_escogida != -1):
+                match(opcion_escogida):
+                        case "1":
+                            print("Eligió listar heroe")
+                        case "2":
+                            print("Eligió Mostrar el nombre y la altura de cada superheore")
+                        case "3":
+                            print("Eligió Mostrar el superheroe mas alto")
+                        case "4":
+                            print("Eligió Mostrar la altura promedio del total de superheroes")
+                        case "5":
+                            print("Eligió Mostrar superheroe mas alto")
+                        case "6":
+                            print("Eligió Mostrar superheroe mas bajo")
+                        case "7":
+                            print("Eligió Mostrar el superheroe mas pesado")
+                        case "8":
+                            print("Eligió Mostrar el superheroe menos pesado")
+                        case "9":
+                            flag_no_salir = False
+            else:
+                print("Error, opcion incorrecta")
+            clear_console()
+
+
+stark_marvel_app(lista_personajes)
+
+
 
 
 
