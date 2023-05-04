@@ -1,58 +1,58 @@
-# from data_stark import lista_personajes
+from data_stark import lista_personajes
 import os
 
-
-lista_personajes =\
-[
-  {
-    "nombre": "Howard the Duck",
-    "identidad": "Howard (Last name unrevealed)",
-    "empresa": "Marvel Comics",
-    "altura": "79.349999999999994",
-    "peso": "18.449999999999999",
-    "genero": "F",
-    "color_ojos": "Brown",
-    "color_pelo": "Yellow",
-    "fuerza": "2",
-    "inteligencia": ""
-  },
-  {
-    "nombre": "Rocket Raccoon",
-    "identidad": "Rocket Raccoon",
-    "empresa": "Marvel Comics",
-    "altura": "122.77",
-    "peso": "25.73",
-    "genero": "M",
-    "color_ojos": "Brown",
-    "color_pelo": "Brown",
-    "fuerza": "35",
-    "inteligencia": "average"
-  },
-  {
-    "nombre": "Wolverine",
-    "identidad": "Logan",
-    "empresa": "Marvel Comics",
-    "altura": "160.69999999999999",
-    "peso": "135.21000000000001",
-    "genero": "F",
-    "color_ojos": "Blue",
-    "color_pelo": "Black",
-    "fuerza": 35,
-    "inteligencia": "good"
-  }]
-#Ejemplo de dicc heroe
-heroe = {
-    "nombre": "Howard the Duck",
-    "identidad": "Howard (Last name unrevealed)",
-    "empresa": "Marvel Comics",
-    "altura": "79.349999999999994",
-    "peso": "18.449999999999999",
-    "genero": "F",
-    "color_ojos": "Brown",
-    "color_pelo": "Yellow",
-    "fuerza": "2",
-    "inteligencia": ""
-}
+#Ejemplo Lista
+# lista_personajes =\
+# [
+#   {
+#     "nombre": "Howard the Duck",
+#     "identidad": "Howard (Last name unrevealed)",
+#     "empresa": "Marvel Comics",
+#     "altura": "79.349999999999994",
+#     "peso": "18.449999999999999",
+#     "genero": "F",
+#     "color_ojos": "Brown",
+#     "color_pelo": "Yellow",
+#     "fuerza": "2",
+#     "inteligencia": ""
+#   },
+#   {
+#     "nombre": "Rocket Raccoon",
+#     "identidad": "Rocket Raccoon",
+#     "empresa": "Marvel Comics",
+#     "altura": "122.77",
+#     "peso": "25.73",
+#     "genero": "M",
+#     "color_ojos": "Brown",
+#     "color_pelo": "Brown",
+#     "fuerza": "35",
+#     "inteligencia": "average"
+#   },
+#   {
+#     "nombre": "Wolverine",
+#     "identidad": "Logan",
+#     "empresa": "Marvel Comics",
+#     "altura": "160.69999999999999",
+#     "peso": "135.21000000000001",
+#     "genero": "F",
+#     "color_ojos": "Blue",
+#     "color_pelo": "Black",
+#     "fuerza": 36,
+#     "inteligencia": "good"
+#   }]
+# #Ejemplo de dicc heroe
+# heroe = {
+#     "nombre": "Howard the Duck",
+#     "identidad": "Howard (Last name unrevealed)",
+#     "empresa": "Marvel Comics",
+#     "altura": "79.349999999999994",
+#     "peso": "18.449999999999999",
+#     "genero": "F",
+#     "color_ojos": "Brown",
+#     "color_pelo": "Yellow",
+#     "fuerza": "2",
+#     "inteligencia": ""
+# }
 
 '''
 Desafío #02: (con biblioteca propia: stark_biblioteca)
@@ -355,7 +355,8 @@ def stark_calcular_imprimir_heroe(
     '''
     de una List[dict] el héroe que cumpla dichas condiciones, 
     imprime su nombre y el valor calculado.
-    recibe una lista de dicc heroes list[dict]
+    recibe una lista de dicc heroes list[dict], un tipo de calculo("maximo" o "minimo")
+    y una clave ("altura", "fuerza","peso")
     devuelve -1 en caso de error
     '''
     if(lista_heroes):
@@ -364,8 +365,10 @@ def stark_calcular_imprimir_heroe(
     
         nombre_y_dato = obtener_nombre_y_dato(
             heroe_dicc_max_o_min, clave_buscada)#2
-    
-        print_dato("Mayor {0} Nombre {1}".format(clave_buscada, nombre_y_dato))#1.2
+        if(tipo_de_calculo == "maximo"):
+            print_dato("Mayor {0} : Nombre {1}".format(clave_buscada, nombre_y_dato))#1.2
+        else:
+            print_dato("Menor {0} : Nombre {1}".format(clave_buscada, nombre_y_dato))#1.2
     else:
         return -1
     
@@ -472,7 +475,7 @@ def stark_calcular_imprimir_promedio_altura(lista_heroes : list[dict]):
     if(lista_heroes):
         clave_a_calcular = "altura"
         resultado_promedio = calcular_promedio(lista_heroes, clave_a_calcular) #5.3 incluye al 5.1
-        return resultado_promedio
+        return "El promedio {0} totales es: {1}".format(clave_a_calcular, resultado_promedio)
     else:
         return -1
 
@@ -490,8 +493,8 @@ def imprimir_menu():
     devuelve - no aplica
     '''
     lista_menu = ["Mostrar el nombre de los superheroes", 
-                  "Mostrar el nombre y la altura de cada superheore", 
-                  "Mostrar el superheroe mas alto", 
+                  "Mostrar el nombre y la altura de cada superheroe", 
+                  "Mostrar el superheroe mas Fuerte","Mostrar el superheroe mas Debil",
                   "Mostrar la altura promedio del total de superheroes",
                   "Mostrar superheroe mas alto", "Mostrar superheroe mas bajo", 
                   "Mostrar el superheroe mas pesado", "Mostrar el superheroe menos pesado",
@@ -555,30 +558,37 @@ incorrecta y volver a pedir el dato al usuario. Reutilizar las funciones con
 prefijo 'stark_' donde crea correspondiente
 '''
 def stark_marvel_app(lista_heroes :list[dict]):
-        flag_no_salir = True
-        while(flag_no_salir):
+        while(True):
             opcion_escogida = stark_menu_principal()
             print(opcion_escogida)
             if(opcion_escogida != -1):
                 match(opcion_escogida):
                         case "1":
-                            print("Eligió listar heroe")
+                            stark_imprimir_nombres_heroes(lista_personajes)
                         case "2":
-                            print("Eligió Mostrar el nombre y la altura de cada superheore")
+                            stark_imprimir_nombres_alturas(lista_personajes)
                         case "3":
-                            print("Eligió Mostrar el superheroe mas alto")
+                            stark_calcular_imprimir_heroe(
+                                lista_personajes, tipo_de_calculo="maximo", clave_buscada="fuerza")
                         case "4":
-                            print("Eligió Mostrar la altura promedio del total de superheroes")
+                            stark_calcular_imprimir_heroe(
+                                lista_personajes, tipo_de_calculo="minimo", clave_buscada="fuerza")
                         case "5":
-                            print("Eligió Mostrar superheroe mas alto")
+                            print_dato(stark_calcular_imprimir_promedio_altura(lista_personajes))
                         case "6":
-                            print("Eligió Mostrar superheroe mas bajo")
+                            stark_calcular_imprimir_heroe(
+                                lista_personajes, tipo_de_calculo="maximo", clave_buscada="altura")
                         case "7":
-                            print("Eligió Mostrar el superheroe mas pesado")
+                            stark_calcular_imprimir_heroe(
+                                lista_personajes, tipo_de_calculo="minimo", clave_buscada="altura")
                         case "8":
-                            print("Eligió Mostrar el superheroe menos pesado")
+                            stark_calcular_imprimir_heroe(
+                                lista_personajes, tipo_de_calculo="maximo", clave_buscada="peso")
                         case "9":
-                            flag_no_salir = False
+                            stark_calcular_imprimir_heroe(
+                                lista_personajes, tipo_de_calculo="minimo", clave_buscada="peso")
+                        case "10":
+                            break
             else:
                 print("Error, opcion incorrecta")
             clear_console()

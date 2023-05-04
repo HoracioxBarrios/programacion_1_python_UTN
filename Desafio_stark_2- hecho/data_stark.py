@@ -1,7 +1,5 @@
 # lista_personajes = []
 
-
-
 lista_personajes =\
 [
   {
