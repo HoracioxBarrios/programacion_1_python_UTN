@@ -4,7 +4,7 @@ un número entero positivo, y luego imprima "El número es un
 cuadrado perfecto" si el número es un cuadrado perfecto, o "El 
 número no es un cuadrado perfecto" si el número no es un cuadrado perfecto .
 '''
-# corroborar ,no lo entiendo
+# corroborar
 num = int(input("Ingrese un número entero positivo: "))
 i = 1
 while i*i <= num:

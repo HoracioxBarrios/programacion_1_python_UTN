@@ -16,3 +16,6 @@ def leer_archivo(path_completo: str) -> list[dict]:
         return list[dict](json.load(archivo)['heroes'])
     
     
+''' codigo proporcionado por el profe facundo'''
+    
+    

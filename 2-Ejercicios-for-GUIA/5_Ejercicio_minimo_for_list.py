@@ -2,7 +2,7 @@
 5-Dada una lista de números,imprimir el número más pequeño de la lista.
 '''
 
-lista_de_numeros = [5, 10, 20, 30, 40, 50]
+lista_de_numeros = [5, 10, 20, 2, 40, 50]
 numero_mas_chico = lista_de_numeros[0] # en la primera iteracion tiene el valor del indice 0
 
 for numero in lista_de_numeros:

@@ -1,5 +1,6 @@
 '''
-4-Dado un número entero n,imprimir la suma de los números impares menores
+4-Dado un número entero n,imprimir la suma de los números 
+impares menores
 o iguales a n.'''
 
 acum_suma_inpares = 0
