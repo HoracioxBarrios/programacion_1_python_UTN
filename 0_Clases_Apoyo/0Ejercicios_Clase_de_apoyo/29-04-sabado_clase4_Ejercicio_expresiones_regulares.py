@@ -1,10 +1,5 @@
-
-
-
-
-
-#https://www.onlinegdb.com/xXNKzNoHe
-#https://docs.python.org/3/library/re.html?highlight=regul
+#Ejercicios Regex clase de apoyo
+import re
 '''
 1.Verificar correo electrónico: Crea una función que tome una cadena de 
 texto como argumento y verifique si se trata de una dirección de correo 
@@ -12,14 +7,14 @@ electrónico válida.  Una dirección de correo electrónico válida debe
 tener un formato como "usuario@dominio.com".
 '''
 ''''
-[a-zA-Z0-9._%+-]      +@   [a-zA-Z0-9.-]   +\. [a-zA-Z]{2,}
+[a-zA-Z0-9._%+-]+    @   [a-zA-Z0-9.-]+   \. [a-zA-Z]{2,}
 usuario                @   dominio          .     com
 1er grupo               2do grupo                 3er grupo
   
 
 '''
-#"usuario@dominio.com"
-import re
+#ejemplo :   "usuario@dominio.com"
+
 correo = 'LordVamp_35@gmail.com'
 def verificar_correo(correo : str):
     patron = re.findall('[a-zA-Z0-9_-]+@[a-zA-Z]+\.[a-zA-Z]{2,}', correo)
@@ -83,17 +78,17 @@ de texto que contiene una fecha en formato "dd/mm/aaaa" y  la reemplace
 por la misma fecha en formato "mm/dd/aaaa".
 
 '''
-import re
 
+fecha_original = "30/04/2023"
 def cambiar_formato_fecha(fecha):
     patron = r'(\d{2})/(\d{2})/(\d{4})'
     nueva_fecha = re.sub(patron, r'\2/\1/\3', fecha)
     return nueva_fecha
 
 
-fecha_original = "30/04/2023"
-nueva_fecha = cambiar_formato_fecha(fecha_original)
-print(nueva_fecha)  # "04/30/2023"
+
+print(nueva_fecha = cambiar_formato_fecha(fecha_original)) # "04/30/2023"
+  
 
 
 
@@ -105,7 +100,7 @@ un espacio, el dígito 9, otro espacio, el código de área de dos dígitos, un
 espacio, el número de teléfono de ocho dígitos separado por un guión en la mitad.
 
 '''
-import re
+
 numero = "+54 9 11 1234-5678"
 
 def validar_telefono(numero):
@@ -115,8 +110,8 @@ def validar_telefono(numero):
 
 
 
-es_valido = validar_telefono(numero)
-print(es_valido)  # True
+print(es_valido = validar_telefono(numero)) # True
+  
 
 
 
@@ -132,7 +127,7 @@ seguido del último dígito que es un verificador.
 
 '''
 
-import re
+
 cuil = "20-12345678-1"
 
 def validar_cuil(cuil):
@@ -142,5 +137,14 @@ def validar_cuil(cuil):
 
 
 
-es_valido = validar_cuil(cuil)
-print(es_valido)  # True
+print(es_valido = validar_cuil(cuil)) # True
+  
+
+
+
+
+
+
+
+#https://www.onlinegdb.com/xXNKzNoHe
+#https://docs.python.org/3/library/re.html?highlight=regul
