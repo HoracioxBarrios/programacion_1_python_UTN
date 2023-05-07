@@ -57,7 +57,8 @@ el espacio entre otros no se considera alfanumerico
 
 '''
 devuelve la primera cadena , unida a cada uno de los elementos 
-de la lista que se le pasa como parámetro.
+de la 
+lista que se le pasa como parámetro.
 '''
 lista = ["A", "B", "C"]
 cadena = " + "
