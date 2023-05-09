@@ -11,7 +11,12 @@ numero = "1551025"
 # numero = "1.5"     # si en la regex no se incluye el \. al menos una vez no lo toma y esta bien en este caso
 
 def es_entero(numero: str) -> bool:
-    resultado = re.match(r'^[+-]?[0-9]+$', numero)
+    '''
+    verifica si el numero pasado en formato string es entero
+    recibe un str
+    devuelve True en caso de ser entero str
+    '''
+    resultado = re.findall(r'^[+-]?[0-9]+$', numero)
     if resultado:
         return True
     else:

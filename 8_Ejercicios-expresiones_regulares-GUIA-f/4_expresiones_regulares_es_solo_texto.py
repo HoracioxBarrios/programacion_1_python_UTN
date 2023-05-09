@@ -11,7 +11,12 @@ texto_prueba = "prueba "
 
 
 def es_solo_texto(cadena: str) -> bool:
-    resultado = re.match(r'^[a-zA-Z\s]+$', cadena)
+    '''
+    verifica si es solo texto
+    recibe una cadena
+    devuelve true en caso de ser solo texto
+    '''
+    resultado = re.findall(r'^[a-zA-Z ]+$', cadena)
     if(resultado):
         return True
     else:
@@ -25,7 +30,12 @@ print(es_solo_texto(texto_prueba))
 '''
 r'^[a-zA-Z\s]+$'
 Nota:
-^ es empoeza con , [] conjunto , en los rangos de a-zA.Z y el \s es espacios en blanco
+^ es empieza con , [] conjunto , en los rangos de a-zA.Z y el " " es espacios en blanco
 + es 1 o mas ocurrencias , y $ termina con ... en este caso con cualquiera de 
 los caracteres del conjunto.
+'''
+
+'''
+no uso \s porque en regex, el metacaracter \s representa un 
+espacio en blanco, incluyendo espacios, tabulaciones y saltos de línea.
 '''

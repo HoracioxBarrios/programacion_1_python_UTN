@@ -8,15 +8,19 @@ contenga caracteres especiales)
 alfanumerico = "pepe123"
 
 def es_alfanumerico(cadena :str)-> bool:
-    regex = re.match(r"^[a-zA-Z0-9]+$",cadena)
-    if(regex):
+    '''
+    verifica si es alfanumerico
+    recibe una cadena str
+    devuelve un boolean
+    '''
+    if re.findall(r"^[a-zA-Z0-9]+$",cadena):
         return True
     else:
         return False
 print(es_alfanumerico(alfanumerico))
     
 
-
+''' si uso re.match tambien anda'''
 
 
 
