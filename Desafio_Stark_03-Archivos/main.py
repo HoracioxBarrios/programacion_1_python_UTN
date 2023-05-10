@@ -32,7 +32,7 @@ def imprimir_menu_desafio_5():
         print_dato(item)
         
 
-# 1.2-------------------- #toma de la eleccion del usuario para el menu
+# 1.2---------------------#toma de la eleccion del usuario para el menu
 def stark_menu_principal_desafio_5(): 
     imprimir_menu_desafio_5()
     respuesta = input('Ingrese una opción: ').upper()
