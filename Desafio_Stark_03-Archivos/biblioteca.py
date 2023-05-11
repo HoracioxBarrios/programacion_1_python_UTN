@@ -117,8 +117,38 @@ def leer_archivo_json(path_completo: str) -> list[dict]:
         return archivo_lista_dict
     
 # leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json") # se usa en main.py
-lista_de_heroes = leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json")
-   
+lista_de_heroes_en_crudo_str = leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json")
+
+
+#------------------------------------------------------------------------------------
+# Voy a usar Normalizar datos para poder calcular maximos, minimos
+
+def stark_normalizar_datos(heroes: list[dict]) -> list[dict]:
+    '''
+    normaliza los datos
+    recibe una list[dict] personajes
+    devuelve una nueva lista de dicc con datos normalizados    
+    '''
+    result_nueva_lista = []
+    if heroes:
+        for heroe in heroes:
+            keys = list(heroe.keys())
+            for key in keys:
+                if type(heroe[key]) is str:
+                    valor_reemplazado: str = heroe[key].replace('.', '')
+                    if valor_reemplazado.isnumeric() and type(heroe[key]) is str:
+                        if '.' in heroe[key] and heroe[key].count('.') == 1:
+                            heroe[key] = float(heroe[key])
+                        else:
+                            heroe[key] = int(heroe[key])
+                        print(
+                            "El dato {0}fue modificado en el heroe {1}".format(key, heroe["nombre"]))
+            result_nueva_lista.append(heroe)
+        return result_nueva_lista
+    else:
+        return "La lista esta Vacia"
+    
+lista_de_heroes_normalizada = stark_normalizar_datos(lista_de_heroes_en_crudo_str)
 #1.5------------------------------------------
 '''
 Crear la función 'guardar_archivo' la cual recibirá por parámetro un
@@ -322,5 +352,102 @@ def stark_guardar_heroe_genero(lista_de_heroes: list[dict], valor_genero: str):
 
    
 
-resultado_genero_csv = stark_guardar_heroe_genero(lista_de_heroes, valor_genero="F")
+# resultado_genero_csv = stark_guardar_heroe_genero(lista_de_heroes, valor_genero="F")
 
+#3 parte 
+#3.1---------------------------------------------------------
+'''
+3.1 Basandote en la función 'calcular_min', crear la función
+'calcular_min_genero' la cual recibirá como parámetro extra un string
+que representa el género de la heroína/héroe a buscar. modificar un
+poco la lógica para que dentro no se traiga por defecto al primer héroe
+de la lista sino que mediante un flag, se traiga el primer héroe que
+COINCIDA con el género pasado por parámetro. A partir de allí, podrá
+empezar a comparar entre héroes o heroínas que coincidan con el
+género pasado por parámetro. La función retornará el héroe o heroína
+que cumpla la condición de tener el mínimo (peso, altura u otro dato)
+'''           
+def calcular_min_genero(
+    lista_heroes: list[dict], clave_buscada: str, genero_buscado: str) -> dict:
+    '''
+    Calcula el mínimo de una lista de héroes según clave y género.
+    Recibe (arg1)una lista de diccionarios. 
+    (arg2)recibe una clave de búsqueda, por ejemplo clave_buscada = "altura". en str
+    (arg3)recibe un genero en str por ejemplo : genero_buscado "F".
+    Retorna el héroe o heroína que cumpla la condición de tener el mínimo de 
+    la clave_buscada y genero.
+    '''
+    mim_indice = None
+    
+    for indice in range(len(lista_de_heroes_normalizada)):
+        if lista_de_heroes_normalizada[indice]['genero'] == genero_buscado:
+            if (mim_indice is None or 
+                lista_de_heroes_normalizada[indice][clave_buscada] < 
+                lista_de_heroes_normalizada[mim_indice][clave_buscada]):
+                mim_indice = indice
+                
+    if mim_indice is not None:
+        return lista_de_heroes_normalizada[mim_indice]
+    
+    return None
+
+# minima_altura_fem = calcular_min_genero(lista_de_heroes_normalizada, clave_buscada="altura", genero_buscado="F")
+# print(minima_altura_fem)
+
+#3.2-----------------------------------------------------
+'''
+3.2 Basandote en la función 'calcular_max', crear la función
+'calcular_max_genero' la cual recibirá como parámetro extra un string
+que representará el género de la heroína/héroe a buscar. modificar un
+poco la lógica para que dentro no se traiga por defecto al primer héroe
+de la lista sino que mediante un flag, se traiga el primer héroe que
+COINCIDA con el género pasado por parámetro. A partir de allí, podrá
+empezar a comparar entre héroes o heroínas que coincidan con el
+género pasado por parámetro. La función retornará el héroe o heroína
+que cumpla la condición de tener el máximo (peso, altura u otro dato)
+'''
+
+
+
+def calcular_max_genero(
+    lista_heroes: list[dict], clave_buscada: str, genero_buscado: str) -> dict:
+    '''
+    Calcula el maximo de una lista de héroes según clave y género.
+    Recibe (arg1)una lista de diccionarios. 
+    (arg2)recibe una clave de búsqueda, por ejemplo clave_buscada = "altura". en str
+    (arg3)recibe un genero en str por ejemplo : genero_buscado "F".
+    Retorna el héroe o heroína que cumpla la condición de tener el mínimo de 
+    la clave_buscada y genero.
+    '''
+    
+    max_indice = None
+    
+    for indice in range(len(lista_heroes)):
+        if lista_heroes[indice]['genero'] == genero_buscado:
+            if (max_indice is None or 
+                lista_heroes[indice][clave_buscada] > 
+                lista_heroes[max_indice][clave_buscada]):
+                max_indice = indice
+                
+    if max_indice is not None:
+        return lista_heroes[max_indice]
+    
+    return None
+
+# maxima_altura_fem = calcular_max_genero(lista_de_heroes_normalizada, clave_buscada="altura", genero_buscado="F")
+# print(maxima_altura_fem)
+
+#---------------------------------------------------------------
+'''
+3.3 Basandote en la funcion 'calcular_max_min_dato', crear una funcion
+con la misma lógica la cual reciba un parámetro string que
+representará el género del héroe/heroína a buscar y renombrarla a
+'calcular_max_min_dato_genero'. La estructura será similar a la ya
+antes creada, salvo que dentro de ella deberá llamar a
+'calcular_max_genero' y 'calcular_min_genero', pasandoles el nuevo
+parámetro. Esta función retornará el héroe o heroína que cumpla con
+las condiciones pasados por parámetro. Por ejemplo, si se le pasa 'F' y
+'minimo', retornará la heroína que tenga el mínimo (altura, peso u otro
+dato)
+
+'''
