@@ -1,6 +1,8 @@
 import os
 import re
 import json
+import os
+
 
 lista_heroes_prueba =\
 [
@@ -708,4 +710,76 @@ def calcular_promedio_genero(
 # resultado_promedio = calcular_promedio_genero(
 #     lista_heroes_prueba, clave_a_calcular="altura", genero_buscado="F")
 # print(resultado_promedio)
+
+
+#4.4----------------------------------------------------------------
+'''
+Basandote en la función "stark_calcular_imprimir_promedio_altura",
+desarrollar la función  'stark_calcular_imprimir_guardar_promedio_altura_genero' 
+la cual tendrá como parámetro extra un string
+que representará el género de los héroes a buscar.
+
+La función antes de hacer nada, deberá validar que la lista no esté
+vacía. En caso de no estar vacía: calculará el promedio y lo imprimirá
+formateado al estilo:
+
+Altura promedio género F: 178.45
+
+En caso de estar vacía, imprimirá como mensaje:
+Error: Lista de héroes vacía.
+
+Luego de imprimir la función deberá guardar en un archivo los mismos
+datos. El nombre del archivo debe tener el siguiente formato:
+
+heroes_promedio_altura_genero.csv
+
+Donde:
+A. genero: será el género de los héroes a calcular, siendo M y F
+únicas opciones posibles.
+Ejemplos:
+heroes_promedio_altura_F.csv
+heroes_promedio_altura_M.csv
+
+Reutilizar las funciones: 'calcular_promedio_genero', 'imprimir_dato' y
+'guardar_archivo'.
+Esta función retornará True si pudo la lista tiene algún elemento y pudo
+guardar el archivo, False en caso de que esté vacía o no haya podido
+guardar el archivo.
+'''
+def stark_calcular_imprimir_guardar_promedio_altura_genero(
+        lista_heroes : list[dict], genero_buscado : str):
+    '''
+    calcula el promedio total de alturas de los heroes  y lo muestra.
+    recibe una lista de heroes
+    devuelve el resultado y en caso de error -1
+    
+    '''
+    if(lista_heroes):
+        genero_csv = ""
+        if genero_buscado == "M":
+            genero_csv = "M"
+        elif genero_buscado == "F":
+            genero_csv = "F"
+
+        
+        clave_a_calcular = "altura"
+        resultado_promedio = calcular_promedio_genero(lista_heroes, clave_a_calcular, genero_buscado)
+        # print(resultado_promedio)
+        dato = "{0} promedio del genero {1} es: {2}".format(
+            clave_a_calcular, genero_buscado ,resultado_promedio)
+        # print(dato)
+        nueva_lista = []
+        nueva_lista.append(dato)
+        print(nueva_lista)                                   #heroes_promedio_altura_genero.csv
+        name_path_archivo_genero = "Desafio_Stark_03-Archivos\heroes_promedio_{0}_{1}.csv".format(
+            clave_a_calcular, genero_csv)
+        guardar_archivo(
+            name_path_archivo_genero, nueva_lista)
+    else:
+        return "Error: Lista de héroes vacía."
+
+print_dato(stark_calcular_imprimir_guardar_promedio_altura_genero(
+    lista_heroes_prueba, genero_buscado="F")) 
+
+
 
