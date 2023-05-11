@@ -2,6 +2,65 @@ import os
 import re
 import json
 
+lista_heroes_prueba =\
+[
+  {
+    "nombre": "Howard the Duck",
+    "identidad": "Howard (Last name unrevealed)",
+    "empresa": "Marvel Comics",
+    "altura": 79.349999999999994,
+    "peso": "18.449999999999999",
+    "genero": "F",
+    "color_ojos": "Brown",
+    "color_pelo": "Yellow",
+    "fuerza": "2",
+    "inteligencia": ""
+  },
+  {
+    "nombre": "Rocket Raccoon",
+    "identidad": "Rocket Raccoon",
+    "empresa": "Marvel Comics",
+    "altura": 122.77,
+    "peso": "25.73",
+    "genero": "M",
+    "color_ojos": "Brown",
+    "color_pelo": "Brown",
+    "fuerza": "5",
+    "inteligencia": "average"
+  },
+  {
+    "nombre": "Wolverine",
+    "identidad": "Logan",
+    "empresa": "Marvel Comics",
+    "altura": 160.69999999999999,
+    "peso": "135.21000000000001",
+    "genero": "F",
+    "color_ojos": "Blue",
+    "color_pelo": "Black",
+    "fuerza": "35",
+    "inteligencia": "good"
+  }]
+
+#Ejemplo de heroe
+heroe_dicc = {
+      "nombre": "Mystique",
+      "identidad": "Raven Darkholme",
+      "empresa": "Marvel Comics",
+      "altura": "178.65000000000001",
+      "peso": "54.960000000000001",
+      "genero": "F",
+      "color_ojos": "Yellow (without irises)",
+      "color_pelo": "Red / Orange",
+      "fuerza": "15",
+      "inteligencia": "good"
+    }
+
+
+
+
+
+
+
 # por el profe facu
 def clear_console() -> None:
     """
@@ -235,19 +294,6 @@ manera:
 Nombre: Venom
 Reutilizar 'capitalizar_palabras'
 '''
-#Ejemplo de heroe
-heroe_dicc = {
-      "nombre": "Mystique",
-      "identidad": "Raven Darkholme",
-      "empresa": "Marvel Comics",
-      "altura": "178.65000000000001",
-      "peso": "54.960000000000001",
-      "genero": "F",
-      "color_ojos": "Yellow (without irises)",
-      "color_pelo": "Red / Orange",
-      "fuerza": "15",
-      "inteligencia": "good"
-    }
 
 def obtener_nombre_capitalizado(diccionario_heroe : dict)-> str:
     '''
@@ -550,4 +596,53 @@ def stark_calcular_imprimir_guardar_heroe_genero(
 #                                              tipo_de_calculo="maximo", 
 #                                              clave_buscada="altura",
 #                                              genero_buscado="F")
+
+# 4 parte----------------------------------------------------
+'''
+4.1 Basandote en la función 'sumar_dato_heroe', crear la función llamada
+'sumar_dato_heroe_genero' la cual deberá tener un parámetro extra
+del tipo string que representará el género con el que se va a trabajar.
+Esta función antes de realizar la suma en su variable sumadora,
+deberá validar lo siguiente:
+
+A. El tipo de dato del héroe debe ser diccionario.
+B. El héroe actual de la iteración no debe estar vacío (ser
+diccionario vacío)
+C. El género del héroe debe coincidir con el pasado por
+parámetro.
+
+Una vez que cumpla con las condiciones, podrá realizar la suma. La
+función deberá retornar la suma del valor de la key de los héroes o
+heroínas que cumplan las condiciones o -1 en caso de que no se
+cumplan las validaciones
+'''
+
+
+def sumar_dato_heroe_genero(
+    lista_heroes: list[dict], clave_a_calcular: str, genero_buscado: str) -> int:
+    """
+    Acumula la suma de una clave en un diccionario para héroes de un género 
+    específico.
+    (arg1)lista_heroes: Lista de diccionarios de héroes.
+    (arg2) clave_a_calcular: Clave a sumar en cada héroe.
+    (arg3)genero_buscado: Género de los héroes a filtrar.
+    Devuelve La suma de los valores de la clave en los héroes que cumplen las 
+    condiciones, -1 en caso contrario
+    """
+    acumulador_de_dato = 0
+    
+    for dicc_heroe in lista_heroes:
+        if(bool(type(dicc_heroe)) and dicc_heroe and "genero" in dicc_heroe 
+           and dicc_heroe["genero"] == genero_buscado and clave_a_calcular in dicc_heroe):
+            acumulador_de_dato += dicc_heroe[clave_a_calcular]
+            
+    if(acumulador_de_dato > 0):
+        return acumulador_de_dato
+    else:
+        return -1
+
+# print(sumar_dato_heroe_genero(
+#     lista_de_heroes, clave_a_calcular="altura", genero_buscado="F"))
+
+
 
