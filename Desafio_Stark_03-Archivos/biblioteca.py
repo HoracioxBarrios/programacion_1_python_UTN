@@ -107,7 +107,7 @@ def  stark_marvel_app_5(lista_de_personajes):
 # 1.4 -------------------------------------- Generar Lista a partir de json
 def leer_archivo_json(path_completo: str) -> list[dict]:
     '''
-    De un archivo json, crea una lista de diccionarios
+    De un archivo json, crea una lista de diccionarios heroes
     Recibe la ruta del archivo
     devuelve una lista de diccionarios
     '''
@@ -142,13 +142,13 @@ def stark_normalizar_datos(heroes: list[dict]) -> list[dict]:
                         else:
                             heroe[key] = int(heroe[key])
                         print(
-                            "El dato {0}fue modificado en el heroe {1}".format(key, heroe["nombre"]))
+                            "El dato {0} fue modificado en el heroe {1}".format(key, heroe["nombre"]))
             result_nueva_lista.append(heroe)
         return result_nueva_lista
     else:
         return "La lista esta Vacia"
     
-lista_de_heroes_normalizada = stark_normalizar_datos(lista_de_heroes_en_crudo_str)
+lista_de_heroes = stark_normalizar_datos(lista_de_heroes_en_crudo_str)
 #1.5------------------------------------------
 '''
 Crear la función 'guardar_archivo' la cual recibirá por parámetro un
@@ -166,8 +166,8 @@ archivo: nombre_archivo’
 def guardar_archivo(nombre_archivo_csv: str, lista: list[dict]) -> bool:
     ''' 
     genera un archivo csv de heroes a partir de una lista de diccionarios
-    Recibe: (arg 1)Recibe nombre y extencion csv de archivo,
-    (arg 2) Recibe una lista de dict
+    Recibe: (arg 1)Recibe un str con la ruta con el nombre y extencion de archivo 
+    ejemplo: csv, (arg 2) Recibe una lista de dict
     Devuelve: un archivo csv, y un valor True si se genero corrctamente,
     caso contrario False
     '''
@@ -285,9 +285,7 @@ def obtener_nombre_y_dato_v2(diccionario_heroe: dict, clave_buscada: str) -> str
     '''
     if clave_buscada in diccionario_heroe:
         nombre_capitalizado = obtener_nombre_capitalizado(diccionario_heroe)
-        return "{0} | {1}: {2}".format(
-            nombre_capitalizado,
-            clave_buscada,
+        return "{0} | {1}: {2}".format(nombre_capitalizado,clave_buscada,
             diccionario_heroe[clave_buscada]
         )
     else:
@@ -306,6 +304,11 @@ puede ser M, F o NB). retornará True en caso de que cumpla, False
 caso contrario.
 '''
 def es_genero(diccionario_heroe : dict, valor_genero : str)-> bool:
+    '''
+    verifica si el heroe es del genero buscado.
+    recibe un diccionario heroe.
+    devuelve un boolean
+    '''
     return diccionario_heroe["genero"] == valor_genero
  
 # print(es_genero(heroe_dicc, valor_genero="M"))
@@ -326,21 +329,21 @@ heroes_M.csv, heroes_F.csv o heroes_NB según corresponda.
 La función retornará True si pudo guardar el archivo, False caso
 contrario
 '''
-def stark_guardar_heroe_genero(lista_de_heroes: list[dict], valor_genero: str):
+def stark_guardar_heroe_genero(lista_de_heroes: list[dict], genero_buscado: str):
     '''
     crea un csv con los heroes que cumplen con el genero elegido
     recibe una lista de heroes
     revuelve un archivo csv
     '''
     genero_csv = ""
-    if valor_genero == "M":
+    if genero_buscado == "M":
         genero_csv = "M"
-    elif valor_genero == "F":
+    elif genero_buscado == "F":
         genero_csv = "F"
         
     lista_heroes_genero = []
     for heroe in lista_de_heroes:
-        es_el_mismo_genero = es_genero(heroe, valor_genero)
+        es_el_mismo_genero = es_genero(heroe, genero_buscado)
         if es_el_mismo_genero:
             nombre_capitalized = obtener_nombre_capitalizado(heroe)
             heroe["nombre"] = nombre_capitalized
@@ -348,11 +351,9 @@ def stark_guardar_heroe_genero(lista_de_heroes: list[dict], valor_genero: str):
     name_path_archivo_genero = "Desafio_Stark_03-Archivos\heroes_{0}.csv".format(genero_csv)
     se_guardo = guardar_archivo(name_path_archivo_genero, lista_heroes_genero)
     return se_guardo
-                
+                 
 
-   
-
-# resultado_genero_csv = stark_guardar_heroe_genero(lista_de_heroes, valor_genero="F")
+# resultado_genero_csv = stark_guardar_heroe_genero(lista_de_heroes, genero_buscado="F")
 
 #3 parte 
 #3.1---------------------------------------------------------
@@ -379,19 +380,19 @@ def calcular_min_genero(
     '''
     mim_indice = None
     
-    for indice in range(len(lista_de_heroes_normalizada)):
-        if lista_de_heroes_normalizada[indice]['genero'] == genero_buscado:
+    for indice in range(len(lista_heroes)):
+        if lista_heroes[indice]['genero'] == genero_buscado:
             if (mim_indice is None or 
-                lista_de_heroes_normalizada[indice][clave_buscada] < 
-                lista_de_heroes_normalizada[mim_indice][clave_buscada]):
+                lista_heroes[indice][clave_buscada] < 
+                lista_heroes[mim_indice][clave_buscada]):
                 mim_indice = indice
                 
     if mim_indice is not None:
-        return lista_de_heroes_normalizada[mim_indice]
+        return lista_heroes[mim_indice]
     
     return None
 
-# minima_altura_fem = calcular_min_genero(lista_de_heroes_normalizada, clave_buscada="altura", genero_buscado="F")
+# minima_altura_fem = calcular_min_genero(lista_de_heroes, clave_buscada="altura", genero_buscado="F")
 # print(minima_altura_fem)
 
 #3.2-----------------------------------------------------
@@ -406,8 +407,6 @@ empezar a comparar entre héroes o heroínas que coincidan con el
 género pasado por parámetro. La función retornará el héroe o heroína
 que cumpla la condición de tener el máximo (peso, altura u otro dato)
 '''
-
-
 
 def calcular_max_genero(
     lista_heroes: list[dict], clave_buscada: str, genero_buscado: str) -> dict:
@@ -434,10 +433,10 @@ def calcular_max_genero(
     
     return None
 
-# maxima_altura_fem = calcular_max_genero(lista_de_heroes_normalizada, clave_buscada="altura", genero_buscado="F")
+# maxima_altura_fem = calcular_max_genero(lista_de_heroes, clave_buscada="altura", genero_buscado="F")
 # print(maxima_altura_fem)
 
-#---------------------------------------------------------------
+#3.3 ---------------------------------------------------------------
 '''
 3.3 Basandote en la funcion 'calcular_max_min_dato', crear una funcion
 con la misma lógica la cual reciba un parámetro string que
@@ -451,3 +450,104 @@ las condiciones pasados por parámetro. Por ejemplo, si se le pasa 'F' y
 dato)
 
 '''
+
+
+def calcular_max_min_dato_genero(
+    lista_heroes :list[dict], tipo_de_calculo : str, clave_buscada :str , genero_buscado :str)-> dict:
+    '''
+    Busca el heroe segun tipo de calculo , clave, y genero. 
+    Recibe (arg1) lista de diccionario heroe, (arg2) tipo de calculo "maximo" o "minimo",
+    (arg3) recibe la clave ejemplo "altura" en str, (arg 4) genero "F" o "M".
+    
+    Devuelve el heroe buscado en formato dict, o error.
+    '''
+    if(tipo_de_calculo == "maximo"):
+        return calcular_max_genero(lista_heroes, clave_buscada, genero_buscado)
+    elif(tipo_de_calculo == "minimo"):
+        return calcular_min_genero(lista_heroes, clave_buscada, genero_buscado)
+    else:
+        return "Error :Ingrese clave 'maximo' o 'minimo'"
+
+# resultado_max_o_min_por_clave = calcular_max_min_dato_genero(
+#     lista_de_heroes, tipo_de_calculo="minimo",
+#     clave_buscada="altura",genero_buscado="F")
+
+# print(resultado_max_o_min_por_clave)
+
+#3.4 -------------------------------------------------------
+'''
+3.4 Basandote en la función 'stark_calcular_imprimir_heroe' crear la
+función ‘stark_calcular_imprimir_guardar_heroe_genero’ que además
+reciba un string el cual representará el género a evaluar. El formato de
+mensaje a imprimir deberá ser estilo:
+Mayor Altura: Nombre: Gamora | Altura: 183.65
+Además la función deberá guardar en un archivo csv el resultado
+obtenido.
+Reutilizar: 'calcular_max_min_dato_genero', 'obtener_nombre_y_dato',
+'imprimir_dato' y 'guardar_archivo'.
+En el caso de 'guardar_archivo' el nombre del archivo debe respetar el
+formato:
+heroes_calculo_key_genero.csv
+
+Donde:
+● cálculo: representará el string máximo o mínimo
+● key: representará cual es la key la cual se tiene que hacer el
+cálculo
+● genero: representará el género a calcular.
+
+Ejemplo: para calcular el héroe más alto femenino, el archivo se
+deberá llamar:
+heroes_maximo_altura_F.csv
+Esta función retornará True si pudo guardar el archivo, False caso
+contrario
+
+'''
+
+tipo_de_calculo = "maximo"
+clave_a_calcular = "altura"
+
+def stark_calcular_imprimir_guardar_heroe_genero(
+    lista_heroes :list[dict], tipo_de_calculo : str, clave_buscada : str,genero_buscado : str):
+    '''
+    Imprime el nombre y el valor calculado del héroe que cumpla dichas condiciones. 
+
+    Recibe (arg1)una lista de dicc heroes list[dict], 
+    (arg2) un tipo de calculo("maximo" o "minimo"),
+    (arg3) una clave (ejemplo "altura", "fuerza", "peso").
+    (arg4) genero buscado en str "F" o "M"
+    Genera un archivo csv con el heroe que cumple las condiciones
+    Devuelve -1 en caso de error.
+    '''
+    if(lista_heroes):
+        genero_csv = ""
+        if genero_buscado == "M":
+            genero_csv = "M"
+        elif genero_buscado == "F":
+            genero_csv = "F"
+        nueva_lista_genero_max_min = []
+        heroe_dicc_max_o_min_genero= calcular_max_min_dato_genero(
+            lista_heroes, tipo_de_calculo,clave_buscada,genero_buscado)
+
+        nombre_y_dato_capitalized = obtener_nombre_y_dato_v2(
+            heroe_dicc_max_o_min_genero, clave_buscada)
+        nueva_lista_genero_max_min.append(heroe_dicc_max_o_min_genero)
+        
+        if(tipo_de_calculo == "maximo"):
+            print_dato("Mayor {0} : Nombre {1}".format(clave_buscada, 
+                                                       nombre_y_dato_capitalized))
+        else:
+            print_dato("Menor {0} : Nombre {1}".format(clave_buscada, 
+                                                       nombre_y_dato_capitalized))
+        name_path_archivo_genero = "Desafio_Stark_03-Archivos\heroes_{0}_{1}_{2}.csv".format(
+        tipo_de_calculo,clave_buscada, genero_csv)
+    
+        se_guardo = guardar_archivo(
+            name_path_archivo_genero, nueva_lista_genero_max_min)
+    else:
+        return -1
+    
+# stark_calcular_imprimir_guardar_heroe_genero(lista_de_heroes, 
+#                                              tipo_de_calculo="maximo", 
+#                                              clave_buscada="altura",
+#                                              genero_buscado="F")
+
