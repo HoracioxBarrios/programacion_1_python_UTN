@@ -207,7 +207,7 @@ def stark_normalizar_datos(heroes: list[dict]) -> list[dict]:
     else:
         return "La lista esta Vacia"
     
-lista_de_heroes = stark_normalizar_datos(lista_de_heroes_en_crudo_str)
+lista_heroes = stark_normalizar_datos(lista_de_heroes_en_crudo_str)
 #1.5------------------------------------------
 '''
 Crear la función 'guardar_archivo' la cual recibirá por parámetro un
@@ -642,7 +642,70 @@ def sumar_dato_heroe_genero(
         return -1
 
 # print(sumar_dato_heroe_genero(
-#     lista_de_heroes, clave_a_calcular="altura", genero_buscado="F"))
+#     lista_heroes_prueba, clave_a_calcular="altura", genero_buscado="F"))
 
+#4.2-------------------------------------------------------
+'''
+4.2 Crear la función 'cantidad_heroes_genero' la cual recibirá por
+parámetro la lista de héroes y un string que representará el género a
+buscar. La función deberá iterar y sumar la cantidad de héroes o
+heroínas que cumplan con la condición de género pasada por
+parámetro, retornará dicha suma.
 
+'''
+def cantidad_heroes_genero(lista_heroes : list[dict], genero_buscado : str)-> int:
+    '''
+    Da la cantidad de heroes del genero elegido.
+    Recibe una lista de diccionario heroe
+    devuelve la cantidad
+    '''
+    contador_de_heroes_genero = 0
+    for heroe in lista_heroes:
+        if(heroe["genero"] == genero_buscado):
+            contador_de_heroes_genero += 1
+            
+    if(contador_de_heroes_genero > 0):
+        return contador_de_heroes_genero
+    else:
+        return contador_de_heroes_genero
+
+# para 4.3----------------------------------
+def dividir(dividendo, divisor )-> float:
+    '''
+    realiza la division entre dos numeros
+    recibe un dividendo Int o Float, y un divisor int o float
+    devuelve el resultado (float) o en caso de error 0
+    '''
+    if divisor != 0 and isinstance(dividendo, (int, float)) and isinstance(divisor, (int, float)):
+        return dividendo / divisor
+    else:
+        return 0
+#4.3--------------------------------------------------------
+'''
+Basandote en la función 'calcular_promedio', crear la función
+'calcular_promedio_genero' la cual tendrá como parámetro extra un
+string que representará el género a buscar. la lógica es similar a la
+función anteriormente mencionada en el enunciado. Reutilizar las
+funciones: 'sumar_dato_heroe_genero', 'cantidad_heroes_genero' y
+'dividir'.
+retornará el promedio obtenido, según la key y género pasado por
+parámetro.
+'''
+
+#uso la funcion normalizar datos, en la funcion sumar_dato_heroe
+def calcular_promedio_genero(
+    lista_heroes : list[dict], clave_a_calcular : str, genero_buscado : str)-> float:
+    '''
+    calcula el promedio total segun necesidad en base a una lista de heroes
+    recibe una lista de dicc heroes y una clave a calcular (ej: clave = "altura")
+    devuelve el promedio
+    '''
+    resultado_acumulado = sumar_dato_heroe_genero(lista_heroes, clave_a_calcular,genero_buscado)
+    cantidad_de_heroes = cantidad_heroes_genero(lista_heroes, genero_buscado)
+    promedio = dividir(resultado_acumulado, cantidad_de_heroes)
+    return promedio
+
+# resultado_promedio = calcular_promedio_genero(
+#     lista_heroes_prueba, clave_a_calcular="altura", genero_buscado="F")
+# print(resultado_promedio)
 
