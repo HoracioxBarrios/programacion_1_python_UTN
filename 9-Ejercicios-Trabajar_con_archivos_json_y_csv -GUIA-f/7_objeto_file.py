@@ -4,10 +4,10 @@ el objeto file permite no sólo operar con él sino
 también obtener mucha información relacionada 
 con ese archivo.
 '''
-
+#el metodo open retorna un obj file, que tiene propiedades:
 
 '''
-archivo = open(nombre_archivo, modo)
+archivo = open(ruta_y_nombre_y_extension, modo)
 
 
 archivo.closed retorna True si el archivo está cerrado, 

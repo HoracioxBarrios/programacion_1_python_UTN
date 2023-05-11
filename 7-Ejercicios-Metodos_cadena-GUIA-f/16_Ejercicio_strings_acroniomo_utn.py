@@ -10,17 +10,16 @@ palabra, por ejemplo:
 nombre_de_la_universidad = "universidad tecnológica nacional facultad regional avellaneda"
 
 
-def convertir_a_acronimo(cadena : str)-> str:
+def convertir_a_acronimo(cadena: str) -> str:
     '''
-    toma una cadena de texto y la convierte en un acrónimo
-    recibe una cadena
-    devuelve una nueva cadena
+        toma una cadena de texto y la convierte en un acronimo
+        recibe una cadena
+        devuelve una nueva cadena
     '''
-    lista = cadena.split() # creamos una lista desde la cadena
-    nueva_lista_palabras = [] # nueva lista para cada palabra
-    for palabra in lista:
-        palabra_capitalized = palabra.capitalize() 
-        nueva_lista_palabras.append(palabra_capitalized) #agregamos la palabra corregida a a nueva lista
-    nueva_palabra = " ".join(nueva_lista_palabras) # unimos las palabras con un espacio como separador
-    return nueva_palabra
+    palabras = cadena.split()  # Separar la cadena en palabras
+    acronimo = ""
+    for palabra in palabras:
+        acronimo += palabra[0].upper()  # Agregar la primera letra de cada palabra en mayúscula al acrónimo
+    return acronimo
+
 print(convertir_a_acronimo(nombre_de_la_universidad))

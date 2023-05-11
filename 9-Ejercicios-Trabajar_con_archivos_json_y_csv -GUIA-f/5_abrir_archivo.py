@@ -3,7 +3,7 @@ Para abrir un archivo con Python, podemos usar
 la función open.
 Abrir un archivo: open
 
-archivo = open(nombre_archivo, modo)
+archivo = open(ruta_y_nombre_y_extension, modo)
 
 
 archivo objeto file, el cual será utilizado para llamar a otros 

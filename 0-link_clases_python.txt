@@ -6,7 +6,6 @@ video clase 02 https://youtu.be/upkPetk60K4 tipos de datos
 
 video clase 03 https://youtu.be/uN7mHAuGZUU analisis de datos, list ,dict
 
-
 video clase 04 https://youtu.be/0tIDbXMjulI funciones 
 
 video clase 05 https://www.youtube.com/watch?v=AHoUtHHX0pc funciones ,list, dict 
