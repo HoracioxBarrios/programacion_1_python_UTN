@@ -57,12 +57,6 @@ heroe_dicc = {
       "inteligencia": "good"
     }
 
-
-
-
-
-
-
 # por el profe facu
 def clear_console() -> None:
     """
@@ -82,6 +76,14 @@ def print_dato(palabra : str):
     print("{0}".format(palabra))
     
 #1.1--------------------------------- print Menu
+'''
+1.1. Crear la función "imprimir_menu_desafio_5" que imprima el menú de
+opciones por pantalla (las opciones son las que se van a utilizar para
+acceder a la funcionalidad de los puntos A hasta el O y Z para salir).
+Reutilizar la función 'imprimir_dato' realizada en una práctica anterior.
+
+
+'''
 def imprimir_menu_desafio_5():
     '''
     imprime un menu de opciones
@@ -109,6 +111,16 @@ def imprimir_menu_desafio_5():
         print_dato(item)
         
 # 1.2---------------------# toma de la eleccion del usuario para el menu
+'''
+1.2. Crear la funcion 'stark_menu_principal_desafio_5' la cual se encargará
+de imprimir el menú de opciones y le pedirá al usuario que ingrese la
+letra de una de las opciones elegidas, deberá validar la letra usando
+RegEx y en caso de ser correcta tendrá que retornarla, Caso contrario
+retornará -1. El usuario puede ingresar tanto letras minúsculas como
+mayúsculas y ambas se deben tomar como válidas
+Reutilizar la función 'imprimir_menu_Desafio_5'
+
+'''
 def stark_menu_principal_desafio_5(): 
     '''
     imprime el menu y toma una opcion del usuario
@@ -123,7 +135,15 @@ def stark_menu_principal_desafio_5():
         return -1
 
 #1.3 ------------------------------- 
-def  stark_marvel_app_5(lista_de_personajes):
+'''
+1.3. Crear la función 'stark_marvel_app_5' la cual recibirá por parámetro la
+lista de héroes y se encargará de la ejecución principal de nuestro
+programa. (usar if/elif o match según prefiera) Reutilizar las funciones
+con prefijo 'stark_' donde crea correspondiente.
+
+'''
+
+def  stark_marvel_app_5(lista_de_personajes: list[dict]):
     while(True):
         imprimir_menu_desafio_5()
         respuesta = stark_menu_principal_desafio_5()
@@ -165,20 +185,28 @@ def  stark_marvel_app_5(lista_de_personajes):
         clear_console()
 
 
-# 1.4 -------------------------------------- Generar Lista a partir de json
-def leer_archivo_json(path_completo: str) -> list[dict]:
+# 1.4 -------------------------------------- 
+'''
+1.4. Crear la función 'leer_archivo' la cual recibirá por parámetro un string
+que indicará el nombre y extensión del archivo a leer (Ejemplo:
+archivo.json). Dicho archivo se abrirá en modo lectura únicamente y
+retornará la lista de héroes como una lista de diccionarios.
+
+'''
+#Genera la Lista a partir de json
+def leer_archivo(path_archivo_completo: str) -> list[dict]:
     '''
     De un archivo json, crea una lista de diccionarios heroes
     Recibe la ruta del archivo
     devuelve una lista de diccionarios
     '''
-    with open(path_completo, 'r') as archivo: # r = solo lectura
+    with open(path_archivo_completo, 'r') as archivo: # r = solo lectura
         archivo_json = json.load(archivo)
         archivo_lista_dict = archivo_json['heroes'] #accedemos a la clave y traemos lo que esta dentro
         return archivo_lista_dict
     
-# leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json") # se usa en main.py
-lista_de_heroes_en_crudo_str = leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json")
+# leer_archivo("Desafio_Stark_03-Archivos\data_stark.json") # se usa en main.py
+lista_de_heroes_en_crudo_str = leer_archivo("Desafio_Stark_03-Archivos\data_stark.json")
 
 
 #------------------------------------------------------------------------------------
@@ -224,42 +252,76 @@ en caso de éxito, deberá imprimir un mensaje respetando el formato:
 En caso de retornar False, el mensaje deberá decir: ‘Error al crear el
 archivo: nombre_archivo’
 '''
-def guardar_archivo(nombre_archivo_csv: str, lista: list[dict]) -> bool:
-    ''' 
-    genera un archivo csv de heroes a partir de una lista de diccionarios
-    Recibe: (arg 1)Recibe un str con la ruta con el nombre y extencion de archivo 
-    ejemplo: csv, (arg 2) Recibe una lista de dict
-    Devuelve: un archivo csv, y un valor True si se genero corrctamente,
-    caso contrario False
+
+def guardar_archivo(nombre_del_archivo_path: str, contenido_a_guardar: str):
     '''
+    guarda un contenido recibido al formato indicado.
+    '''
+    flag_exito = False
     try:
-        with open(nombre_archivo_csv, "w+") as archivo:
-            for heroe in lista:
-                linea = "{0}, {1}, {2}, {3}, {4}, {5},{6}, {7}, {8}, {9}"
-                linea = linea.format(
-                    heroe["nombre"],
-                    heroe["identidad"],
-                    heroe["empresa"],
-                    heroe["altura"],
-                    heroe["peso"],
-                    heroe["genero"],
-                    heroe["color_ojos"],
-                    heroe["color_pelo"],
-                    heroe["fuerza"],
-                    heroe["inteligencia"]
-                )
-                archivo.write(linea + "\n")  # Escribir la línea en el archivo con un salto de línea
-        print("Se creó el archivo: {0}".format(nombre_archivo_csv))
+        with open(nombre_del_archivo_path, "w+") as archivo:
+            archivo.write(contenido_a_guardar)
+        flag_exito = True
+    except:
+        pass
+    
+    if flag_exito:
+        print(f"Se creó el archivo: {nombre_del_archivo_path}")
         return True
-    except Exception as e:
-        print("Error al crear el archivo: {0}".format(nombre_archivo_csv))
-        print(str(e))
+    else:
+        print(f"Error al crear el archivo: {nombre_del_archivo_path}")
         return False
 
+'''
+como funciona el try  el except:
+El bloque try se utiliza para encerrar el código que puede generar una 
+excepción. Dentro de este bloque, se ejecuta el código que se quiere probar
+en busca de errores. Si ocurre una excepción durante la ejecución de este
+código, se salta inmediatamente al bloque except correspondiente sin ejecutar 
+el resto del código dentro del bloque try.
+'''
+
+
+
+
+
+
+# def guardar_archivo(nombre_archivo_csv: str, lista: list[dict]) -> bool:
+#     ''' 
+#     genera un archivo csv de heroes a partir de una lista de diccionarios
+#     Recibe: (arg 1)Recibe un str con la ruta con el nombre y extencion de archivo 
+#     ejemplo: csv, (arg 2) Recibe una lista de dict
+#     Devuelve: un archivo csv, y un valor True si se genero corrctamente,
+#     caso contrario False
+#     '''
+#     try:
+#         with open(nombre_archivo_csv, "w+") as archivo:
+#             for heroe in lista:
+#                 linea = "{0}, {1}, {2}, {3}, {4}, {5},{6}, {7}, {8}, {9}"
+#                 linea = linea.format(
+#                     heroe["nombre"],
+#                     heroe["identidad"],
+#                     heroe["empresa"],
+#                     heroe["altura"],
+#                     heroe["peso"],
+#                     heroe["genero"],
+#                     heroe["color_ojos"],
+#                     heroe["color_pelo"],
+#                     heroe["fuerza"],
+#                     heroe["inteligencia"]
+#                 )
+#                 archivo.write(linea + "\n")  # Escribir la línea en el archivo con un salto de línea
+#         print("Se creó el archivo: {0}".format(nombre_archivo_csv))
+#         return True
+#     except Exception as e:
+#         print("Error al crear el archivo: {0}".format(nombre_archivo_csv))
+#         print(str(e))
+#         return False
+
     
-# lista_de_heroes = leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json")
-# ruta_csv = "Desafio_Stark_03-Archivos\data_stark.csv"
-# print(guardar_archivo(ruta_csv, lista_de_heroes))
+# # lista_de_heroes = leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json")
+# # ruta_csv = "Desafio_Stark_03-Archivos\data_stark.csv"
+# # print(guardar_archivo(ruta_csv, lista_de_heroes))
 
 #1.6 --------------------------------------------------------------------
 '''
@@ -783,4 +845,15 @@ print_dato(stark_calcular_imprimir_guardar_promedio_altura_genero(
     lista_heroes_prueba, genero_buscado="F")) 
 
 
-
+#5.2
+# def guardar_cantidad_heroes_tipo(cantidad_tipo, tipo):
+#     nombreArchvo = f"heroes_cantidad_{tipo}.csv"
+#     mensajito = "{} , {}"
+#     with open(nombreArchvo, "w") as f:
+#         for key, value in cantidad_tipo.items():
+#             if not key:
+#                 key="decolorado"
+#             mensajeFormateado = mensajito.format(key, value)
+#             f.write(mensajeFormateado + "\n")
+    
+#     return True
