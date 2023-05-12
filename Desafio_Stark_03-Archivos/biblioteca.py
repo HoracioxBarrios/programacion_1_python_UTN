@@ -589,12 +589,11 @@ def stark_calcular_imprimir_guardar_heroe_genero(
         name_path_archivo_genero = "Desafio_Stark_03-Archivos\heroes_{0}_{1}_{2}.csv".format(
         tipo_de_calculo,clave_buscada, genero_csv)
     
-        se_guardo = guardar_archivo(
+        se_guardo_boolean = guardar_archivo(
             name_path_archivo_genero, nueva_lista_genero_max_min)
-    else:
-        return -1
+        return se_guardo_boolean
     
-# stark_calcular_imprimir_guardar_heroe_genero(lista_de_heroes, 
+# stark_calcular_imprimir_guardar_heroe_genero(lista_heroes, 
 #                                              tipo_de_calculo="maximo", 
 #                                              clave_buscada="altura",
 #                                              genero_buscado="F")
@@ -770,13 +769,15 @@ def stark_calcular_imprimir_guardar_promedio_altura_genero(
         # print(dato)
         nueva_lista = []
         nueva_lista.append(dato)
-        print(nueva_lista)                                   #heroes_promedio_altura_genero.csv
+        print(nueva_lista)                     #heroes_promedio_altura_genero.csv
         name_path_archivo_genero = "Desafio_Stark_03-Archivos\heroes_promedio_{0}_{1}.csv".format(
             clave_a_calcular, genero_csv)
         guardar_archivo(
             name_path_archivo_genero, nueva_lista)
+        return True
     else:
-        return "Error: Lista de héroes vacía."
+        print("Error: Lista de héroes vacía.")
+        return False
 
 print_dato(stark_calcular_imprimir_guardar_promedio_altura_genero(
     lista_heroes_prueba, genero_buscado="F")) 
