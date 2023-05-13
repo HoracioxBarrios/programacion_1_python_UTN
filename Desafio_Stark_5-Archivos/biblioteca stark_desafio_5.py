@@ -159,10 +159,11 @@ creado, conjuntamente con su extensión.
 '''
 def guardar_archivo(nombre_archivo : str, contenido_a_guardar : str):
     '''
-    Genera un archivo con la extension requerida 
-    Recibe: el path/nombre_archivo.extencion (ejemplo: csv) el path:
-    (Donde se va a guardar)
-    Devuelve: un boolean para caso de exito True, sino False
+    Genera un archivo con la extension requerida .
+    Recibe: (arg 1)El path/nombre_archivo.extencion (ejemplo: csv) el path:
+    (Donde se va a guardar).
+    (arg 2) El contenido a guardar (una cadena str).
+    Devuelve: un boolean para caso de exito True, sino False.
     '''
     retorno = False
     try:
@@ -488,3 +489,163 @@ def stark_calcular_imprimir_guardar_heroe_genero(
 #                                              clave_buscada="altura",
 #                                              genero_buscado="F")
 
+
+#4. Cuarta Parte------------------------------
+'''
+4.1. Basandote en la función 'sumar_dato_heroe', crear la función llamada
+'sumar_dato_heroe_genero' la cual deberá tener un parámetro extra
+del tipo string que representará el género con el que se va a trabajar.
+Esta función antes de realizar la suma en su variable sumadora,
+deberá validar lo siguiente:
+A. El tipo de dato del héroe debe ser diccionario.
+B. El héroe actual de la iteración no debe estar vacío (ser
+diccionario vacío)
+C. El género del héroe debe coincidir con el pasado por
+parámetro.
+Una vez que cumpla con las condiciones, podrá realizar la suma. La
+función deberá retornar la suma del valor de la key de los héroes o
+heroínas que cumplan las condiciones o -1 en caso de que no se
+cumplan las validaciones
+'''
+def sumar_dato_heroe_genero(
+    lista_heroes: list[dict], clave_a_calcular: str, genero_buscado: str) -> int:
+    """
+    Acumula la suma de una clave en un diccionario para héroes de un género 
+    específico.
+    (arg1)lista_heroes: Lista de diccionarios de héroes.
+    (arg2) clave_a_calcular: Clave a sumar en cada héroe.
+    (arg3)genero_buscado: Género de los héroes a filtrar.
+    Devuelve La suma de los valores de la clave en los héroes que cumplen las 
+    condiciones, -1 en caso contrario
+    """
+    acumulador_de_dato = 0
+    
+    for dicc_heroe in lista_heroes:
+        if(bool(type(dicc_heroe)) and dicc_heroe 
+           and "genero" in dicc_heroe 
+           and dicc_heroe["genero"] == genero_buscado 
+           and clave_a_calcular in dicc_heroe):
+            acumulador_de_dato += dicc_heroe[clave_a_calcular]
+            
+    if(acumulador_de_dato > 0):
+        return acumulador_de_dato
+    else:
+        return -1
+
+# print(sumar_dato_heroe_genero(
+#     lista_heroes_prueba, clave_a_calcular="altura", genero_buscado="F"))
+
+'''
+4.2. Crear la función 'cantidad_heroes_genero' la cual recibirá por
+parámetro la lista de héroes y un string que representará el género a
+buscar. La función deberá iterar y sumar la cantidad de héroes o
+heroínas que cumplan con la condición de género pasada por
+parámetro, retornará dicha suma.
+
+'''
+def cantidad_heroes_genero(lista_heroes : list[dict], genero_buscado : str)-> int:
+    '''
+    Da la cantidad de heroes del genero elegido.
+    Recibe una lista de diccionario heroe
+    devuelve la cantidad
+    '''
+    contador_de_heroes_genero = 0
+    for heroe in lista_heroes:
+        if(heroe["genero"] == genero_buscado):
+            contador_de_heroes_genero += 1
+            
+    if(contador_de_heroes_genero > 0):
+        return contador_de_heroes_genero
+    else:
+        return contador_de_heroes_genero
+
+# resultado = cantidad_heroes_genero(lista_heroes_prueba, genero_buscado="F")
+# print(resultado)
+
+
+
+def dividir(dividendo, divisor )-> float:
+    '''
+    realiza la division entre dos numeros
+    recibe un dividendo Int o Float, y un divisor int o float
+    devuelve el resultado (float) o en caso de error 0
+    '''
+    if divisor != 0 and isinstance(dividendo, (int, float)) and isinstance(divisor, (int, float)):
+        return dividendo / divisor
+    else:
+        return 0
+'''
+4.3. Basandote en la función 'calcular_promedio', crear la función
+'calcular_promedio_genero' la cual tendrá como parámetro extra un
+string que representará el género a buscar. la lógica es similar a la
+función anteriormente mencionada en el enunciado. Reutilizar las
+funciones: 'sumar_dato_heroe_genero', 'cantidad_heroes_genero' y
+'dividir'.
+retornará el promedio obtenido, según la key y género pasado por
+parámetro
+'''
+def calcular_promedio_genero(
+    lista_heroes : list[dict], clave_a_calcular : str, genero_buscado : str)-> float:
+    '''
+    calcula el promedio total segun necesidad en base a una lista de heroes
+    recibe una lista de dicc heroes y una clave a calcular (ej: clave = "altura")
+    devuelve el promedio
+    '''
+    resultado_acumulado = sumar_dato_heroe_genero(lista_heroes, clave_a_calcular,genero_buscado)
+    cantidad_de_heroes = cantidad_heroes_genero(lista_heroes, genero_buscado)
+    promedio = dividir(resultado_acumulado, cantidad_de_heroes)
+    return promedio
+
+# resultado_promedio = calcular_promedio_genero(
+#     lista_heroes_prueba, clave_a_calcular="altura", genero_buscado="F")
+# print(resultado_promedio)
+
+'''
+4.4. Basandote en la función ‘stark_calcular_imprimir_promedio_altura',
+desarrollar la función 'stark_calcular_imprimir_guardar_
+promedio_altura_genero' la cual tendrá como parámetro extra un string
+que representará el género de los héroes a buscar.
+La función antes de hacer nada, deberá validar que la lista no esté
+vacía. En caso de no estar vacía: calculará el promedio y lo imprimirá
+formateado al estilo:
+Altura promedio género F: 178.45
+En caso de estar vacía, imprimirá como mensaje:
+Error: Lista de héroes vacía.
+Luego de imprimir la función deberá guardar en un archivo los mismos
+datos. El nombre del archivo debe tener el siguiente formato:------------------
+heroes_promedio_altura_genero.csv
+Donde:
+A. genero: será el género de los héroes a calcular, siendo M y F
+únicas opciones posibles.
+Ejemplos:
+heroes_promedio_altura_F.csv
+heroes_promedio_altura_M.csv
+Reutilizar las funciones: 'calcular_promedio_genero', 'imprimir_dato' y
+'guardar_archivo'.
+Esta función retornará True si pudo la lista tiene algún elemento y pudo
+guardar el archivo, False en caso de que esté vacía o no haya podido
+guardar el archivo.
+'''
+def stark_calcular_imprimir_guardar_promedio_altura_genero(
+    lista_heroes : list[dict], genero_buscado : str):
+    '''
+    
+    '''
+    if(lista_heroes):
+        clave_a_calcular = "altura"
+        resultado_promedio = calcular_promedio_genero(lista_heroes, clave_a_calcular, genero_buscado)
+        dato_promedio_genero = "Altura promedio genero {0}: {1}".format(genero_buscado, round(resultado_promedio, 2))
+        print_dato(dato_promedio_genero) 
+
+        name_path_archivo_genero = "Desafio_Stark_5-Archivos\heroes_promedio_{0}_{1}.csv".format(
+            clave_a_calcular, genero_buscado)
+    
+        resultado_booleano = guardar_archivo(
+            name_path_archivo_genero, dato_promedio_genero)
+        return resultado_booleano
+    else:
+        print("Error: Lista de héroes vacía.")
+
+# stark_calcular_imprimir_guardar_promedio_altura_genero(lista_heroes_prueba, genero_buscado="F")
+
+#4. Quinta Parte------------------------------

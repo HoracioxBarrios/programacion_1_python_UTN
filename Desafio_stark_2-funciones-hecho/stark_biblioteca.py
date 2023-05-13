@@ -387,7 +387,7 @@ clave_a_calcular = "altura"
 def sumar_dato_heroe(lista_heroes : list[dict], clave_a_calcular : str):
     '''
     de una list[dicc] acumula(suma) segun clave
-    recibe una lista de dicc heroes
+    recibe una lista de dicc heroes y una clave str (ejermplo "altura)
     retorna la suma de lo buscado - si la lista esta vacia da -1
     '''
     if(lista_heroes):
