@@ -289,7 +289,7 @@ heroes_M.csv, heroes_F.csv o heroes_NB según corresponda.
 La función retornará True si pudo guardar el archivo, False caso
 contrario.
 '''
-def stark_guardar_heroe_genero(lista_de_heroes: list[dict], genero_buscado: str):
+def stark_guardar_heroe_genero(lista_de_heroes: list[dict], genero_buscado: str)-> bool:
     '''
     crea un csv con los heroes que cumplen con el genero elegido
     recibe una lista de heroes y el genero buscado ("F", "M", "NB")
@@ -449,7 +449,7 @@ Esta función retornará True si pudo guardar el archivo, False caso
 contrario
 '''
 def stark_calcular_imprimir_guardar_heroe_genero(
-    lista_heroes :list[dict], tipo_de_calculo : str, clave_buscada : str,genero_buscado : str):
+    lista_heroes :list[dict], tipo_de_calculo : str, clave_buscada : str,genero_buscado : str)-> bool:
     '''
     Imprime el nombre y el valor calculado del héroe que cumpla dichas condiciones. 
 
@@ -627,9 +627,11 @@ guardar el archivo, False en caso de que esté vacía o no haya podido
 guardar el archivo.
 '''
 def stark_calcular_imprimir_guardar_promedio_altura_genero(
-    lista_heroes : list[dict], genero_buscado : str):
+    lista_heroes : list[dict], genero_buscado : str)-> bool:
     '''
-    
+    imprime el promedio de la altura segun genero y la guarda a formato csv.
+    Recibe (arg 1) la lista de heroes, y (arg 2) genero buscado ("F", "M")
+    Devuelve True en caso de generar el archivo correctamente.
     '''
     if(lista_heroes):
         clave_a_calcular = "altura"
@@ -648,7 +650,7 @@ def stark_calcular_imprimir_guardar_promedio_altura_genero(
 
 # stark_calcular_imprimir_guardar_promedio_altura_genero(lista_heroes_prueba, genero_buscado="F")
 
-#4. Quinta Parte------------------------------
+#5. Quinta Parte------------------------------
 '''
 5.1. Crear la función 'calcular_cantidad_tipo' la cual recibirá por parámetro
 la lista de héroes y un string que representará el tipo de dato/key a
@@ -696,6 +698,95 @@ def calcular_cantidad_tipo(lista_heroes : list[dict], clave_buscada : str)-> dic
 
 # print(calcular_cantidad_tipo(lista_heroes_prueba, clave_buscada="color_pelo"))
 
+'''
+5.2. Crear la función 'guardar_cantidad_heroes_tipo' la cual recibirá como
+parámetro un diccionario que representará las distintas variedades del
+tipo de dato (distintos colores de ojos, pelo, etc) como clave con sus
+respectivas cantidades como valor. Como segundo parámetro recibirá
+el dato (color_pelo, color_ojos, etc) el cual tendrás que usarlo
+únicamente en el mensaje final formateado. Esta función deberá iterar
+cada key del diccionario y variabilizar dicha key con su valor para
+luego formatearlos en un mensaje el cual deberá guardar en archivo.
+Por ejemplo:
+"Caracteristica: color_ojos Blue - Cantidad de heroes: 9"
+Reutilizar la función 'guardar_archivo'. El nombre del archivo final
+deberá respetar el formato:
+heroes_cantidad_tipoDato.csv
+Donde:
+● tipoDato: representará el nombre de la key la cual se está
+evaluando la cantidad de héroes.
+Ejemplo:
+heroes_cantidad_color_pelo.csv
+heroes_cantidad_color_ojos.csv
+La función retornará True si salió todo bien, False caso contrario.
 
+'''
+decc = {
+"Celeste": 4,
+"Verde": 8,
+"Marron": 6
+}
+def guardar_cantidad_heroes_tipo(diccionario_heroe : dict, clave_buscada : str)-> bool:
+    '''
+    guarda la cantidad de heroes por tipo segun clave
+    Recibe : (arg 1) un lista de heroes, (arg 2) una clave (ejemplo : "color_pelo")
+    Devuelve True en caso de guardar el archivo correctamente.
+    '''
+    nueva_lista_cantidad_tipos = []
+    for clave, Valor in diccionario_heroe.items():
+        dato = "Caracteristica: {0} {1} - Cantidad de heroes: {2}".format(
+         clave_buscada, clave, Valor)
+        nueva_lista_cantidad_tipos.append(dato)
+       
+    name_path_archivo_genero ="Desafio_Stark_5-Archivos\heroes_cantidad_{0}.csv".format(
+        clave_buscada)
+    datos_a_guardar = '\n'.join(nueva_lista_cantidad_tipos)
+    
+    resultado_booleano = guardar_archivo(
+            name_path_archivo_genero, datos_a_guardar)
+    return resultado_booleano
+        
+    
 
+# guardar_cantidad_heroes_tipo(decc, clave_buscada="color_pelo")
 
+'''
+5.3. Crear la función 'stark_calcular_cantidad_por_tipo' la cual recibirá por
+parámetro la lista de héroes y un string que representará el tipo de
+dato/key a buscar (color_ojos, color_pelo, etc). Dentro deberás
+reutilizar 'calcular_cantidad_tipo' y 'guardar_cantidad_heroes_tipo' con
+la lógica que cada una de esas funciones manejan.
+Esta función retornará True si pudo guardar el archivo, False caso
+contrario.
+
+'''
+def stark_calcular_cantidad_por_tipo(lista_heroes :list[dict], clave_buscada : str):
+    '''
+    calcula ña cantidad por tipo
+    Recibe : (arg 1)Una Lista de heroes, (arg 2) una clave (ejemplo "color_ojos")
+    Devuelve : 
+    '''
+    diccionario_resultados = calcular_cantidad_tipo(lista_heroes, clave_buscada)
+    resultado_booleano = guardar_cantidad_heroes_tipo(diccionario_resultados, clave_buscada)
+    return resultado_booleano
+    
+stark_calcular_cantidad_por_tipo(lista_heroes_prueba,clave_buscada= "color_ojos")
+
+#6. Sexta Parte------------------------------
+'''
+6.1. Crear la función 'obtener_lista_de_tipos' la cual recibirá por parámetro
+la lista de héroes y un string que representará el tipo de dato/key a
+buscar (color_ojos, color_pelo, etc).
+Esta función deberá iterar la lista de héroes guardando en una lista las
+variedades del tipo de dato pasado por parámetro (sus valores).
+En caso de encontrar una key sin valor (o string vacío), deberás
+hardcodear con el valor 'N/A' y luego agregarlo a la lista donde irás
+guardando todos los valores encontrados, si el valor del héroe no tiene
+errores, guardarlo tal cual viene.
+Finalmente deberás eliminar los duplicados de esa lista y retornarla
+como un set.
+Reutilizar 'capitalizar_palabras' para guardar cada uno de los datos
+con la primera letra mayúscula.
+'''
+def obtener_lista_de_tipos(lista_heroes : list[dict], clave_buscada : str):
+    pass
