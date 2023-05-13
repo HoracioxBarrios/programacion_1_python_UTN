@@ -649,3 +649,53 @@ def stark_calcular_imprimir_guardar_promedio_altura_genero(
 # stark_calcular_imprimir_guardar_promedio_altura_genero(lista_heroes_prueba, genero_buscado="F")
 
 #4. Quinta Parte------------------------------
+'''
+5.1. Crear la función 'calcular_cantidad_tipo' la cual recibirá por parámetro
+la lista de héroes y un string que representará el tipo de dato/key a
+buscar (color_ojos, color_pelo, etc)
+Antes de hacer nada, deberá validar que la lista no esté vacía. En caso
+de estarlo devolver un diccionario con la siguiente estructura:
+{
+"Error": “La lista se encuentra vacía”
+}
+La función deberá retornar un diccionario con los distintos valores del
+tipo de dato pasada por parámetro y la cantidad de cada uno (crear un
+diccionario clave valor).
+Por ejemplo, si el tipo de dato fuese color_ojos, devolverá un
+diccionario de la siguiente manera:
+{
+"Celeste": 4,
+"Verde": 8,
+"Marron": 6
+}
+Reutilizar la función 'capitalizar_palabras' para capitalizar los valores
+de las keys
+'''
+def calcular_cantidad_tipo(lista_heroes : list[dict], clave_buscada : str)-> dict:
+    '''
+    calcula la cantidad por tipo de valor ,segun clave.
+    Recibe: (arg1) una lista de heroes
+    (arg2) una key del heroe (ejemplo clave_buscada = "color_pelo")
+    Devuelve : un dccionario
+    '''
+    if(lista_heroes):
+        nuevo_diccionario = {}
+        for heroe in lista_heroes:
+            valor_tipo_original = heroe[clave_buscada]
+            valor_tipo_capitalized = capitalizar_palabras(valor_tipo_original)
+            if(valor_tipo_capitalized == ""):
+                valor_tipo_capitalized = "No tiene"
+            
+            if(valor_tipo_capitalized in nuevo_diccionario):
+                nuevo_diccionario[valor_tipo_capitalized] += 1
+            else:
+                nuevo_diccionario[valor_tipo_capitalized] = 1
+        return nuevo_diccionario
+    else:
+        return {'"Error": “La lista se encuentra vacía”'}
+
+# print(calcular_cantidad_tipo(lista_heroes_prueba, clave_buscada="color_pelo"))
+
+
+
+
