@@ -1,18 +1,21 @@
 
-import json # con esta libreria podemos generar la lista de diccionarios
-def parse_json(nombre_path_artchivo :str)-> list[dict]:
+import json
+
+
+
+def parse_json_a_lista_diccionary(nombre_archivo :str)-> list[dict]:
     '''
-    genera una lista de diccionarios a partir de un json
-    recibe 1 argumento: la ruta con el nombre y su extencion .json.
+    Genera una lista de diccionarios a partir de un json
+    Recibe: el path/nombre_archivo.json. (Desde donde toma los datos)
     devuelve una nueva list[dict]
     '''
     lista_heroes = []
-    with open(nombre_path_artchivo, "r") as archivo:
+    with open(nombre_archivo, "r") as archivo:
         nuevo_dicc = json.load(archivo)
         lista_heroes = nuevo_dicc["heroes"]
     return lista_heroes
 
-lista_resultante = parse_json("9-Ejercicios-Trabajar_con_archivos_json_y_csv -GUIA-f\heroes_prueba.json")
+lista_resultante = parse_json_a_lista_diccionary("9-Ejercicios-Trabajar_con_archivos_json_y_csv -GUIA-f\heroes_prueba.json")
 print(lista_resultante)
 
 

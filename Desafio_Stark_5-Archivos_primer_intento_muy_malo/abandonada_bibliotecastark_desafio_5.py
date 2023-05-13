@@ -286,42 +286,42 @@ el resto del código dentro del bloque try.
 
 
 
-# def guardar_archivo(nombre_archivo_csv: str, lista: list[dict]) -> bool:
-#     ''' 
-#     genera un archivo csv de heroes a partir de una lista de diccionarios
-#     Recibe: (arg 1)Recibe un str con la ruta con el nombre y extencion de archivo 
-#     ejemplo: csv, (arg 2) Recibe una lista de dict
-#     Devuelve: un archivo csv, y un valor True si se genero corrctamente,
-#     caso contrario False
-#     '''
-#     try:
-#         with open(nombre_archivo_csv, "w+") as archivo:
-#             for heroe in lista:
-#                 linea = "{0}, {1}, {2}, {3}, {4}, {5},{6}, {7}, {8}, {9}"
-#                 linea = linea.format(
-#                     heroe["nombre"],
-#                     heroe["identidad"],
-#                     heroe["empresa"],
-#                     heroe["altura"],
-#                     heroe["peso"],
-#                     heroe["genero"],
-#                     heroe["color_ojos"],
-#                     heroe["color_pelo"],
-#                     heroe["fuerza"],
-#                     heroe["inteligencia"]
-#                 )
-#                 archivo.write(linea + "\n")  # Escribir la línea en el archivo con un salto de línea
-#         print("Se creó el archivo: {0}".format(nombre_archivo_csv))
-#         return True
-#     except Exception as e:
-#         print("Error al crear el archivo: {0}".format(nombre_archivo_csv))
-#         print(str(e))
-#         return False
+def guardar_archivo(nombre_archivo_csv: str, lista: list[dict]) -> bool:
+    ''' 
+    genera un archivo csv de heroes a partir de una lista de diccionarios
+    Recibe: (arg 1)Recibe un str con la ruta con el nombre y extencion de archivo 
+    ejemplo: csv, (arg 2) Recibe una lista de dict
+    Devuelve: un archivo csv, y un valor True si se genero corrctamente,
+    caso contrario False
+    '''
+    try:
+        with open(nombre_archivo_csv, "w+") as archivo:
+            for heroe in lista:
+                linea = "{0}, {1}, {2}, {3}, {4}, {5},{6}, {7}, {8}, {9}"
+                linea = linea.format(
+                    heroe["nombre"],
+                    heroe["identidad"],
+                    heroe["empresa"],
+                    heroe["altura"],
+                    heroe["peso"],
+                    heroe["genero"],
+                    heroe["color_ojos"],
+                    heroe["color_pelo"],
+                    heroe["fuerza"],
+                    heroe["inteligencia"]
+                )
+                archivo.write(linea + "\n")  # Escribir la línea en el archivo con un salto de línea
+        print("Se creó el archivo: {0}".format(nombre_archivo_csv))
+        return True
+    except Exception as e:
+        print("Error al crear el archivo: {0}".format(nombre_archivo_csv))
+        print(str(e))
+        return False
 
     
-# # lista_de_heroes = leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json")
-# # ruta_csv = "Desafio_Stark_03-Archivos\data_stark.csv"
-# # print(guardar_archivo(ruta_csv, lista_de_heroes))
+# lista_de_heroes = leer_archivo_json("Desafio_Stark_03-Archivos\data_stark.json")
+# ruta_csv = "Desafio_Stark_03-Archivos\data_stark.csv"
+# print(guardar_archivo(ruta_csv, lista_de_heroes))
 
 #1.6 --------------------------------------------------------------------
 '''
