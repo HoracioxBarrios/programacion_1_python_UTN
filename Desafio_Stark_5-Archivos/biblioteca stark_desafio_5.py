@@ -2,14 +2,14 @@ import re
 import json
 
 heroe_dicc = {
-      "nombre": "Mystique",
+      "nombre": "mystique",
       "identidad": "Raven Darkholme",
       "empresa": "Marvel Comics",
       "altura": "178.65000000000001",
       "peso": "54.960000000000001",
       "genero": "F",
       "color_ojos": "Yellow (without irises)",
-      "color_pelo": "Red / Orange",
+      "color_pelo": "red / orange",#
       "fuerza": "15",
       "inteligencia": "good"
     }
@@ -35,7 +35,7 @@ lista_heroes_prueba =\
     "altura": 122.77,
     "peso": "25.73",
     "genero": "M",
-    "color_ojos": "Brown",
+    "color_ojos": "",
     "color_pelo": "Brown",
     "fuerza": "5",
     "inteligencia": "average"
@@ -770,7 +770,7 @@ def stark_calcular_cantidad_por_tipo(lista_heroes :list[dict], clave_buscada : s
     resultado_booleano = guardar_cantidad_heroes_tipo(diccionario_resultados, clave_buscada)
     return resultado_booleano
     
-stark_calcular_cantidad_por_tipo(lista_heroes_prueba,clave_buscada= "color_ojos")
+# stark_calcular_cantidad_por_tipo(lista_heroes_prueba,clave_buscada= "color_ojos")
 
 #6. Sexta Parte------------------------------
 '''
@@ -788,5 +788,118 @@ como un set.
 Reutilizar 'capitalizar_palabras' para guardar cada uno de los datos
 con la primera letra mayúscula.
 '''
-def obtener_lista_de_tipos(lista_heroes : list[dict], clave_buscada : str):
+def obtener_lista_de_tipos(lista_heroes : list[dict], clave_buscada : str)-> set:
+    '''
+    |De una lista de heroes obtiene el tipo de valor sin duplicados.
+    |Recibe una lista de heroes. (arg 2) la clave buscada (ej: "color_ojos).
+    |devuelve un set
+    '''
+    nueva_lista_variedades = []
+    for heroe in lista_heroes:
+        if(heroe[clave_buscada] == ""):
+            heroe[clave_buscada] = "N/A"
+        valor_capitalized = capitalizar_palabras(heroe[clave_buscada])
+        if(valor_capitalized not in nueva_lista_variedades):
+            nueva_lista_variedades.append(valor_capitalized)
+    return set(nueva_lista_variedades)
+
+# tipos = obtener_lista_de_tipos(lista_heroes_prueba, clave_buscada="color_ojos")
+# print(tipos)
+
+'''
+6.2. Crear la función 'normalizar_dato' la cual recibirá por parámetro un
+dato de héroe (el valor de una de sus keys, por ejemplo si la key fuese
+color_ojos y su valor fuese Verde, recibira este ultimo) y tambien una
+variable como string la cual representará el valor por defecto a colocar
+en caso de que el valor está vacío. Deberá validar que el dato no esté
+vacío, en caso de estarlo lo reemplazará con el valor default pasado
+por parámetro y lo retornará, caso contrario lo retornará sin
+modificaciones
+'''
+
+def normalizar_dato(valor : str, valor_reemplazante= "N/A"):
+    '''
+    Normaliza un valor string.
+    Recibe: (arg 1) valor (ejemplo: verde), (arg2) Opcional:valor 
+    reemplazante en caaso de que el valor sea "", 
+    por defaul reemplaza por "N/A".
+    Retorna el valor modificado si fue necesario.
+    '''
+    if(valor == ""):
+        valor = valor_reemplazante
+    return valor
+
+'''
+6.3. Crear la función 'normalizar_heroe' la cual recibirá dos parámetros. el
+primero será un diccionario que representará un solo héroe, el
+segundo parámetro será el nombre de la key de dicho diccionario la
+cual debe ser normalizada.
+La función deberá capitalizar las palabras que tenga dicha key como
+valor, luego deberá normalizar el dato (ya que si viene vacío, habrá
+que setearlo con N/A).
+Finalmente deberá capitalizar todas las palabras del nombre del héroe
+y deberá retornar al Hero con cada palabra de su nombre
+capitalizados, cada palabra del valor de la key capitalizadas y
+normalizadas (con N/A en caso de que estuviesen vacías por defecto).
+Reutilizar: 'capitalizar_palabras' y 'normalizar_dato'
+'''
+def normalizar_heroe(heroe : dict, clave_a_normalizar : str)-> dict:
+    '''
+    Normaliza el nombre y el valor de la clave buscada ademas las capitaliza.
+    Recibe:(arg 1) un diccionario - heroe y arg 2) la clave a normalizar
+    ejemplo "color_pelo". ----Normaliza datos str dentro del dicc----
+    Devuelve el heroe - normalizado.
+    '''
+    valor_capitalized = capitalizar_palabras(heroe[clave_a_normalizar])
+    heroe[clave_a_normalizar] = valor_capitalized
+    
+    valor_normalizado = normalizar_dato(heroe[clave_a_normalizar])
+    heroe[clave_a_normalizar] = valor_normalizado
+    
+    nombre_capitalized = capitalizar_palabras(heroe["nombre"])
+    heroe["nombre"] = nombre_capitalized
+        
+    return heroe    
+        
+    
+# heroe_normalizado = normalizar_heroe(
+#     heroe_dicc, clave_a_normalizar="color_pelo")
+# print(heroe_dicc)
+
+'''
+6.4. Crear la funcion 'obtener_heroes_por_tipo' el cual recibira por
+parámetro:
+A. La lista de héroes
+B. Un set de tipos/variedades (colores de ojos, de pelo, etc)
+C. El tipo de dato a evaluar (la key en cuestion, color_ojos,
+color_pelo, etc)
+PRESTAR ATENCIÓN:
+A. Deberá iterar el set de tipos/variedades y por cada tipo tendrá evaluar
+si ese tipo existe como key en un diccionario el cual deberás armar.
+(contendrá cada variedad como key y una lista de nombres de héroes
+como valor de cada una de ellas).
+B. En caso de no existir dicha key en el diccionario, agregarla con una
+lista vacía como valor.
+C. Dentro de la iteración de variedades, iterar la lista de héroes (for
+anidado) 'normalizando' el posible valor que tenga la key evaluada, ya
+que podría venir vacía (qué función usarias aca? guiño guiño)
+D. Una vez normalizado el dato, evaluar si dicho dato coincide con el tipo
+pasado por parámetro.
+E. En caso de que coincida, agregarlo a la lista (inicialmente vacía) de la
+variedad iterada en el primer bucle.
+Esta función retornará un diccionario con cada variedad como key y
+una lista de nombres como valor.
+Por ejemplo:
+{
+"Celestes": ["Capitan America", "Tony Stark"],
+"Verdes": ["Hulk", "Viuda Negra"]
+....
+}
+'''
+
+def obtener_heroes_por_tipo(
+    lista_heroes :list[dict], set_de_variedades : str, clave_a_evaluar : str)->dict:
     pass
+
+
+obtener_heroes_por_tipo(lista_heroes_prueba, )
