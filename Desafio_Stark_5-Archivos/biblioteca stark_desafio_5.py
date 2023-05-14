@@ -449,11 +449,7 @@ def calcular_cantidad_tipo(lista_heroes : list[dict], clave_buscada : str)-> dic
 
 
 #5.2
-decc = {
-"Celeste": 4,
-"Verde": 8,
-"Marron": 6
-}
+
 def guardar_cantidad_heroes_tipo(diccionario_heroe : dict, clave_buscada : str)-> bool:
     '''
     guarda la cantidad de heroes por tipo segun clave
@@ -544,7 +540,7 @@ def normalizar_heroe(heroe : dict, clave_a_normalizar : str)-> dict:
         
 
 #6.4
-# set_heroes_tipo_nombre = obtener_lista_de_tipos(lista_heroes_prueba, clave_buscada="color_pelo")
+
 
 
 def obtener_heroes_por_tipo(
@@ -604,10 +600,14 @@ def stark_listar_heroes_por_dato(lista_heroes : list[dict], clave_buscada : str)
     
     return resultado_booleano
 
-
-
-
- #1.3
+#------------------------------para resolver el punto (i) del menú
+def leer_e_imprimir_csv(path_nombre_archivo : str):
+    with open( path_nombre_archivo, "r") as archivo:
+        for dato in archivo:
+            print(dato)
+            
+            
+#1.3
 def  stark_marvel_app_5(lista_de_personajes: list[dict]):
     while(True):
         respuesta = stark_menu_principal_desafio_5()
@@ -643,7 +643,10 @@ def  stark_marvel_app_5(lista_de_personajes: list[dict]):
                 stark_calcular_imprimir_guardar_promedio_altura_genero(
                         lista_de_personajes, genero_buscado ="F")
             case "I":
-                pass
+                leer_e_imprimir_csv("Desafio_Stark_5-Archivos\heroes_maximo_altura_M.csv")
+                leer_e_imprimir_csv("Desafio_Stark_5-Archivos\heroes_maximo_altura_F.csv")
+                leer_e_imprimir_csv("Desafio_Stark_5-Archivos\heroes_minimo_altura_M.csv")
+                leer_e_imprimir_csv("Desafio_Stark_5-Archivos\heroes_minimo_altura_F.csv")
             case "J":
                 stark_calcular_cantidad_por_tipo(lista_de_personajes, clave_buscada = "color_ojos")
             case "K":
