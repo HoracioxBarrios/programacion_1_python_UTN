@@ -182,7 +182,6 @@ def es_genero(diccionario_heroe : dict, valor_genero : str)-> bool:
     '''
     return diccionario_heroe["genero"] == valor_genero
  
-# print(es_genero(heroe_dicc, valor_genero="F"))
 
 #2.2
 def stark_guardar_heroe_genero(lista_de_heroes: list[dict], genero_buscado: str)-> bool:
@@ -205,7 +204,7 @@ def stark_guardar_heroe_genero(lista_de_heroes: list[dict], genero_buscado: str)
     resultado_boleano = guardar_archivo(name_path_archivo_genero, cadena)
     return resultado_boleano
                     
-# stark_guardar_heroe_genero(lista_heroes_prueba, genero_buscado="F")
+
 
 #3. Tercera Parte------------------------------
 #3.1
@@ -233,8 +232,6 @@ def calcular_min_genero(
     
     return None
 
-# minima_altura_fem = calcular_min_genero(lista_heroes_prueba, clave_buscada="altura", genero_buscado="F")
-# print(minima_altura_fem)
 
 #3.2
 def calcular_max_genero(
@@ -261,8 +258,6 @@ def calcular_max_genero(
     
     return None
 
-# maxima_altura_fem = calcular_max_genero(lista_heroes_prueba, clave_buscada="altura", genero_buscado="F")
-# print(maxima_altura_fem)
 
 #3.3
 def calcular_max_min_dato_genero(
@@ -283,10 +278,6 @@ def calcular_max_min_dato_genero(
     else:
         return "Error :Ingrese clave 'maximo' o 'minimo'"
 
-# resultado = calcular_max_min_dato_genero(
-#     lista_heroes_prueba, tipo_de_calculo="minimo",
-#     clave_buscada="altura",genero_buscado="F")
-# print(resultado)
 
 #3.4
 def stark_calcular_imprimir_guardar_heroe_genero(
@@ -355,8 +346,6 @@ def sumar_dato_heroe_genero(
     else:
         return -1
 
-# print(sumar_dato_heroe_genero(
-#     lista_heroes_prueba, clave_a_calcular="altura", genero_buscado="F"))
 
 #4.2
 def cantidad_heroes_genero(lista_heroes : list[dict], genero_buscado : str)-> int:
@@ -375,8 +364,6 @@ def cantidad_heroes_genero(lista_heroes : list[dict], genero_buscado : str)-> in
     else:
         return contador_de_heroes_genero
 
-# resultado = cantidad_heroes_genero(lista_heroes_prueba, genero_buscado="F")
-# print(resultado)
 
 
 
@@ -406,9 +393,6 @@ def calcular_promedio_genero(
     promedio = dividir(resultado_acumulado, cantidad_de_heroes)
     return promedio
 
-# resultado_promedio = calcular_promedio_genero(
-#     lista_heroes_prueba, clave_a_calcular="altura", genero_buscado="F")
-# print(resultado_promedio)
 
 #4.4
 def stark_calcular_imprimir_guardar_promedio_altura_genero(
@@ -435,7 +419,7 @@ def stark_calcular_imprimir_guardar_promedio_altura_genero(
     else:
         print("Error: Lista de héroes vacía.")
 
-# stark_calcular_imprimir_guardar_promedio_altura_genero(lista_heroes_prueba, genero_buscado="F")
+
 
 #5. Quinta Parte------------------------------
 
@@ -463,7 +447,6 @@ def calcular_cantidad_tipo(lista_heroes : list[dict], clave_buscada : str)-> dic
     else:
         return {'"Error": “La lista se encuentra vacía”'}
 
-# print(calcular_cantidad_tipo(lista_heroes_prueba, clave_buscada="color_pelo"))
 
 #5.2
 decc = {
@@ -492,7 +475,6 @@ def guardar_cantidad_heroes_tipo(diccionario_heroe : dict, clave_buscada : str)-
     return resultado_booleano
         
     
-# guardar_cantidad_heroes_tipo(decc, clave_buscada="color_pelo")
 
 #5.3
 def stark_calcular_cantidad_por_tipo(lista_heroes :list[dict], clave_buscada : str):
@@ -506,7 +488,7 @@ def stark_calcular_cantidad_por_tipo(lista_heroes :list[dict], clave_buscada : s
         diccionario_resultados, clave_buscada)
     return resultado_booleano
     
-# stark_calcular_cantidad_por_tipo(lista_heroes_prueba,clave_buscada= "color_ojos")
+
 
 #6. Sexta Parte------------------------------
 #6.1
@@ -560,10 +542,6 @@ def normalizar_heroe(heroe : dict, clave_a_normalizar : str)-> dict:
         
     return heroe    
         
-    
-# heroe_normalizado = normalizar_heroe(
-#     heroe_dicc, clave_a_normalizar="color_pelo")
-# print(heroe_dicc)
 
 #6.4
 # set_heroes_tipo_nombre = obtener_lista_de_tipos(lista_heroes_prueba, clave_buscada="color_pelo")
@@ -595,9 +573,6 @@ def obtener_heroes_por_tipo(
                    nueva_lista.append(heroe["nombre"])
     return nuevo_diccionario_variedades
               
-            
-# dicc_heroe_por_tipo =  obtener_heroes_por_tipo(lista_heroes_prueba, set_heroes_tipo_nombre, clave_buscada="color_pelo")
-# print(dicc_heroe_por_tipo)
 
 #6.5
 def guardar_heroes_por_tipo(
@@ -616,7 +591,7 @@ def guardar_heroes_por_tipo(
     
     return resultado_booleano
 
-# guardar_heroes_por_tipo(dicc_heroe_por_tipo, clave_buscada="color_pelo")
+
 
 #6.6
 
@@ -631,8 +606,6 @@ def stark_listar_heroes_por_dato(lista_heroes : list[dict], clave_buscada : str)
 
 
 
-
-# print(stark_listar_heroes_por_dato(lista_heroes_prueba, clave_buscada="color_ojos"))
 
  #1.3
 def  stark_marvel_app_5(lista_de_personajes: list[dict]):
