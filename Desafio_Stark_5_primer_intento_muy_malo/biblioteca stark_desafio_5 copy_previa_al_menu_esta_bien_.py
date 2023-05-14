@@ -80,7 +80,7 @@ lista_heroes_prueba =\
     "inteligencia": "good"
   }]
 
-#1. Primera Parte------------------------------
+#1. Primera Parte ------------------------------
 '''
 1.1. Crear la función "imprimir_menu_desafio_5" que imprima el menú de
 opciones por pantalla (las opciones son las que se van a utilizar para
