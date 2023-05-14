@@ -1,22 +1,45 @@
 import re
 import json
 
-heroe_dicc = {
-      "nombre": "mystique",
+# heroe_dicc = {
+#       "nombre": "mystique",
+#       "identidad": "Raven Darkholme",
+#       "empresa": "Marvel Comics",
+#       "altura": "178.65000000000001",
+#       "peso": "54.960000000000001",
+#       "genero": "F",
+#       "color_ojos": "Yellow (without irises)",
+#       "color_pelo": "red / orange",
+#       "fuerza": "15",
+#       "inteligencia": "good"
+#     }
+
+lista_heroes_prueba =\
+[   {
+      "nombre": "MystiqueChuo",
       "identidad": "Raven Darkholme",
       "empresa": "Marvel Comics",
-      "altura": "178.65000000000001",
+      "altura": 178.65000000000001,
       "peso": "54.960000000000001",
       "genero": "F",
       "color_ojos": "Yellow (without irises)",
-      "color_pelo": "red / orange",#
+      "color_pelo": "red / orange",
       "fuerza": "15",
       "inteligencia": "good"
-    }
-
-lista_heroes_prueba =\
-[
-  {
+    },
+    {
+      "nombre": "Mystique",
+      "identidad": "Raven Darkholme",
+      "empresa": "Marvel Comics",
+      "altura": 178.65000000000001,
+      "peso": "54.960000000000001",
+      "genero": "F",
+      "color_ojos": "Yellow (without irises)",
+      "color_pelo": "red / orange",
+      "fuerza": "15",
+      "inteligencia": "good"
+    },
+    {
     "nombre": "Howard the Duck",
     "identidad": "Howard (Last name unrevealed)",
     "empresa": "Marvel Comics",
@@ -896,10 +919,107 @@ Por ejemplo:
 ....
 }
 '''
+set_heroes_tipo_nombre = obtener_lista_de_tipos(lista_heroes_prueba, clave_buscada="color_pelo")
+
+
+#{'Red / Orange', 'Brown', 'Black', 'Yellow'}
+
 
 def obtener_heroes_por_tipo(
-    lista_heroes :list[dict], set_de_variedades : str, clave_a_evaluar : str)->dict:
-    pass
+    lista_heroes :list[dict], set_de_variedades : str, clave_buscada : str)->dict:
+    '''
+    obtierne heroes por tipo.
+    Recibe: (arg1)lista de heroes, (arg 2) Un set de tipos/variedades (colores de ojos, de pelo, etc)
+    (arg 3) una clave a evaluar.El tipo de dato a evaluar (la key en cuestion, color_ojos,
+    color_pelo, etc).
+    
+    Retorna un diccionario. ejemplo:
+    {"Green" : ["hulk", "blanka", "ET"],
+    {....}
+    {....} 
+    '''
+    nuevo_diccionario_variedades = {}
+    for tipo_variedad in set_de_variedades:
+        if(tipo_variedad not in nuevo_diccionario_variedades):
+            nueva_lista = []
+            nuevo_diccionario_variedades[tipo_variedad] = nueva_lista
+            for heroe in lista_heroes:
+               valor_normalizado = normalizar_dato(heroe[clave_buscada])
+               heroe[clave_buscada] = valor_normalizado
+               heroe[clave_buscada] = capitalizar_palabras(heroe[clave_buscada]) #capit. la clave antes de evaluar
+               if(heroe[clave_buscada] == tipo_variedad):
+                   nueva_lista.append(heroe["nombre"])
+    return nuevo_diccionario_variedades
+              
+            
+    
 
 
-obtener_heroes_por_tipo(lista_heroes_prueba, )
+dicc_heroe_por_tipo =  obtener_heroes_por_tipo(lista_heroes_prueba, set_heroes_tipo_nombre, clave_buscada="color_pelo")
+# print(dicc_heroe_por_tipo)
+
+'''
+6.5. Crear la funcion 'guardar_heroes_por_tipo' la cual recibira por
+parámetro un diccionario que representará los distintos tipos como
+clave y una lista de nombres como valor (Lo retorna la función anterior)
+y además como segundo parámetro tendrá un string el cual
+representará el tipo de dato a evaluar (color_pelo, color_ojos, etc).
+Deberá recorrer cada key y cada valor (lista) que esta contenga para
+finalmente crear un string el cual será un mensaje que deberás
+imprimir formateado.
+Por ejemplo:
+"color_ojos Green: Black Widow | Hulk"
+Reutilizar la función 'guardar_archivo'. El archivo final deberá respetar
+el formato:
+heroes_segun_TipoDato.csv
+Donde:
+● TipoDato: es la key la cual indicará qué cosas se deben guardar
+en el archivo.
+Ejemplo:
+heroes_segun_color_pelo.csv (Agrupados por color de pelo)
+heroes_segun_color_ojos.csv (Agrupados por color de ojos)
+Esta función retorna True si salió todo bien, False caso contrario.
+
+'''
+def guardar_heroes_por_tipo(diccionario_tipos_y_nombres : dict[str, list],clave_buscada : str):
+    nueva_lista_tipos_y_nombres = []
+    for clave, valor in diccionario_tipos_y_nombres.items():
+        dato_str = "color de Pelo {0}: {1}".format(clave," | ".join(valor))
+        nueva_lista_tipos_y_nombres.append(dato_str)
+        
+    name_path_archivo_genero ="Desafio_Stark_5-Archivos\heroes_segun_{0}.csv".format(
+        clave_buscada)
+    datos_a_guardar = '\n'.join(nueva_lista_tipos_y_nombres)
+    
+    resultado_booleano = guardar_archivo(
+            name_path_archivo_genero, datos_a_guardar)
+    
+    return resultado_booleano
+
+# guardar_heroes_por_tipo(dicc_heroe_por_tipo, clave_buscada="color_pelo")
+
+
+
+'''
+6.6. Crear la función 'stark_listar_heroes_por_dato' la cual recibirá por
+parámetro la lista de héroes y un string que representará el tipo de
+dato a evaluar (color_pelo, color_ojos, etc). Dentro deberás reutilizar
+las funciones:
+A. 'obtener_lista_de_tipos'
+B. 'obtener_heroes_por_tipo'
+C. 'guardar_heroes_por_tipo'
+Pasando por parámetro lo que corresponda según la lógica de las
+funciones usadas.
+Esta función retornará True si pudo guardar el archivo, False caso
+contrario.
+'''
+
+def stark_listar_heroes_por_dato(lista_heroes : list[dict], clave_buscada : str):
+    set_heroes_tipo_nombre = obtener_lista_de_tipos(lista_heroes, clave_buscada)
+    dicc_heroe_por_tipo_nombre =  obtener_heroes_por_tipo(lista_heroes, set_heroes_tipo_nombre, clave_buscada)
+    resultado_booleano = guardar_heroes_por_tipo(dicc_heroe_por_tipo_nombre, clave_buscada)
+    
+    return resultado_booleano
+
+print(stark_listar_heroes_por_dato(lista_heroes_prueba, clave_buscada="color_ojos"))
+
