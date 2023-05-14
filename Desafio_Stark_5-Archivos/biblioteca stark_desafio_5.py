@@ -37,7 +37,7 @@ def stark_normalizar_datos(heroes: list[dict]) -> list[dict]:
     else:
         return "La lista esta Vacia"
 
-#1. Primera Parte------------------------------
+#1. Primera Parte ------------------------------
 
 
 
