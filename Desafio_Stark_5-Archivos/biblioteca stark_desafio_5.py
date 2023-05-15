@@ -655,10 +655,13 @@ def  stark_marvel_app_5(lista_de_personajes: list[dict]):
                 stark_calcular_cantidad_por_tipo(lista_de_personajes, clave_buscada = "inteligencia")
             case "M":
                 stark_listar_heroes_por_dato(lista_de_personajes, clave_buscada = "color_ojos")
+                leer_e_imprimir_csv("Desafio_Stark_5-Archivos\heroes_segun_color_ojos.csv")
             case "N":
                 stark_listar_heroes_por_dato(lista_de_personajes, clave_buscada = "color_pelo")
+                leer_e_imprimir_csv("Desafio_Stark_5-Archivos\heroes_segun_color_pelo.csv")
             case "O":
                 stark_listar_heroes_por_dato(lista_de_personajes, clave_buscada = "inteligencia")
+                leer_e_imprimir_csv("Desafio_Stark_5-Archivos\heroes_segun_inteligencia.csv")
             case "Z":
                 break
             case other:
