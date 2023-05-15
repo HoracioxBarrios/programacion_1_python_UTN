@@ -664,7 +664,7 @@ def  stark_marvel_app_5(lista_de_personajes: list[dict]):
                 leer_e_imprimir_csv("Desafio_Stark_5-Archivos\heroes_segun_inteligencia.csv")
             case "Z":
                 break
-            case other:
+            case _:
                 print("Opcion incorrecta")
         clear_console()
 
