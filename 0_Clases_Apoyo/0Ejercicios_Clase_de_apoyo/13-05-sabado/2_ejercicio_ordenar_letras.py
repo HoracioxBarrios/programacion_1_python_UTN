@@ -10,15 +10,17 @@ lista_de_letras = ['B', 'G', 'V', 'S', 'N', 'E', 'X', 'M',
                    'O', 'J']
 
 def ordenar_letras_bubble_sort(lista : list):
+    len_de_lista = len(lista)-1
     flag_swap = True
     while(flag_swap):
         flag_swap = False
-        for indice in range(len(lista)-1):
+        for indice in range(len_de_lista):
             if(lista[indice] > lista[indice +1]):
                 aux = lista[indice]
                 lista[indice] = lista[indice +1]
                 lista[indice +1] = aux
                 flag_swap = True
+        len_de_lista -=1
     return lista
 
 print(ordenar_letras_bubble_sort(lista_de_letras))
