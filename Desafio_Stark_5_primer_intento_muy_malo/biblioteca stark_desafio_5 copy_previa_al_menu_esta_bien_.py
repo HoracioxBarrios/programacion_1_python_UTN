@@ -1070,6 +1070,9 @@ Esta función retornará True si pudo guardar el archivo, False caso
 contrario.
 '''
 
+
+
+
 def stark_listar_heroes_por_dato(lista_heroes : list[dict], clave_buscada : str):
     set_heroes_tipo_nombre = obtener_lista_de_tipos(lista_heroes, clave_buscada)
     dicc_heroe_por_tipo_nombre =  obtener_heroes_por_tipo(lista_heroes, set_heroes_tipo_nombre, clave_buscada)

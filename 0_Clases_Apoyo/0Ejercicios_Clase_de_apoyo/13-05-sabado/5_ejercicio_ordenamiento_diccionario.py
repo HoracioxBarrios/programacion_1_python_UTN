@@ -34,6 +34,12 @@ def ordenar_frutas_por_precio_kilo(diccionario_de_frutas : dict)-> dict:
 frutas_ordenadas = ordenar_frutas_por_precio_kilo(diccionario_frutas)
 print(frutas_ordenadas)
 
+
+
+
+
 '''
-#claves es = ['manzana', 'banana', 'naranja', 'uva', 'mango']
+comprension de diccionario es uno de los temas que vienen.
+
 '''
+

@@ -21,7 +21,7 @@ libreria copy y slice. con esto me crea dos nuevos
 espacios en memoria para las dos nuevas listas 2 y 3
 '''
 
-# bubble sopt con indice en decremento
+# bubble sort con indice en decremento
 def ordenar_numeros_bubble_sort(lista : list):
     len_de_lista = len(lista) -1
     for indice in range(len_de_lista):

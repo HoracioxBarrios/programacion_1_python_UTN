@@ -20,3 +20,5 @@ video clase 09 https://youtu.be/65FcdtyIK4M    archivos
 
 video clase 10 https://youtu.be/4Bh-ghAjptE algoritmos ordenaiento
 
+video clase 11 https://youtu.be/DFdG_JfdQgk burbujeo  quick sort 
+

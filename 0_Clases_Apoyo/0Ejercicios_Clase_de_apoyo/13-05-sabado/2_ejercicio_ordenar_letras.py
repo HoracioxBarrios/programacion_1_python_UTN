@@ -4,6 +4,7 @@ alfabéticamente de A a Z.
 '''
 
 
+
 lista_de_letras = ['B', 'G', 'V', 'S', 'N', 'E', 'X', 'M', 
                    'P', 'F', 'L', 'R', 'Q', 'A', 'T', 'C', 
                    'Z', 'Y', 'K', 'I', 'U', 'D', 'W', 'H', 

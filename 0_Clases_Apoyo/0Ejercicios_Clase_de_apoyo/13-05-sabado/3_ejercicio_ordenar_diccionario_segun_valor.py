@@ -34,8 +34,6 @@ print(ordenar_estudiantes_por_calificacion(estudiantes))
 
 
 
-
-
 '''
 Se puede utilizar el método list() para obtener una lista de las claves 
 del diccionario y luego acceder al valor correspondiente utilizando 
