@@ -120,6 +120,6 @@ def listar_por_cantidad_si_primeros_o_ultimos(
     
             
 cantidad_heroes_a_mostrar = listar_por_cantidad_si_primeros_o_ultimos(
-    lista_ordenada, cantidad= 2, posicion="primeros")
+    lista_ordenada, cantidad= 2, posicion="ultimos")
 
 print(cantidad_heroes_a_mostrar)
