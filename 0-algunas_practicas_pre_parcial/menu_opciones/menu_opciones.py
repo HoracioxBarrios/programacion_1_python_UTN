@@ -43,7 +43,7 @@ def menu_principal():
 
 
 
-
+''' algunas validaciones regex'''
 
 #-------------------------- regex caracteres numericos
 #--
@@ -64,14 +64,15 @@ def menu_principal():
 
 
 #-- int
-numero = "100"
 
-resultado = re.findall(r"^[0-9]*$", numero)
-if(resultado):
-    res_str = "".join(resultado)
-    res_int = int(res_str)
-    print(res_int)
-    print(type(res_int))
+# numero = "100"
+
+# resultado = re.findall(r"^[0-9]*$", numero)
+# if(resultado):
+#     res_str = "".join(resultado)
+#     res_int = int(res_str)
+#     print(res_int)
+#     print(type(res_int))
 
 #-------------------------- regex caracteres alfabeticos, son equivalentes :
 #--a
