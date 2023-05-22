@@ -82,15 +82,7 @@ def imprimir_menu():
             "7- Salir"]
     
     for item in lista:
-        print_dato(item)  
-
-# def print_heroes(lista_heroes : list[dict]):
-#     for heroe in lista_heroes:
-#         mensaje = "{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}\n".format(heroe["nombre"], \
-#         heroe["identidad"], heroe["empresa"],heroe["altura"], heroe["peso"], heroe["genero"], \
-#         heroe["color_ojos"],heroe["color_pelo"], heroe["fuerza"], heroe["inteligencia"])
-
-#         print(mensaje)       
+        print_dato(item)    
 #------------------------------------------------------  
 def cantidad_a_listar_por_user(lista_heroes_ordenada : list[dict], cant_a_listar = 0):
     '''
@@ -114,7 +106,7 @@ def cantidad_a_listar_por_user(lista_heroes_ordenada : list[dict], cant_a_listar
 
 
 def ordenar_bubble_sort_v5(
-    lista_heroes: list[dict], clave : str, ordenamiento ,cant_a_listar = 0)-> list[dict]:
+    lista_heroes: list[dict], clave : str, ordenamiento = "asc" ,cant_a_listar = 0)-> list[dict]:
     '''
     Ordena una lista de Heroes segun clave y ordenamiento escogido.
     
@@ -157,7 +149,7 @@ def ordenar_bubble_sort_v5(
 
 def print_heroes(lista_heroes : list[dict]):
     for heroe in lista_heroes:
-        mensaje = "Nombre: {0}, Identidad: {1}, Empresa: {2}, Altura: {3}, Peso: {4} Genero {5}, Color Ojos: {6}, Color Pelo: {7}, Fuerza: {8}, Inteligencia: {9}\n".format(heroe["nombre"], \
+        mensaje = "Nombre: {0}, Identidad: {1}, Empresa: {2}, Altura: {3}, Peso: {4} Genero {5}, Color Ojos: {6}, Color Pelo: {7}, Fuerza: {8}, Inteligencia: {9}\n".format(heroe["nombre"],
         heroe["identidad"], heroe["empresa"],heroe["altura"], heroe["peso"], heroe["genero"],
         heroe["color_ojos"],heroe["color_pelo"], heroe["fuerza"], heroe["inteligencia"])
 
@@ -189,7 +181,7 @@ def solicitar_numero_imput(patron_re : str)-> int:
     '''
     numero = input("Ingrese un número entero mayor a 0: ")
     esta_ok = validar_respuesta(patron_re, numero)
-    while (not esta_ok):
+    while (esta_ok == -1):
         print("El número debe ser mayor a 0. Inténtelo nuevamente.")
         numero = input("Ingrese un número entero mayor a 0: ")
         
@@ -201,11 +193,11 @@ def solicitar_respuesta_str_input(patron_re : str)-> str:
     recibe: un patro regex para validar lo que ingresa el user.
     deuvleve: la respuesta si esta ok.
     '''
-    respuesta = input("Ingrese el orden ' asc ' o ' desc '")
+    respuesta = input("Ingrese el orden  asc  o  desc ")
     esta_ok = validar_respuesta(patron_re, respuesta)
-    while(not esta_ok):
+    while(esta_ok == -1):
         print("incorrecto. Inténtelo nuevamente.")
-        respuesta = input("Ingrese el orden ' asc ' o ' desc '")
+        respuesta = input("Ingrese el orden  asc  o desc '")
     return respuesta
     
         
@@ -223,9 +215,11 @@ def comprobar_si_supera_el_maxiomo_de_elementos(
         if(numero <= cantidad_en_lista):
             return numero
         else:
-            return "La cantidad supera a los heroes en lista"
+            print("La cantidad supera a los heroes en lista")
+            return -1
     else:
-        return "La lista está vacia"    
+        print("La lista esta vacia")
+        return -1   
 
 
       
@@ -265,12 +259,12 @@ def  app_simulacro(lista_heroes : list[dict]):
                 numero_ingresado = solicitar_numero_imput(r'^[1-9][0-9]*$')
                 numero_ingresadp_comprobado = comprobar_si_supera_el_maxiomo_de_elementos(
                     lista_heroes, numero_ingresado)
-                lista_a_cantidad_mostrar = ordenar_bubble_sort_v5(
+                if(numero_ingresado != -1):
+                    lista_a_cantidad_mostrar = ordenar_bubble_sort_v5(
                     lista_heroes, clave="altura", ordenamiento="asc", 
                     cant_a_listar= numero_ingresadp_comprobado)
                 
                 print_heroes(lista_a_cantidad_mostrar)
-                
             case 2:
                 respuesta = solicitar_respuesta_str_input(r"^a[s]c$|^d[e][s]c$")
                 lista_a_mostrar_segun_orden = ordenar_bubble_sort_v5(

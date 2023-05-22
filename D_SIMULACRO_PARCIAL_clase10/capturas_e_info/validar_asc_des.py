@@ -13,7 +13,7 @@ def validar_respuesta(patron_re : str, texto : str )-> str | int:
     else:
         return -1
     
-cadena = "asc"
+cadena = "5555"
 
 respuesta_de_ordenamiento = validar_respuesta(r"^a[s]c$|^d[e][s]c$", cadena)
 print(respuesta_de_ordenamiento)

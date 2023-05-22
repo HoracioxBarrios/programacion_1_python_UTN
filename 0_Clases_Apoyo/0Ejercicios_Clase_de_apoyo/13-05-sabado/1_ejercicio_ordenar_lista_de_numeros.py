@@ -1,4 +1,5 @@
 import copy
+# from copy import deepcopy   # solo se trae deep compi. igual son la misma libreria
 
 '''
 1. Crea una función que ordene una lista de números enteros 
