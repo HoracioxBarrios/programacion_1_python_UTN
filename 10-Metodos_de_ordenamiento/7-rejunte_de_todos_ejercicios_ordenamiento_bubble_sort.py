@@ -5,11 +5,11 @@ import copy
 de menor a mayor. Puedes utilizar cualquier método de 
 ordenamiento que conozcas
 '''
-lista_de_numeros = [5, 10, 30, 50, 100, 150, 600]
+lista_de_numeros = [555, 10, 30, 50, 100, 1, 2]
 
-lista_de_numeros_2 = copy.copy(lista_de_numeros)
+# lista_de_numeros_2 = copy.copy(lista_de_numeros)
 
-lista_de_numeros_3 = lista_de_numeros[:]
+# lista_de_numeros_3 = lista_de_numeros[:]
 
 
 '''
@@ -32,7 +32,7 @@ def ordenar_numeros_bubble_sort(lista : list):
         len_de_lista -= 1
     print(lista)
 
-# ordenar_numeros_bubble_sort(lista_de_numeros)
+ordenar_numeros_bubble_sort(lista_de_numeros)
 # print("id en memoria:{0}".format(id(lista_de_numeros)))
 
 
@@ -69,7 +69,7 @@ def ordenar_numeros_bubble_sort_v3(lista: list):
         len_de_lista -= 1
         print(lista)      
                 
-ordenar_numeros_bubble_sort_v3(lista_de_numeros_3)
+# ordenar_numeros_bubble_sort_v3(lista_de_numeros_3)
 # print("id en memoria:{0}".format(id(lista_de_numeros_3)))
 
 
@@ -100,7 +100,7 @@ def ordenar_letras_bubble_sort(lista : list):
         len_de_lista -=1
     return lista
 
-print(ordenar_letras_bubble_sort(lista_de_letras))
+# print(ordenar_letras_bubble_sort(lista_de_letras))
 #-----------------------------------------------------------------
 '''
 3. Crea una función que ordene un diccionario de estudiantes por 
@@ -131,7 +131,7 @@ def ordenar_estudiantes_por_calificacion(dicc_estudiantes : dict):
     estudiantes_ordenados = {i_clave : dicc_estudiantes[i_clave] for i_clave in claves}
     return estudiantes_ordenados
             
-print(ordenar_estudiantes_por_calificacion(estudiantes))   
+# print(ordenar_estudiantes_por_calificacion(estudiantes))   
 
 
 '''
@@ -233,8 +233,8 @@ def ordenar_libros_por_clave(
 # print(lista_de_libros_ordenada)
 
 
-lista_de_libros_ordenada = ordenar_libros_por_clave(libros, clave_buscada= "año")
-print(lista_de_libros_ordenada)
+# lista_de_libros_ordenada = ordenar_libros_por_clave(libros, clave_buscada= "año")
+# print(lista_de_libros_ordenada)
 
 #-----------------------------------------------------------------
 
@@ -271,8 +271,8 @@ def ordenar_frutas_por_precio_kilo(diccionario_de_frutas : dict)-> dict:
 
 
 
-frutas_ordenadas = ordenar_frutas_por_precio_kilo(diccionario_frutas)
-print(frutas_ordenadas)
+# frutas_ordenadas = ordenar_frutas_por_precio_kilo(diccionario_frutas)
+# print(frutas_ordenadas)
 
 
 
@@ -334,8 +334,8 @@ def ordenar_lista_de_tupas(
     else:
         return "La lista esta vacia"
     
-lista_tupla_ordenada = ordenar_lista_de_tupas(lista_tuplas)
-print(lista_tupla_ordenada)
+# lista_tupla_ordenada = ordenar_lista_de_tupas(lista_tuplas)
+# print(lista_tupla_ordenada)
 
 '''
 la idea es cambiar de lugar entre las tuplas, para evaluar nos guardamos los valores 

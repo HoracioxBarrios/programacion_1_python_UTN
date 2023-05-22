@@ -56,7 +56,7 @@ def crear_archivo_json(lista_heroes : list[dict], nombre_path : str):
     nuevo_diccionario["heroes"] = lista_heroes
     with open(nombre_path, "w") as archivo:
         json.dump(nuevo_diccionario, archivo, indent= 4)
-        
+        nombre = 
         nombre = re.findall(r"[a-z_A-Z]+\.json$", nombre_path)
         nombre = "".join(nombre)
         print("Se creó el archivo {0}".format(nombre))

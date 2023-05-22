@@ -29,7 +29,6 @@ def ordenar_numeros_bubble_sort(lista : list):
             aux = lista[indice]
             lista[indice] = lista[indice + 1]
             lista[indice + 1] = aux
-        len_de_lista -= 1
     print(lista)
 
 # ordenar_numeros_bubble_sort(lista_de_numeros)
@@ -100,7 +99,7 @@ def ordenar_letras_bubble_sort(lista : list):
         len_de_lista -=1
     return lista
 
-print(ordenar_letras_bubble_sort(lista_de_letras))
+# print(ordenar_letras_bubble_sort(lista_de_letras))
 #-----------------------------------------------------------------
 '''
 3. Crea una función que ordene un diccionario de estudiantes por 
@@ -131,7 +130,7 @@ def ordenar_estudiantes_por_calificacion(dicc_estudiantes : dict):
     estudiantes_ordenados = {i_clave : dicc_estudiantes[i_clave] for i_clave in claves}
     return estudiantes_ordenados
             
-print(ordenar_estudiantes_por_calificacion(estudiantes))   
+# print(ordenar_estudiantes_por_calificacion(estudiantes))   
 
 
 '''
@@ -271,8 +270,8 @@ def ordenar_frutas_por_precio_kilo(diccionario_de_frutas : dict)-> dict:
 
 
 
-frutas_ordenadas = ordenar_frutas_por_precio_kilo(diccionario_frutas)
-print(frutas_ordenadas)
+# frutas_ordenadas = ordenar_frutas_por_precio_kilo(diccionario_frutas)
+# print(frutas_ordenadas)
 
 
 
@@ -334,8 +333,8 @@ def ordenar_lista_de_tupas(
     else:
         return "La lista esta vacia"
     
-lista_tupla_ordenada = ordenar_lista_de_tupas(lista_tuplas)
-print(lista_tupla_ordenada)
+# lista_tupla_ordenada = ordenar_lista_de_tupas(lista_tuplas)
+# print(lista_tupla_ordenada)
 
 '''
 la idea es cambiar de lugar entre las tuplas, para evaluar nos guardamos los valores 
