@@ -105,14 +105,14 @@ main()#Ejecucion del programa
 
 #-- int
 
-# numero = "100"
+numero = "100"
 
-# resultado = re.findall(r"^[0-9]*$", numero)
-# if(resultado):
-#     res_str = "".join(resultado)
-#     res_int = int(res_str)
-#     print(res_int)
-#     print(type(res_int))
+resultado = re.findall(r"^[0-9]*$", numero)
+if(resultado):
+    res_str = "".join(resultado)
+    res_int = int(res_str)
+    print(res_int)
+    print(type(res_int))
 
 #-------------------------- regex caracteres alfabeticos, son equivalentes :
 #--a
@@ -122,8 +122,8 @@ main()#Ejecucion del programa
 # res = resultado.group()
 # print(res)
 
-#--b
-# resultado = re.findall(r"^[A-OZ]{1}$", cadena)
-# res = "".join(resultado)
-# print(res)
+# --b
+resultado = re.findall(r"^[A-OZ]{1}$", cadena)
+res = "".join(resultado)
+print(res)
 
