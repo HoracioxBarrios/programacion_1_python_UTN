@@ -1,11 +1,17 @@
 import os
 import re
 import json
+
+
 def leer_archivo_json(nombre_path : str)-> list[dict]:
+    '''
+    Lee un archivo json y lo combierte a lista
+    recibe un nombre con la ruta donde se encuentra el json.
+    Devuelve una lista de diccionarioos.
+    '''
     with open(nombre_path, "r") as archivo:
         lista_heroe = json.load(archivo)
         return lista_heroe["heroes"]
-
 
 #normalizamos
 def stark_normalizar_datos(lista_heroes: list[dict]) -> list[dict] | str:
@@ -46,9 +52,6 @@ def normalizar_valores_str_vacios(
             if(heroe[clave] == ""):
                 heroe[clave] = valor_que_reemplaza
     return lista_heroe
-
-
-
 
 
 '''
@@ -103,8 +106,6 @@ def contar_elementos_en_lista(lista_de_heroes : list[dict])-> int:
         return cantidad_heroes
 
 
-
-
 def pedir_ingreso_de_numero(patron_re : str)-> int:
     '''
     Pide el usuario un numero.
@@ -119,9 +120,6 @@ def pedir_ingreso_de_numero(patron_re : str)-> int:
         return resultado_num_int
     else:
         print("Incorrecto, por favor ingrese un numero valido")   
-
-
-
 
 
 def listar_por_cantidad_si_primeros_o_ultimos(
@@ -166,8 +164,6 @@ def print_dicc_heroes(lista_heroes : list[dict]):
                                heroe["inteligencia"])
         print(mensaje)
         
-  
-
 #case 1          
 def pedir_numero_para_mostrar_ordenados(
     lista_heroes_origen : list[dict], clave : str, ordenamiento = "asc")-> list[dict]:
@@ -202,8 +198,6 @@ def pedir_numero_para_mostrar_ordenados(
 manera ascendente (‘asc’) o descendente (‘desc’)
 '''
 #case 2
-
-
 
 def pedir_ingreso_de_palabra(patron : str, mensaje : str) -> str:
     '''
@@ -286,8 +280,7 @@ def sumar_dato_heroe(lista_heroes : list[dict], clave_a_calcular : str):
         return acumulador_de_dato
     else:
         return -1
-    
-    
+      
 def calcular_promedio_por_clave_segun_user(lista_heroes: list[dict], clave : str)-> list[dict]:
     '''
     calcula el promedio segun clave, pide al user eleccion si mayores o menores
@@ -362,7 +355,6 @@ def buscar_y_mostrar_por_inteligencia(lista_heroes):
 anteriormente [1-4]
 '''
 
-
 def clear_console() -> None:
     """
     It waits for the user to hit enter 
@@ -390,7 +382,6 @@ def opciones_menu()-> str:
     opciones = "\n1-Listar los primeros N héroes\n2-Ordenar y Listar héroes por altura\n3-Ordenar y Listar héroes por fuerza\n4-Calcular promedio de cualquier key numérica\n5-Buscar héroes por inteligencia [good, average, high]\n6-Exportar a CSV la lista de héroes ordenada según opción elegida anteriormente [1-4]\n7-Salir\n"
     return opciones
 
-
 def menu_principal():
     '''
     imprime el menu y toma una opcion del usuario
@@ -404,8 +395,7 @@ def menu_principal():
         return respuesta
     else:
         return -1 
-    
-    
+        
 def crear_archivo_csv(nombre_path: str, lista_a_guardar: list[dict]):
     with open(nombre_path, "w+") as archivo:
         for heroe in lista_a_guardar:
@@ -422,12 +412,7 @@ def crear_archivo_csv(nombre_path: str, lista_a_guardar: list[dict]):
                                      heroe["inteligencia"])
             archivo.write(mensaje)
     print("Archivo Guardado{0}".format(nombre_path))
-
-
-
-
-
-      
+     
 def aplicacion(lista_personajes):
     '''
     opciones para el susuario
