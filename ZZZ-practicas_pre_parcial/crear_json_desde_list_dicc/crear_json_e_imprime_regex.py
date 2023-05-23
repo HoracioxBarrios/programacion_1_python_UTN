@@ -51,14 +51,20 @@ lista_personajes =\
     "inteligencia": "good"
   }]
 
-def crear_archivo_json(lista_heroes : list[dict], nombre_path : str):
+
+def crear_archivo_json(lista_heroes: list[dict], nombre_path: str):
+    '''
+    Crea un archivo json a partir de una lista de heroes.
+    Recibe (arg 1)una lista de heroes, (arg2) ruta y nombre del archivo,
+    donde se va a guardar.
+    Devuelve, no aplica.
+    '''
     nuevo_diccionario = {}
     nuevo_diccionario["heroes"] = lista_heroes
     with open(nombre_path, "w") as archivo:
         json.dump(nuevo_diccionario, archivo, indent= 4)
-        nombre = 
         nombre = re.findall(r"[a-z_A-Z]+\.json$", nombre_path)
         nombre = "".join(nombre)
         print("Se creó el archivo {0}".format(nombre))
 
-crear_archivo_json(lista_personajes, "0-algunas_practicas_pre_parcial\crear_json_desde_list_dicc\mi_primer_archivo.json")
+crear_archivo_json(lista_personajes, "ZZZ-practicas_pre_parcial\crear_json_desde_list_dicc\\nuevo_archivo.json")

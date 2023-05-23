@@ -42,6 +42,11 @@ lista_heroes_prueba =\
 
 def normalizar_valores_str_vacios(
     lista_heroe : list[dict], valor_que_reemplaza = "N/A")-> list[dict]:
+    '''
+    verifica los str vacios y los renombra segun criterio
+    Recibe:(arg 1)Una lista de heroes, (arg2)el valor str reemplazante("N/A").
+    Devuelve la lista corregida.
+    '''
     for heroe in lista_heroe:
         for clave in heroe.keys():
             if(heroe[clave] == ""):
