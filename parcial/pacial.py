@@ -27,11 +27,11 @@ def print_lista_jugadores(lista_de_jugadores: list[dict], ver_indice = False):
         if(ver_indice):
             for indice in range(len(lista_jugadores)):
                 dato_jugador = "Ubicacion {0}: {1}- {2}".format(
-                    indice, lista_de_jugadores[indice]["nombre"], lista_de_jugadores[indice]["nombre"])
+                    indice, lista_de_jugadores[indice]["nombre"], lista_de_jugadores[indice]["posicion"])
                 print(dato_jugador)
         else:
             for indice in range(len(lista_jugadores)):
-                dato_jugador = "{0} - {1}".format(
+                dato_jugador = "{0}- {1}".format(
                     lista_de_jugadores[indice]["nombre"],lista_de_jugadores[indice]["posicion"])
                 print(dato_jugador)
     else:
@@ -60,8 +60,8 @@ def pedir_numero_a_user():
     return numero_ing_int
 
 def print_datos_jugador(jugador : dict)-> str:
-    datos_jugador = "Nombre: {0}, Posicion: {1}\n, Estadisticas:{2}\n".format(
-        jugador["nombre"], jugador["posicion"], jugador["estadisticas"])
+    datos_jugador = "Nombre: {0}, Posicion: {1}\nEstadisticas::: {2}".format(
+        jugador["nombre"], jugador["posicion"],jugador["estadisticas"] )
     print(datos_jugador)
 
 '''
