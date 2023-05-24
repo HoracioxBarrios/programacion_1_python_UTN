@@ -6,25 +6,7 @@ def leer_archivo_json(nombre_path : str)-> list[dict]:
     
         return equipo["jugadores"]
     
-'''
-{
-      "nombre": "Michael Jordan",
-      "posicion": "Escolta",
-      "estadisticas": {
-        "temporadas": 15,
-        "puntos_totales": 32292,
-        "promedio_puntos_por_partido": 30.1,
-        "rebotes_totales": 6672,
-        "promedio_rebotes_por_partido": 6.2,
-        "asistencias_totales": 5633,
-        "promedio_asistencias_por_partido": 5.3,
-        "robos_totales": 2514,
-        "bloqueos_totales": 893,
-        "porcentaje_tiros_de_campo": 49.7,
-        "porcentaje_tiros_libres": 83.5,
-        "porcentaje_tiros_triples": 32.7
-      },
-'''
+
 
 lista_jugadores = leer_archivo_json("parcial\dt.json")
 
@@ -72,12 +54,35 @@ def pedir_numero_a_user():
     Recibe: no aplcia.
     Devuelve: no aplica.
     '''
-    numero_ing_str = input("Ingrese numero")
+    numero_ing_str = input("Ingrese numero: ")
     #validar
     numero_ing_int = int(numero_ing_str)
     return numero_ing_int
 
+def print_datos_jugador(jugador : dict)-> str:
+    datos_jugador = "Nombre: {0}, Posicion: {1}\n, Estadisticas:{2}\n".format(
+        jugador["nombre"], jugador["posicion"], jugador["estadisticas"])
+    print(datos_jugador)
 
+'''
+{
+      "nombre": "Michael Jordan",
+      "posicion": "Escolta",
+      "estadisticas": {
+        "temporadas": 15,
+        "puntos_totales": 32292,
+        "promedio_puntos_por_partido": 30.1,
+        "rebotes_totales": 6672,
+        "promedio_rebotes_por_partido": 6.2,
+        "asistencias_totales": 5633,
+        "promedio_asistencias_por_partido": 5.3,
+        "robos_totales": 2514,
+        "bloqueos_totales": 893,
+        "porcentaje_tiros_de_campo": 49.7,
+        "porcentaje_tiros_libres": 83.5,
+        "porcentaje_tiros_triples": 32.7
+      },
+'''
 def seleccionar_jugador_segun_indice(lista_jugadores : list[dict]):
     if(lista_jugadores):
         print_lista_jugadores(lista_jugadores, ver_indice =True)
@@ -85,10 +90,11 @@ def seleccionar_jugador_segun_indice(lista_jugadores : list[dict]):
         for indice in range(len(lista_jugadores)):
             if(indice == num_ingresado):
                 datos_del_jugador = lista_jugadores[indice]
-        print(datos_del_jugador)
+        print_datos_jugador(datos_del_jugador)
         return datos_del_jugador
     else:
         print("La lista está vacia")
 
 
 seleccionar_jugador_segun_indice(lista_jugadores)
+
