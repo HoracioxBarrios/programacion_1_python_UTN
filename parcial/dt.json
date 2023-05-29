@@ -1,7 +1,7 @@
 {
   "equipo": "Dream Team",
   "jugadores": [
-    {
+{
       "nombre": "Michael Jordan",
       "posicion": "Escolta",
       "estadisticas": {
@@ -60,7 +60,7 @@
         "puntos_totales": 21791,
         "promedio_puntos_por_partido": 24.3,
         "rebotes_totales": 8974,
-        "promedio_rebotes_por_partido": 10,
+        "promedio_rebotes_por_partido": 10.1,
         "asistencias_totales": 5695,
         "promedio_asistencias_por_partido": 6.3,
         "robos_totales": 1556,
