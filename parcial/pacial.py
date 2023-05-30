@@ -218,9 +218,9 @@ def mostrar_mensaje_se_guardo_como(path_nombre : str)-> None:
     Recibe (arg 1) el nombre_path (str).
     Devuelve: None
     '''
-    nombre_en_lista = sacar_nombre_de_cadena_con_regex(
+    nombre_en_str = sacar_nombre_de_cadena_con_regex(
         r"[a-zA-Z_]+\.[csv]{3}", path_nombre)
-    nombre_str = "".join(nombre_en_lista)
+    nombre_str = "".join(nombre_en_str)
     print("Se guardó archivo como : {0}".format(nombre_str))
 
 def si_no_del_usuario(mensaje_a_mostrar : str)-> bool:
@@ -831,11 +831,11 @@ def preparar_mensaje_para_guardar(
                         values_list.append(str(valor))
                 if(clave_refactorizada not in header_list):
                     header_list.append(clave_refactorizada)
-            flag_primer_jugador = False
+                flag_primer_jugador = False
 
             cadena_valores = ",".join(values_list)
-            cadena_valores +="{0}\n".format(cadena_valores)
-            
+            cadena_valores = cadena_valores.strip()
+    cadena_valores +="\n{0}".format(cadena_valores)
     cadena_titulos = ",".join(header_list)
     
     resultado = "{0}\n{1}".format(cadena_titulos, cadena_valores)
