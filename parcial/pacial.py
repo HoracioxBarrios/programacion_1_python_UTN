@@ -832,8 +832,10 @@ def preparar_mensaje_para_guardar(
                 if(clave_refactorizada not in header_list):
                     header_list.append(clave_refactorizada)
             flag_primer_jugador = False
+            cadena_valores = ",".join(values_list)
+            cadena_valores +="{0}\n".format(cadena_valores)
     cadena_titulos = ",".join(header_list)
-    cadena_valores = ",".join(values_list)
+    
     resultado = "{0}\n{1}".format(cadena_titulos, cadena_valores)
     path = "parcial\detalles\detalles_ranking_de_estadisticas.csv"
     desea_guardar_como_archivo_csv(path, resultado)
