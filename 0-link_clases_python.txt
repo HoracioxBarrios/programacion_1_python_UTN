@@ -22,4 +22,6 @@ video clase 10 https://youtu.be/4Bh-ghAjptE algoritmos ordenaiento
 
 video clase 11 https://youtu.be/DFdG_JfdQgk burbujeo  quick sort 
 
+video clase 12 https://www.youtube.com/watch?v=PhbIJPnP1EQ Pygame 
+ 
  
