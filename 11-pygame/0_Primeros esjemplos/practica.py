@@ -2,16 +2,22 @@ import pygame
 from pygame.locals import *
 pygame.init() #Se inicializa pygame
 
-screen = pygame.display.set_mode([800, 800]) #Se crea una ventana
+screen = pygame.display.set_mode([800, 500]) #Se crea una ventana
 titulo = pygame.display.set_caption("Mi juego")
 tick_s1 = pygame.USEREVENT + 0
 tick_s2 = pygame.USEREVENT + 1
 pygame.time.set_timer(tick_s1, 1000)
 pygame.time.set_timer(tick_s2, 2000)
 
-imagen = pygame.image.load("11-pygame\pokemon.png")
+pikachu = pygame.image.load("11-pygame/0_Primeros esjemplos\pokemon.png")
+rectangulo_pikachu = pikachu.get_rect()
+rectangulo_pikachu.centerx = 200
+rectangulo_pikachu.centery = 400
+
+
+
 font = pygame.font.SysFont("Arial Narrow", 50)
-text = font.render("HOLA MUNDO", True, (255, 0, 0))
+text = font.render("Pokemones", True, (255, 0, 0))
 running = True
 while running:
    # Se verifica si el usuario cerro la ventana
@@ -38,9 +44,13 @@ while running:
             if variable_tecla[K_s]:
                 print("presiono la tecla s")
        
-       screen.blit(text,(400,400))
-       screen.blit(imagen, (220, 600))
+       
+       screen.blit(pikachu, rectangulo_pikachu)
+       
+       screen.blit(text,(280,50))
        pygame.display.flip()
+    
+       
 #    print(type(imagen)) # <class 'pygame.Surface'>
         
 
