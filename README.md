@@ -1,6 +1,6 @@
 El contenido de este Repositorio corresponde
 al Curso de Python de la Universidad Tecnológica
-Nacional para las Materias Programaion, y Laboratorio de Programacion . (Ejercicios en los pdfs, link a los 
+Nacional para las Materias Programaion I, y Laboratorio de Programacion I. (Ejercicios en los pdfs, link a los 
 los videos de la cursada,ejercicios resueltos,etc)
 
 
