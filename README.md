@@ -1,11 +1,11 @@
 El contenido de este Repositorio corresponde
 al Curso de Python de la Universidad Tecnológica
-Nacional. (Ejercicios en los pdfs, link a los 
+Nacional para las Materias Programaion, y Laboratorio de Programacion . (Ejercicios en los pdfs, link a los 
 los videos de la cursada,ejercicios resueltos,etc)
 
 
 
-Entre muchas cosas que se ven en la materia, estos son los dos enfoques que se roman:
+Entre muchas cosas que se ven en la cursada, estos son los dos enfoques que se Toman:
 
 -Paradigma Estructurado (En este paradigma, el código se organiza principalmente en funciones y estructuras de control de flujo como bucles y condicionales.).
 
